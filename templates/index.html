@@ -6,14 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ozanimais</title>
 
-    <link rel="stylesheet" href="/static/styles/main.css">
-    <link rel="shortcut icon" href="static/imagens/favicon.ico" type="image/x-icon">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/static/imagens/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/static/imagens/favicon.ico" type="image/x-icon">
+
+    <!-- Remixicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin=""/>
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <link rel="stylesheet" href="/static/styles/main.css">
 </head>
 
 <body>
-
-
     <header>
 
         <div class="logo_fundo">
@@ -25,10 +31,10 @@
                 <div class="menu-hamburguer">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
-
+                
                 <div class="logo"></div>
                 
-                <div class="doe-agora"></div>
+                <div class="doe-agora"><span>Doe agora</span></div>
             </div> 
             
             <div class="nav-desktop">
@@ -38,28 +44,35 @@
                     <li><a href="/nossos_animais">Nossos animais</a></li>
                     <li><a href="/como_ajudar">Como ajudar</a></li>
                 </ul>
-            </div>
-               
+            </div> 
         </nav>
-
-
     </header>
 
-
-
     <main>
-        <div class="slide">
-        </div>
+        <!-- Slider main container -->
+        <div class="swiper">
+
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="/static/imagens/img1.jpg" alt="Slide 1"></div>
+                <div class="swiper-slide"><img src="/static/imagens/img2.jpg" alt="Slide 2"></div>
+                <div class="swiper-slide"><img src="/static/imagens/img3.jpg" alt="Slide 3"></div>
+            </div>
+        
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <div class="swiper-pagination"></div>
+        </div>    
     </main>
 
-
-
-
+    <!-- Ioicons -->
     <script  type="module"  src ="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" ></script> 
-
     <script  nomodule  src ="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-    
+    <!-- Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="/static/scripts/main.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,23 @@
+@mixin flex-properties($display: flex, $direction: null, $justify: center, $align: center, $gap: null) {
+    display: $display;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+
+    @if $gap !=null {
+        gap: $gap;
+    }
+}
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0px;
+    padding: 0px;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+main {
+    background-color: #F3F4F6;
+    min-height: 100vh;
+}
