@@ -32,8 +32,5 @@ def como_ajudar():
 
 
 
-
-
 if __name__ == '__main__':
     app.run(debug=True)
-

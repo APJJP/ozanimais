@@ -9,14 +9,37 @@
     }
 }
 
+:root {
+    --swiper-theme-color: white;
+    /* --swiper-theme-color: var(--laranja); */
+    /* --swiper-navigation-size: 24px; */
+
+    --ciano: rgb(0,204,230);
+    --ciano-interaction: rgb(0, 192, 218);
+    --azul-claro: rgb(222, 245, 248);
+    --ciano-escuro: rgb(0, 150, 170);
+    --teste2: #CBEFF2;
+    --teste3: #70BBC4;
+    --teste4: rgb(13, 69, 80);
+    --teste5: rgb(25, 126, 146);
+    --teste6:  rgb(24, 93, 107);
+    --teste7: #02a1b3;
+    --teste8: #9bdce4;
+    --laranja: rgb(253,102,81);
+    --laranja-interaction: #ff472f;
+    --cinza-claro: #CBCBCB;
+    --cinza: #7A777E;
+    --cinza-escuro: #1E1E1E;
+}
+
 * {
     font-family: "Poppins", sans-serif;
+    color: var(--cinza-escuro);
     margin: 0px;
     padding: 0px;
     vertical-align: baseline;
     box-sizing: border-box;
 }
-
 main {
     background-color: #F3F4F6;
     min-height: 100vh;

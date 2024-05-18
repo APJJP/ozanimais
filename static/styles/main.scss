@@ -9,8 +9,16 @@
 }
 
 .swiper-pagination-bullet {
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border: 2px solid white;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background: white;
+    border: 2px solid white;
 }
 
 @media screen and (max-width: 1024px) {
@@ -24,7 +32,7 @@
         .menu-hamburguer ion-icon {
             width: 2em;
             height: 2em;
-            color: rgb(0,204,230);
+            color: var(--ciano);
         }
 
         .logo {
@@ -39,8 +47,8 @@
             @include flex-properties();
             width: 6em;
             height: 2em;
-            background-color: rgb(253,102,81);
-            /* background-color: rgb(0,204,230); */
+            background-color: var(--laranja);
+            /* background-color: var(--ciano); */
             border-radius: 0.6em;
             color: white;
 
@@ -70,44 +78,77 @@
     }
 }
 
+
+
+
 @media screen and (min-width: 1025px) {
     .nav-mobile {
         display: none;
     }
 
     header {
-        @include flex-properties($direction: column);
-        background-color: rgb(0,204,230);
-        height: 28vh;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        @include flex-properties($justify: space-around);
+        background-color: transparent;
+
+        /* &.scrolled {
+            background-color: var(--ciano);
+        } */
     
         .logo_fundo {
             @include flex-properties();
-            height: 8em;
-            width: 100%;
-            background-color: white;
+            height: 3em;
+            width: 10em;
+            background-color: transparent;
     
             .logo {
-                background-image: url('/static/imagens/logo.png');
-                background-size: cover;
-                width: 13em;
-                height: 8em;
-    
+                background-image: url('/static/imagens/logo_alternativa.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                width: 100%;
+                height: 2em;
             }
         }
     
         nav {
             @include flex-properties();
-            width: 100%;
-            height: 3em;
+            height: 2.5em;
         }
         .nav-desktop {
             @include flex-properties($gap: 100em);
             padding: 0px 10px;
             font-family: 'Poppins', sans-serif;
             font-size: 0.95em;
+            width: 100%;
+            height: 100%;
+
+            .como-ajudar {
+                @include flex-properties();
+                background-color: var(--ciano);
+                border: none;
+                outline: none;
+                border-radius: 1.8em;
+                /* padding: 0.8em; */
+                width: 12em;
+                height: 3em;
+    
+                &:hover, &:active {
+                    background-color: var(--ciano-interaction);
+                    cursor: pointer;
+                }
+    
+                a {
+                    color: white;
+                    font-size: 1.3em;
+                    padding: 0;
+                }
+            }
     
             ul {
-                display: flex;
+                @include flex-properties();
                 list-style: none;
                 font-size: 1.3em;
                 gap: 3em;
@@ -116,30 +157,320 @@
             a {
                 text-decoration: none;
                 color: white;
+                position: relative;
+                padding: 5px 0;
     
-                &:hover {
+                /* &:hover {
                     color: #FE6651;
+                } */
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 0;
+                    height: 2px;
+                    background-color: white;
+                    transition: width 0.3s ease-in-out;
+                }
+
+                &:hover::after {
+                    width: 100%;
+                }
+            }
+
+            #btnComoAjudar {
+                &:hover {
+                    color: white;
+                }
+                &:hover::after {
+                    width: 0; /* Define a largura como 0 para que nenhuma linha seja exibida */
                 }
             }
         }
     }
 
-    main {
-        @include flex-properties($direction: column, $justify: null);
-        padding-top: 0em;
+    header.scrolled {
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 12px;
+
+        .logo_fundo {
+            .logo {
+                background-image: url('/static/imagens/logo3.png');
+            }
+        }
+
+        .nav-desktop {
+            a {
+                color: var(--cinza-escuro);
+            }
+            .como-ajudar {
+                a {
+                    color: white;
+                }
+            }
+        }
+
+        /* .como-ajudar {
+            background-color: var(--laranja);
+        } */
     }
 
     .swiper {
         width: 100%;
-        height: 400px;
+        height: 600px;
     }
 
     .swiper-button-prev, .swiper-button-next {
         display: block;
     }
-}
 
-:root {
-    --swiper-theme-color: rgb(253,102,81);
-    /* --swiper-navigation-size: 24px; */
+    main {
+        @include flex-properties($direction: column, $justify: null);
+        padding-top: 0em;
+
+        #apresentacao {
+            @include flex-properties($gap: 2em);
+            padding: 4em 0;
+
+            .logo_fundo {
+                @include flex-properties();
+                height: 20em;
+                width: 30em;
+        
+                .logo {
+                    background-image: url('/static/imagens/logo.png');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            #sobre-nos {
+                @include flex-properties($direction: column,  $align: flex-end, $gap: 2em);
+
+                #texto-sobre-nos {
+                    @include flex-properties($direction: column, $align: flex-end);
+    
+                    h1, p {
+                        display: inline-block;
+                    }
+    
+                    p {
+                        width: 40em;
+                        text-align: justify;
+                    }
+                }
+            }
+
+        }
+
+        .saiba-mais {
+            background-color: var(--laranja);
+            border: none;
+            outline: none;
+            border-radius: 1.8em;
+            padding: 0.8em;
+            width: 8em;
+            height: 3.2em;
+
+            &:hover, &:active {
+                background-color: var(--laranja-interaction);
+                cursor: pointer;
+            }
+
+            span {
+                color: white;
+            }
+        }
+
+        #h1-newsletter {
+            grid-area: h1;
+        }
+        form {
+            grid-area: form;
+        }
+
+        #newsletter {
+            /* background-color: rgb(0, 153, 173); */
+            background-color: #007CAC;
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-template-rows: auto;
+            grid-template-areas:
+            "h1 form";
+    
+            padding: 3em 1em;
+            width: 100%;
+            height: 400px;
+    
+            h1 {
+                margin: auto;
+                color: white;
+                display: inline-block;
+                width: 15em;
+            }
+    
+            form {
+                @include flex-properties($direction: column, $gap: 1em);
+    
+                #input-wrapper {
+                    @include flex-properties();
+                    border-radius: 0.5em;
+                    position: relative;
+                }
+    
+                input {
+                    border: none;
+                    outline: none;
+                    padding: 1em;
+                    border-radius: 0.5em;
+                    width: 40em;
+                    height: 3.8em;
+
+                    &::placeholder {
+                        font-size: 1.2em;
+                    }
+                }
+    
+                #email {
+                    border-top-left-radius: 0.5em;
+                    border-bottom-left-radius: 0.5em;
+                    border-top-right-radius: 1.9em;
+                    border-bottom-right-radius: 1.9em;
+                }
+    
+                .assinar {
+                    @include flex-properties();
+                    background-color: var(--laranja);
+                    border: none;
+                    outline: none;
+                    border-radius: 1.8em;
+                    padding: 0.8em;
+                    width: 8em;
+                    height: 3.2em;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+    
+                    &:hover {
+                        background-color: var(--laranja-interaction);
+                        cursor: pointer;
+                    }
+    
+                    span {
+                        color: white;
+                    }
+                }
+    
+                #nome-completo:focus, #email:focus {
+                    outline: 3px solid var(--ciano);
+    
+                }
+                // TO DO
+                /* #input-wrapper:focus-within */
+            }
+        }
+
+        #historias-marcantes {
+            @include flex-properties();
+            width: 100%;
+
+            .swiper2 {
+                width: 50%;
+
+                .swiper-pagination{
+                    top: 10px;
+                    bottom: auto;
+                    text-align: right;
+                }
+            }
+
+            #historia-animal {
+                flex: 1;
+                @include flex-properties($direction: column, $gap: 2em);
+                padding: 0 2em;
+
+                #resumo {
+                    @include flex-properties($direction: column, $gap: 1em);
+
+                    p {
+                        text-align: justify;
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        @include flex-properties($direction: column, $gap: 2em);
+        /* background-color: var(--cinza-escuro); */
+        background-color: var(--teste7);
+        color: white;
+        height: 300px;
+
+        h2, a, p, ion-icon {
+            color: white;
+        }
+
+        #footer-container {
+            @include flex-properties($gap: 4em);
+        }
+
+        #footer-ancoras {
+            @include flex-properties($gap: 2em, $align: flex-start);
+
+            ul {
+                @include flex-properties($direction: column, $align: flex-start, $gap: 0.5em);
+                list-style: none;
+
+                a {
+                    text-decoration: none;
+                }
+            }
+
+            .contato {
+                @include flex-properties($direction: column, $align: flex-start, $gap: 0.5em);
+
+                p {
+                    @include flex-properties($gap: 0.5em);
+                    ion-icon {
+                        font-size: 1.5em;
+                    }
+                } 
+            }
+
+            .redes-sociais {
+                ul {
+                    @include flex-properties($direction: row, $gap: 1em);
+
+                    li {
+                        a {
+                            ion-icon {
+                                font-size: 1.5em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        .logo_fundo {
+            @include flex-properties();
+            height: 4em;
+            width: 18em;
+            background-color: transparent;
+    
+            .logo {
+                background-image: url('/static/imagens/logo_alternativa2.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
 }
