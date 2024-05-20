@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Nossos animais - Ozanimais</title>
+        <title>Área Restrita - Ozanimais</title>
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="/static/imagens/favicon.ico" type="image/x-icon">
@@ -13,11 +13,11 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
         <!-- CSS -->
-        <link rel="stylesheet" href="/static/styles/nossos_animais.css">
+        <link rel="stylesheet" href="/static/styles/area_restrita.css">
     </head>
 
     <body>
-        <header>
+        <header class="scrolled">
             <a id="ancora-logo-topo" href="/">
                 <div class="logo_fundo">
                     <div class="logo">
@@ -40,14 +40,38 @@
                     <ul>
                         <li><a href="/">Início</a></li>
                         <li><a href="/quem_somos">Quem somos</a></li>
-                        <li><a href="#">Nossos animais</a></li>
+                        <li><a href="/nossos_animais">Nossos animais</a></li>
                         <li><button class="como-ajudar"><a id="btnComoAjudar" href="/como_ajudar">Como ajudar?</a></button></li>
                     </ul>
                 </div> 
             </nav>
         </header>
 
-        <main></main>
+        <main>
+            <div id="login">
+                <div id="topo">
+                    <h1>Bem vindo de volta.</h1>
+                    <p>Entre em sua conta</p>
+                </div>
+
+                <form>
+                    <div id="inputs">                              
+                        <div class="input">
+                            <input type="text" name="nome_usuario" id="nome_usuario" maxlength=50 placeholder = "Nome de usuário" required>
+                            <ion-icon name="person-outline"></ion-icon>
+                        </div>
+                        
+                        <div class="input">
+                            <input type="password" name="senha" id="senha" placeholder="Senha" required>
+                            <ion-icon name="key-outline"></ion-icon>
+                        </div>
+                                                               
+                    </div>   
+
+                    <button id="entrar"><a href="#">Entrar</a></button>         
+                </form>
+            </div>
+        </main>
 
         <!-- Ioicons -->
         <script  type="module"  src ="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" ></script> 
@@ -56,7 +80,7 @@
         <!-- Swiper -->
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-        <!-- <script src="/static/scripts/nossos_animais.js"></script> -->
+        <!-- <script src="/static/scripts/area_restrita.js"></script> -->
     </body>
 
 </html>

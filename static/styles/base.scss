@@ -13,7 +13,6 @@
     --swiper-theme-color: white;
     /* --swiper-theme-color: var(--laranja); */
     /* --swiper-navigation-size: 24px; */
-
     --ciano: rgb(0,204,230);
     --ciano-interaction: rgb(0, 192, 218);
     --azul-claro: rgb(222, 245, 248);
@@ -30,6 +29,7 @@
     --cinza-claro: #CBCBCB;
     --cinza: #7A777E;
     --cinza-escuro: #1E1E1E;
+    --placeholder: rgb(141, 138, 138);
 }
 
 * {
@@ -40,7 +40,318 @@
     vertical-align: baseline;
     box-sizing: border-box;
 }
+
+
+
+/* Swiper */
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-pagination-bullet {
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    opacity: 1;
+    background: transparent;
+}
+
+.swiper-pagination-bullet-active {
+    border: 2px solid white;
+    background: white;
+}
+
+
+
+
+/* Header e footer */
+
+header {
+    @include flex-properties($justify: space-around);
+    width: 100%;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 12px;
+
+    #ancora-logo-topo {
+        display: none;
+    }
+
+    nav {
+        @include flex-properties();
+        width: auto;
+        height: 2.5em;
+        
+        .nav-mobile {
+            @include flex-properties($justify: space-between, $gap: 2em);
+            width: 100%;
+            height: 100%;
+            padding: 0.5em;
+            /* font-size: 0.95em; */
+    
+            .menu-hamburguer ion-icon {
+                width: 2em;
+                height: 2em;
+                color: var(--ciano);
+            }
+    
+            .logo {
+                width: 8em;
+                height: 1.3em;
+                background-image: url('/static/imagens/logo3.png');
+                background-size: contain;
+                background-repeat: no-repeat; 
+            }
+    
+            .doe-agora {
+                @include flex-properties();
+                width: 6em;
+                height: 2em;
+                border-radius: 0.6em;
+                background-color: var(--laranja);
+                /* background-color: var(--ciano); */
+                
+                span {
+                    font-size: 0.9em;
+                    color: white;
+                }
+            }
+        }
+    
+        .nav-desktop {
+            display: none;
+        }
+    }
+}
+
 main {
     background-color: #F3F4F6;
-    min-height: 100vh;
+    /* min-height: 100vh; */
+    padding-top: 5.5em;
+}
+
+footer {
+    @include flex-properties($direction: column, $gap: 2em);  
+    width: 100%;
+    height: auto;
+    padding: 2em 0;
+    /* background-color: var(--cinza-escuro); */
+    background-color: var(--teste7);
+    color: white;
+
+    h2, a, p, ion-icon {
+        color: white;
+    }
+
+    #footer-container {
+        @include flex-properties($direction: column, $gap: 4em);
+
+        #footer-ancoras {
+            @include flex-properties($direction: column, $align: flex-start, $gap: 2em);
+
+            ul {
+                @include flex-properties($direction: column, $align: flex-start, $gap: 0.5em);
+                list-style: none;
+    
+                a {
+                    text-decoration: none;
+                }
+            }
+
+            .contato, .redes-sociais {
+                @include flex-properties($direction: column, $align: flex-start, $gap: 0.5em);
+    
+                li {
+                    a{
+                        @include flex-properties($gap: 0.5em);
+    
+                        ion-icon {
+                            font-size: 1.5em;
+                        }
+                    } 
+                }
+            } 
+        }
+
+        .logo_fundo {
+            @include flex-properties();
+            width: 16em;
+            height: 4em;
+            background-color: transparent;
+    
+            .logo {
+                width: 100%;
+                height: 100%;
+                background-image: url('/static/imagens/logo_alternativa2.png');
+                background-size: contain;
+                background-repeat: no-repeat;                
+            }
+        }
+    }
+
+    #footer-bottom {
+        text-align: center;
+    }
+}
+
+/* desktops */
+@media screen and (min-width: 1025px) {
+    header {
+        @include flex-properties($justify: space-around);
+        width: 100%;
+        background-color: transparent;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        box-shadow: none;
+
+        /* &.scrolled {
+            background-color: var(--ciano);
+        } */
+
+        #ancora-logo-topo {
+            display: block;
+
+            .logo_fundo {
+                @include flex-properties();
+                width: 10em;
+                height: 3em;
+                background-color: transparent;
+        
+                .logo {
+                    width: 100%;
+                    height: 2em;
+                    background-image: url('/static/imagens/logo_alternativa.png');
+                    background-size: contain;
+                    background-repeat: no-repeat; 
+                }
+            }
+        }
+    
+        nav {
+            width: auto;
+            @include flex-properties();
+            height: 2.5em;
+
+            .nav-mobile {
+                display: none;
+            }
+
+            .nav-desktop {
+                @include flex-properties($gap: 100em);
+                width: 100%;
+                height: 100%;
+                padding: 0px 10px;
+                font-family: 'Poppins', sans-serif;
+                font-size: 0.95em;
+    
+                .como-ajudar {
+                    @include flex-properties();
+                    width: 12em;
+                    height: 3em;
+                    outline: none;
+                    border: none;
+                    border-radius: 1.8em;
+                    /* padding: 0.8em; */
+                    background-color: var(--ciano);
+        
+                    &:hover, &:active {
+                        background-color: var(--ciano-interaction);
+                        cursor: pointer;
+                    }
+        
+                    a {
+                        padding: 0;
+                        color: white;
+                        font-size: 1.3em;                   
+                    }
+                }
+        
+                ul {
+                    @include flex-properties($gap: 3em);
+                    list-style: none;
+                    font-size: 1.3em;
+                }
+        
+                a {
+                    padding: 5px 0;
+                    text-decoration: none;
+                    color: white;
+                    position: relative;
+    
+                    /* &:hover {
+                        color: #FE6651;
+                    } */
+    
+                    &::after {
+                        width: 0;
+                        height: 2px;
+                        background-color: white;
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        transition: width 0.3s ease-in-out;
+                    }
+    
+                    &:hover::after {
+                        width: 100%;
+                    }
+                }
+    
+                #btnComoAjudar {
+                    &:hover {
+                        color: white;
+                    }
+                    &:hover::after {
+                        width: 0; /* Define a largura como 0 para que nenhuma linha seja exibida */
+                    }
+                }
+            }
+        }
+    }
+
+    header.scrolled {
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 12px;
+
+        #ancora-logo-topo {
+            .logo_fundo {
+                .logo {
+                    background-image: url('/static/imagens/logo3.png');
+                }
+            }
+        }
+
+        .nav-desktop {
+            a {
+                color: var(--cinza-escuro);
+            }
+            .como-ajudar {
+                a {
+                    color: white;
+                }
+            }
+        }
+
+        /* .como-ajudar {
+            background-color: var(--laranja);
+        } */
+    }
+    
+    footer {
+        @include flex-properties($direction: column, $gap: 2em);
+    
+        #footer-container {
+            @include flex-properties($direction: column, $gap: 3em);
+
+            #footer-ancoras {
+                @include flex-properties($direction: row, $gap: 5em, $align: flex-start);
+            }
+        }      
+    }
 }

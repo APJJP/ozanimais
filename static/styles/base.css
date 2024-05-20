@@ -18,6 +18,7 @@
   --cinza-claro: #CBCBCB;
   --cinza: #7A777E;
   --cinza-escuro: #1E1E1E;
+  --placeholder: rgb(141, 138, 138);
 }
 
 * {
@@ -29,7 +30,318 @@
   box-sizing: border-box;
 }
 
+/* Swiper */
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.swiper-pagination-bullet {
+  width: 20px;
+  height: 20px;
+  border: 2px solid white;
+  opacity: 1;
+  background: transparent;
+}
+
+.swiper-pagination-bullet-active {
+  border: 2px solid white;
+  background: white;
+}
+
+/* Header e footer */
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 12px;
+}
+header #ancora-logo-topo {
+  display: none;
+}
+header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 2.5em;
+}
+header nav .nav-mobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2em;
+  width: 100%;
+  height: 100%;
+  padding: 0.5em;
+  /* font-size: 0.95em; */
+}
+header nav .nav-mobile .menu-hamburguer ion-icon {
+  width: 2em;
+  height: 2em;
+  color: var(--ciano);
+}
+header nav .nav-mobile .logo {
+  width: 8em;
+  height: 1.3em;
+  background-image: url("/static/imagens/logo3.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+header nav .nav-mobile .doe-agora {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6em;
+  height: 2em;
+  border-radius: 0.6em;
+  background-color: var(--laranja);
+  /* background-color: var(--ciano); */
+}
+header nav .nav-mobile .doe-agora span {
+  font-size: 0.9em;
+  color: white;
+}
+header nav .nav-desktop {
+  display: none;
+}
+
 main {
   background-color: #F3F4F6;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  padding-top: 5.5em;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  width: 100%;
+  height: auto;
+  padding: 2em 0;
+  /* background-color: var(--cinza-escuro); */
+  background-color: var(--teste7);
+  color: white;
+}
+footer h2, footer a, footer p, footer ion-icon {
+  color: white;
+}
+footer #footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4em;
+}
+footer #footer-container #footer-ancoras {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2em;
+}
+footer #footer-container #footer-ancoras ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5em;
+  list-style: none;
+}
+footer #footer-container #footer-ancoras ul a {
+  text-decoration: none;
+}
+footer #footer-container #footer-ancoras .contato, footer #footer-container #footer-ancoras .redes-sociais {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5em;
+}
+footer #footer-container #footer-ancoras .contato li a, footer #footer-container #footer-ancoras .redes-sociais li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+footer #footer-container #footer-ancoras .contato li a ion-icon, footer #footer-container #footer-ancoras .redes-sociais li a ion-icon {
+  font-size: 1.5em;
+}
+footer #footer-container .logo_fundo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16em;
+  height: 4em;
+  background-color: transparent;
+}
+footer #footer-container .logo_fundo .logo {
+  width: 100%;
+  height: 100%;
+  background-image: url("/static/imagens/logo_alternativa2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+footer #footer-bottom {
+  text-align: center;
+}
+
+/* desktops */
+@media screen and (min-width: 1025px) {
+  header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: none;
+    /* &.scrolled {
+        background-color: var(--ciano);
+    } */
+  }
+  header #ancora-logo-topo {
+    display: block;
+  }
+  header #ancora-logo-topo .logo_fundo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10em;
+    height: 3em;
+    background-color: transparent;
+  }
+  header #ancora-logo-topo .logo_fundo .logo {
+    width: 100%;
+    height: 2em;
+    background-image: url("/static/imagens/logo_alternativa.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  header nav {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5em;
+  }
+  header nav .nav-mobile {
+    display: none;
+  }
+  header nav .nav-desktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100em;
+    width: 100%;
+    height: 100%;
+    padding: 0px 10px;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.95em;
+  }
+  header nav .nav-desktop .como-ajudar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12em;
+    height: 3em;
+    outline: none;
+    border: none;
+    border-radius: 1.8em;
+    /* padding: 0.8em; */
+    background-color: var(--ciano);
+  }
+  header nav .nav-desktop .como-ajudar:hover, header nav .nav-desktop .como-ajudar:active {
+    background-color: var(--ciano-interaction);
+    cursor: pointer;
+  }
+  header nav .nav-desktop .como-ajudar a {
+    padding: 0;
+    color: white;
+    font-size: 1.3em;
+  }
+  header nav .nav-desktop ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+    list-style: none;
+    font-size: 1.3em;
+  }
+  header nav .nav-desktop a {
+    padding: 5px 0;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    /* &:hover {
+        color: #FE6651;
+    } */
+  }
+  header nav .nav-desktop a::after {
+    width: 0;
+    height: 2px;
+    background-color: white;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease-in-out;
+  }
+  header nav .nav-desktop a:hover::after {
+    width: 100%;
+  }
+  header nav .nav-desktop #btnComoAjudar:hover {
+    color: white;
+  }
+  header nav .nav-desktop #btnComoAjudar:hover::after {
+    width: 0; /* Define a largura como 0 para que nenhuma linha seja exibida */
+  }
+  header.scrolled {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 12px;
+    /* .como-ajudar {
+        background-color: var(--laranja);
+    } */
+  }
+  header.scrolled #ancora-logo-topo .logo_fundo .logo {
+    background-image: url("/static/imagens/logo3.png");
+  }
+  header.scrolled .nav-desktop a {
+    color: var(--cinza-escuro);
+  }
+  header.scrolled .nav-desktop .como-ajudar a {
+    color: white;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+  }
+  footer #footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+  }
+  footer #footer-container #footer-ancoras {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5em;
+  }
 }/*# sourceMappingURL=base.css.map */

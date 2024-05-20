@@ -30,6 +30,19 @@ def como_ajudar():
     return render_template('como_ajudar.html')
 
 
+@app.route('/area_restrita')
+def area_restrita():
+    return render_template('area_restrita.html')
+
+
+@app.route('/doar_agora')
+def doar_agora():
+    return render_template('doar_agora.html')
+
+
+@app.route('/apadrinhar_ong')
+def apadrinhar_ong():
+    return render_template('apadrinhar_ong.html')
 
 
 if __name__ == '__main__':

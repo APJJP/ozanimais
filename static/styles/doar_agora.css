@@ -31,6 +31,11 @@
   box-sizing: border-box;
 }
 
+main {
+  background-color: #F3F4F6;
+  min-height: 100vh;
+}
+
 /* Swiper */
 .swiper-slide img {
   width: 100%;
@@ -54,9 +59,6 @@
 
 /* Header e footer */
 header {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   width: 100%;
   background-color: white;
   position: fixed;
@@ -64,21 +66,17 @@ header {
   z-index: 1000;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 12px;
 }
-header #ancora-logo-topo {
-  display: none;
-}
 header nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: auto;
+  width: 100%;
   height: 2.5em;
 }
 header nav .nav-mobile {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2em;
   width: 100%;
   height: 100%;
   padding: 0.5em;
@@ -115,8 +113,6 @@ header nav .nav-desktop {
 }
 
 main {
-  background-color: #F3F4F6;
-  /* min-height: 100vh; */
   padding-top: 5.5em;
 }
 
@@ -212,10 +208,7 @@ footer #footer-bottom {
         background-color: var(--ciano);
     } */
   }
-  header #ancora-logo-topo {
-    display: block;
-  }
-  header #ancora-logo-topo .logo_fundo {
+  header .logo_fundo {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -223,7 +216,7 @@ footer #footer-bottom {
     height: 3em;
     background-color: transparent;
   }
-  header #ancora-logo-topo .logo_fundo .logo {
+  header .logo_fundo .logo {
     width: 100%;
     height: 2em;
     background-image: url("/static/imagens/logo_alternativa.png");
@@ -315,7 +308,7 @@ footer #footer-bottom {
         background-color: var(--laranja);
     } */
   }
-  header.scrolled #ancora-logo-topo .logo_fundo .logo {
+  header.scrolled .logo_fundo .logo {
     background-image: url("/static/imagens/logo3.png");
   }
   header.scrolled .nav-desktop a {
@@ -345,250 +338,4 @@ footer #footer-bottom {
     align-items: flex-start;
     gap: 5em;
   }
-}
-@media screen and (max-width: 1024px) {
-  .swiper {
-    margin: auto;
-    width: 100%;
-    height: 20em;
-  }
-  .swiper-button-prev, .swiper-button-next {
-    display: none;
-  }
-  main {
-    display: flex;
-    flex-direction: column;
-    padding-top: 0;
-  }
-  main #apresentacao {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-    padding: 4em 0;
-  }
-  main #apresentacao .logo_fundo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 20em;
-    height: 15em;
-  }
-  main #apresentacao .logo_fundo .logo {
-    width: 100%;
-    height: 100%;
-    background-image: url("/static/imagens/logo.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  main #apresentacao #sobre-nos {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2em;
-  }
-  main #apresentacao #sobre-nos #texto-sobre-nos {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    width: 80%;
-  }
-  main #apresentacao #sobre-nos #texto-sobre-nos h1, main #apresentacao #sobre-nos #texto-sobre-nos p {
-    display: inline-block;
-  }
-  main #apresentacao #sobre-nos #texto-sobre-nos p {
-    width: 100%;
-    text-align: justify;
-  }
-}
-@media screen and (min-width: 1025px) {
-  .swiper {
-    width: 100%;
-    height: 600px;
-  }
-  .swiper-button-prev, .swiper-button-next {
-    display: block;
-  }
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 0em;
-  }
-  main #apresentacao {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2em;
-    padding: 4em 0;
-  }
-  main #apresentacao .logo_fundo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30em;
-    height: 20em;
-  }
-  main #apresentacao .logo_fundo .logo {
-    width: 100%;
-    height: 100%;
-    background-image: url("/static/imagens/logo.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  main #apresentacao #sobre-nos {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 2em;
-  }
-  main #apresentacao #sobre-nos #texto-sobre-nos {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-  }
-  main #apresentacao #sobre-nos #texto-sobre-nos h1, main #apresentacao #sobre-nos #texto-sobre-nos p {
-    display: inline-block;
-  }
-  main #apresentacao #sobre-nos #texto-sobre-nos p {
-    width: 40em;
-    text-align: justify;
-  }
-  main .saiba-mais {
-    width: 8em;
-    height: 3.2em;
-    background-color: var(--laranja);
-    outline: none;
-    border: none;
-    border-radius: 1.8em;
-    padding: 0.8em;
-  }
-  main .saiba-mais:hover, main .saiba-mais:active {
-    background-color: var(--laranja-interaction);
-    cursor: pointer;
-  }
-  main .saiba-mais span {
-    color: white;
-  }
-  main #h1-newsletter {
-    grid-area: h1;
-  }
-  main form {
-    grid-area: form;
-  }
-  main #newsletter {
-    /* background-color: rgb(0, 153, 173); */
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto;
-    grid-template-areas: "h1 form";
-    width: 100%;
-    height: 400px;
-    padding: 3em 1em;
-    background-color: #007CAC;
-  }
-  main #newsletter h1 {
-    display: inline-block;
-    width: 15em;
-    margin: auto;
-    color: white;
-  }
-  main #newsletter form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-    /* #input-wrapper:focus-within */
-  }
-  main #newsletter form #input-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0.5em;
-    position: relative;
-  }
-  main #newsletter form input {
-    width: 40em;
-    height: 3.8em;
-    outline: none;
-    border: none;
-    border-radius: 0.5em;
-    padding: 1em;
-  }
-  main #newsletter form input::-moz-placeholder {
-    font-size: 1.2em;
-  }
-  main #newsletter form input::placeholder {
-    font-size: 1.2em;
-  }
-  main #newsletter form #email {
-    border-top-left-radius: 0.5em;
-    border-bottom-left-radius: 0.5em;
-    border-top-right-radius: 1.9em;
-    border-bottom-right-radius: 1.9em;
-  }
-  main #newsletter form .assinar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 8em;
-    height: 3.2em;
-    outline: none;
-    border: none;
-    border-radius: 1.8em;
-    padding: 0.8em;
-    background-color: var(--laranja);
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-  main #newsletter form .assinar:hover {
-    background-color: var(--laranja-interaction);
-    cursor: pointer;
-  }
-  main #newsletter form .assinar span {
-    color: white;
-  }
-  main #newsletter form #nome-completo:focus, main #newsletter form #email:focus {
-    outline: 3px solid var(--ciano);
-  }
-  main #historias-marcantes {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-  main #historias-marcantes .swiper2 {
-    width: 50%;
-  }
-  main #historias-marcantes .swiper2 .swiper-pagination {
-    text-align: right;
-    top: 10px;
-    bottom: auto;
-  }
-  main #historias-marcantes #historia-animal {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2em;
-    padding: 0 2em;
-  }
-  main #historias-marcantes #historia-animal #resumo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-  }
-  main #historias-marcantes #historia-animal #resumo p {
-    text-align: justify;
-  }
-}/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=doar_agora.css.map */
