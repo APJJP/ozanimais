@@ -153,26 +153,53 @@ footer {
         #footer-ancoras {
             @include flex-properties($direction: column, $align: flex-start, $gap: 2em);
 
-            ul {
+            .footer-section {
                 @include flex-properties($direction: column, $align: flex-start, $gap: 0.5em);
-                list-style: none;
-    
-                a {
-                    text-decoration: none;
+
+                ul {
+                    @include flex-properties($direction: column, $align: flex-start, $gap: 0.5em);
+                    list-style: none;
+                    
+                    li {
+                        a {
+                            @include flex-properties();
+                            text-decoration: none;
+                            transition: transform 0.2s ease-in-out;
+                            position: relative;
+
+                            &:hover {
+                                transform: translateX(0.5em);
+                            }
+
+                            &::after {
+                                width: 0;
+                                height: 2px;
+                                background-color: white;
+                                content: '';
+                                position: absolute;
+                                left: 0;
+                                bottom: 0;
+                                transition: width 0.2s ease-in-out;
+                            }
+            
+                            &:hover::after {
+                                width: 100%;
+                            }
+                        }
+                    }
                 }
             }
-
-            .contato, .redes-sociais {
-                @include flex-properties($direction: column, $align: flex-start, $gap: 0.5em);
-    
-                li {
-                    a{
-                        @include flex-properties($gap: 0.5em);
-    
-                        ion-icon {
-                            font-size: 1.5em;
-                        }
-                    } 
+            .contato, .redes-sociais {              
+                ul {
+                    li {
+                        a{
+                            @include flex-properties($gap: 0.5em);
+        
+                            ion-icon {
+                                font-size: 1.5em;
+                            }
+                        } 
+                    }
                 }
             } 
         }
@@ -326,14 +353,20 @@ footer {
                 }
             }
         }
-
-        .nav-desktop {
-            a {
-                color: var(--cinza-escuro);
-            }
-            .como-ajudar {
+        
+        nav {
+            .nav-desktop {
                 a {
-                    color: white;
+                    color: var(--cinza-escuro);
+
+                    &::after {
+                        background-color: var(--laranja);
+                    }
+                }
+                .como-ajudar {
+                    a {
+                        color: white;
+                    }
                 }
             }
         }

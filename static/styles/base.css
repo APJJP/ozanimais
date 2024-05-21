@@ -149,7 +149,14 @@ footer #footer-container #footer-ancoras {
   align-items: flex-start;
   gap: 2em;
 }
-footer #footer-container #footer-ancoras ul {
+footer #footer-container #footer-ancoras .footer-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5em;
+}
+footer #footer-container #footer-ancoras .footer-section ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -157,23 +164,37 @@ footer #footer-container #footer-ancoras ul {
   gap: 0.5em;
   list-style: none;
 }
-footer #footer-container #footer-ancoras ul a {
-  text-decoration: none;
-}
-footer #footer-container #footer-ancoras .contato, footer #footer-container #footer-ancoras .redes-sociais {
+footer #footer-container #footer-ancoras .footer-section ul li a {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  gap: 0.5em;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out;
+  position: relative;
 }
-footer #footer-container #footer-ancoras .contato li a, footer #footer-container #footer-ancoras .redes-sociais li a {
+footer #footer-container #footer-ancoras .footer-section ul li a:hover {
+  transform: translateX(0.5em);
+}
+footer #footer-container #footer-ancoras .footer-section ul li a::after {
+  width: 0;
+  height: 2px;
+  background-color: white;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: width 0.2s ease-in-out;
+}
+footer #footer-container #footer-ancoras .footer-section ul li a:hover::after {
+  width: 100%;
+}
+footer #footer-container #footer-ancoras .contato ul li a, footer #footer-container #footer-ancoras .redes-sociais ul li a {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.5em;
 }
-footer #footer-container #footer-ancoras .contato li a ion-icon, footer #footer-container #footer-ancoras .redes-sociais li a ion-icon {
+footer #footer-container #footer-ancoras .contato ul li a ion-icon, footer #footer-container #footer-ancoras .redes-sociais ul li a ion-icon {
   font-size: 1.5em;
 }
 footer #footer-container .logo_fundo {
@@ -317,10 +338,13 @@ footer #footer-bottom {
   header.scrolled #ancora-logo-topo .logo_fundo .logo {
     background-image: url("/static/imagens/logo3.png");
   }
-  header.scrolled .nav-desktop a {
+  header.scrolled nav .nav-desktop a {
     color: var(--cinza-escuro);
   }
-  header.scrolled .nav-desktop .como-ajudar a {
+  header.scrolled nav .nav-desktop a::after {
+    background-color: var(--laranja);
+  }
+  header.scrolled nav .nav-desktop .como-ajudar a {
     color: white;
   }
   footer {

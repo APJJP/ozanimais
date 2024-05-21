@@ -48,6 +48,10 @@ main {
                             font-size: 1.2em;
                             color: var(--placeholder);
                         }
+
+                        &:focus {
+                            outline: 1px solid var(--ciano);
+                        }
                     }
 
                     ion-icon {
@@ -70,6 +74,11 @@ main {
                 padding: 0.8em;
                 width: 10em;
                 height: 3.2em;
+
+                &:hover, &:active {
+                    background-color: var(--laranja-interaction);
+                    cursor: pointer;
+                }
 
                 a {
                     text-decoration: none;
