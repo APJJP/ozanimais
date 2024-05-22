@@ -52,17 +52,25 @@
   background: white;
 }
 
+main {
+  background-color: #F3F4F6;
+  min-height: 100vh;
+  padding-top: 4em;
+}
+
 /* Header e footer */
 header {
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  background-color: white;
+  padding: 0.5em 0;
+  background-color: transparent;
   position: fixed;
   top: 0;
   z-index: 1000;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 12px;
+  box-shadow: none;
+  transition: background-color 0.3s ease-in-out;
 }
 header #ancora-logo-topo {
   display: none;
@@ -87,12 +95,13 @@ header nav .nav-mobile {
 header nav .nav-mobile .menu-hamburguer ion-icon {
   width: 2em;
   height: 2em;
-  color: var(--ciano);
+  color: white;
+  transition: background-color 0.3s ease-in-out;
 }
 header nav .nav-mobile .logo {
   width: 8em;
   height: 1.3em;
-  background-image: url("/static/imagens/logo3.png");
+  background-image: url("/static/imagens/logo_alternativa.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -102,22 +111,30 @@ header nav .nav-mobile .doe-agora {
   align-items: center;
   width: 6em;
   height: 2em;
-  border-radius: 0.6em;
+  border-radius: 1.8em;
   background-color: var(--laranja);
   /* background-color: var(--ciano); */
 }
 header nav .nav-mobile .doe-agora span {
-  font-size: 0.9em;
+  font-size: 0.8em;
   color: white;
 }
 header nav .nav-desktop {
   display: none;
 }
 
-main {
-  background-color: #F3F4F6;
-  /* min-height: 100vh; */
-  padding-top: 5.5em;
+header.scrolled {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 12px;
+}
+header.scrolled nav .nav-mobile .logo {
+  background-image: url("/static/imagens/logo3.png");
+}
+header.scrolled nav .nav-mobile .menu-hamburguer ion-icon {
+  color: var(--ciano);
+}
+header.scrolled nav .nav-mobile .doe-agora a {
+  color: white;
 }
 
 footer {
@@ -170,7 +187,7 @@ footer #footer-container #footer-ancoras .footer-section ul li a {
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   position: relative;
 }
 footer #footer-container #footer-ancoras .footer-section ul li a:hover {
@@ -184,7 +201,7 @@ footer #footer-container #footer-ancoras .footer-section ul li a::after {
   position: absolute;
   left: 0;
   bottom: 0;
-  transition: width 0.2s ease-in-out;
+  transition: width 0.3s ease-in-out;
 }
 footer #footer-container #footer-ancoras .footer-section ul li a:hover::after {
   width: 100%;
@@ -217,7 +234,19 @@ footer #footer-bottom {
   text-align: center;
 }
 
-/* desktops */
+/* celulares de tela pequena */
+@media screen and (min-width: 320px) and (max-width: 370px) {
+  header {
+    font-size: 0.9em;
+  }
+}
+/* tablets */
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+  header {
+    font-size: 1.4em;
+  }
+}
+/* desktops e laptops*/
 @media screen and (min-width: 1025px) {
   header {
     display: flex;
@@ -283,6 +312,7 @@ footer #footer-bottom {
     border-radius: 1.8em;
     /* padding: 0.8em; */
     background-color: var(--ciano);
+    transition: background-color 0.2s ease-in-out;
   }
   header nav .nav-desktop .como-ajudar:hover, header nav .nav-desktop .como-ajudar:active {
     background-color: var(--ciano-interaction);
@@ -306,6 +336,7 @@ footer #footer-bottom {
     text-decoration: none;
     color: white;
     position: relative;
+    transition: width 0.3s ease-in-out;
     /* &:hover {
         color: #FE6651;
     } */
@@ -318,7 +349,7 @@ footer #footer-bottom {
     position: absolute;
     left: 0;
     bottom: 0;
-    transition: width 0.3s ease-in-out;
+    transition: width 0.2s ease-in-out;
   }
   header nav .nav-desktop a:hover::after {
     width: 100%;
@@ -348,6 +379,12 @@ footer #footer-bottom {
   header.scrolled nav .nav-desktop .como-ajudar a {
     color: white;
   }
+  header.scrolled nav .nav-mobile .logo {
+    background-image: url("/static/imagens/logo3.png");
+  }
+  header.scrolled nav .nav-mobile .doe-agora a {
+    color: white;
+  }
   footer {
     display: flex;
     flex-direction: column;
@@ -370,6 +407,7 @@ footer #footer-bottom {
     gap: 5em;
   }
 }
+/* mobile first */
 main {
   display: flex;
   justify-content: center;
@@ -428,6 +466,7 @@ main #login form #inputs .input input {
   border-radius: 0.5em;
   width: 100%;
   height: 3.8em;
+  transition: border 0.1s ease-in-out;
 }
 main #login form #inputs .input input::-moz-placeholder {
   font-size: 1.2em;
@@ -438,7 +477,7 @@ main #login form #inputs .input input::placeholder {
   color: var(--placeholder);
 }
 main #login form #inputs .input input:focus {
-  outline: 1px solid var(--ciano);
+  border: 2px solid var(--ciano);
 }
 main #login form #inputs .input ion-icon {
   width: 1.2em;
@@ -461,6 +500,7 @@ main #login form #entrar {
   padding: 0.8em;
   width: 10em;
   height: 3.2em;
+  transition: background-color 0.2s ease-in-out;
 }
 main #login form #entrar:hover, main #login form #entrar:active {
   background-color: var(--laranja-interaction);
@@ -472,6 +512,15 @@ main #login form #entrar a {
   font-size: 1.2em;
 }
 
+/* tablets */
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+  main #login {
+    height: 30em;
+    width: 70%;
+    font-size: 1.4em;
+  }
+}
+/* desktops e laptops */
 @media screen and (min-width: 1025px) {
   main #login {
     height: 30em;

@@ -2,6 +2,8 @@
 
 @import 'base';
 
+/* mobile first */
+
 main {
     @include flex-properties();
 
@@ -43,6 +45,7 @@ main {
                         border-radius: 0.5em;
                         width: 100%;
                         height: 3.8em;
+                        transition: border 0.1s ease-in-out;
     
                         &::placeholder {
                             font-size: 1.2em;
@@ -50,7 +53,7 @@ main {
                         }
 
                         &:focus {
-                            outline: 1px solid var(--ciano);
+                            border: 2px solid var(--ciano);
                         }
                     }
 
@@ -74,6 +77,7 @@ main {
                 padding: 0.8em;
                 width: 10em;
                 height: 3.2em;
+                transition: background-color 0.2s ease-in-out;
 
                 &:hover, &:active {
                     background-color: var(--laranja-interaction);
@@ -90,6 +94,20 @@ main {
     }
 }
 
+
+/* tablets */
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+    main {
+        #login {
+            height: 30em;
+            width: 70%;
+            font-size: 1.4em;
+        }
+    }
+}
+
+
+/* desktops e laptops */
 @media screen and (min-width: 1025px) {
     main {
         #login {

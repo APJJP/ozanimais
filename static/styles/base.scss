@@ -64,18 +64,24 @@
 }
 
 
-
+main {
+    background-color: #F3F4F6;
+    min-height: 100vh;
+    padding-top: 4em;
+}
 
 /* Header e footer */
 
 header {
     @include flex-properties($justify: space-around);
     width: 100%;
-    background-color: white;
+    padding: 0.5em 0;
+    background-color: transparent;
     position: fixed;
     top: 0;
     z-index: 1000;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 12px;
+    box-shadow: none;
+    transition: background-color 0.3s ease-in-out;
 
     #ancora-logo-topo {
         display: none;
@@ -96,13 +102,14 @@ header {
             .menu-hamburguer ion-icon {
                 width: 2em;
                 height: 2em;
-                color: var(--ciano);
+                color: white;
+                transition: background-color 0.3s ease-in-out;
             }
     
             .logo {
                 width: 8em;
                 height: 1.3em;
-                background-image: url('/static/imagens/logo3.png');
+                background-image: url('/static/imagens/logo_alternativa.png');
                 background-size: contain;
                 background-repeat: no-repeat; 
             }
@@ -111,12 +118,12 @@ header {
                 @include flex-properties();
                 width: 6em;
                 height: 2em;
-                border-radius: 0.6em;
+                border-radius: 1.8em;
                 background-color: var(--laranja);
                 /* background-color: var(--ciano); */
                 
                 span {
-                    font-size: 0.9em;
+                    font-size: 0.8em;
                     color: white;
                 }
             }
@@ -128,10 +135,27 @@ header {
     }
 }
 
-main {
-    background-color: #F3F4F6;
-    /* min-height: 100vh; */
-    padding-top: 5.5em;
+header.scrolled {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 12px;
+
+    nav {
+        .nav-mobile {
+            .logo {
+                background-image: url('/static/imagens/logo3.png');
+            }
+
+            .menu-hamburguer ion-icon {
+                color: var(--ciano);
+            }
+
+            .doe-agora {
+                a {
+                    color: white;
+                }
+            }
+        }
+    }
 }
 
 footer {
@@ -164,7 +188,7 @@ footer {
                         a {
                             @include flex-properties();
                             text-decoration: none;
-                            transition: transform 0.2s ease-in-out;
+                            transition: transform 0.3s ease-in-out;
                             position: relative;
 
                             &:hover {
@@ -179,7 +203,7 @@ footer {
                                 position: absolute;
                                 left: 0;
                                 bottom: 0;
-                                transition: width 0.2s ease-in-out;
+                                transition: width 0.3s ease-in-out;
                             }
             
                             &:hover::after {
@@ -225,7 +249,21 @@ footer {
     }
 }
 
-/* desktops */
+/* celulares de tela pequena */
+@media screen and (min-width: 320px) and (max-width: 370px) {
+    header {
+        font-size: 0.9em;
+    }
+}
+
+/* tablets */
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+    header {
+        font-size: 1.4em;
+    }
+}
+
+/* desktops e laptops*/
 @media screen and (min-width: 1025px) {
     header {
         @include flex-properties($justify: space-around);
@@ -285,6 +323,7 @@ footer {
                     border-radius: 1.8em;
                     /* padding: 0.8em; */
                     background-color: var(--ciano);
+                    transition: background-color 0.2s ease-in-out;
         
                     &:hover, &:active {
                         background-color: var(--ciano-interaction);
@@ -309,6 +348,7 @@ footer {
                     text-decoration: none;
                     color: white;
                     position: relative;
+                    transition: width 0.3s ease-in-out;
     
                     /* &:hover {
                         color: #FE6651;
@@ -322,7 +362,7 @@ footer {
                         position: absolute;
                         left: 0;
                         bottom: 0;
-                        transition: width 0.3s ease-in-out;
+                        transition: width 0.2s ease-in-out;
                     }
     
                     &:hover::after {
@@ -364,6 +404,18 @@ footer {
                     }
                 }
                 .como-ajudar {
+                    a {
+                        color: white;
+                    }
+                }
+            }
+
+            .nav-mobile {
+                .logo {
+                    background-image: url('/static/imagens/logo3.png');
+                }
+
+                .doe-agora {
                     a {
                         color: white;
                     }
