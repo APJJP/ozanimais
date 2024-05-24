@@ -413,40 +413,54 @@ main {
   justify-content: center;
   align-items: center;
 }
-main div {
-  transition: display 2s ease-in-out;
-}
-main #login {
+main #redefinicao-senha {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 3em;
-  height: 30em;
-  width: 80%;
+  height: 35em;
+  width: 85%;
+  padding: 2em;
   background-color: white;
   border-radius: 1.2em;
   box-shadow: 0px 0px 25px -10px #000000;
+  /* .voltar {
+      @include flex-properties;
+      height: 3em;
+      width: 3em;
+      background-color: #ECECEC;
+      border-radius: 50%;
+
+      i {
+          font-size: 1.6em;
+      }
+  } */
 }
-main #login #topo {
+main #redefinicao-senha .topo {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width: 70%;
+  /* width: 70%; */
+  width: 100%;
 }
-main #login #topo h1 {
+main #redefinicao-senha .topo h1 {
   font-size: 1.5em;
 }
-main #login form {
+main #redefinicao-senha .off {
+  display: none;
+}
+main #redefinicao-senha form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 3em;
-  width: 70%;
+  /* width: 70%; */
+  width: 100%;
 }
-main #login form #inputs {
+main #redefinicao-senha form #inputs {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -454,14 +468,14 @@ main #login form #inputs {
   gap: 1em;
   width: 100%;
 }
-main #login form #inputs .input {
+main #redefinicao-senha form #inputs .input {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   position: relative;
 }
-main #login form #inputs .input input {
+main #redefinicao-senha form #inputs .input input {
   border: 1px solid rgb(215, 209, 209);
   outline: none;
   padding: 1em;
@@ -471,18 +485,18 @@ main #login form #inputs .input input {
   height: 3.8em;
   transition: border 0.1s ease-in-out;
 }
-main #login form #inputs .input input::-moz-placeholder {
+main #redefinicao-senha form #inputs .input input::-moz-placeholder {
   font-size: 1.2em;
   color: var(--placeholder);
 }
-main #login form #inputs .input input::placeholder {
+main #redefinicao-senha form #inputs .input input::placeholder {
   font-size: 1.2em;
   color: var(--placeholder);
 }
-main #login form #inputs .input input:focus {
+main #redefinicao-senha form #inputs .input input:focus {
   border: 2px solid var(--ciano);
 }
-main #login form #inputs .input ion-icon {
+main #redefinicao-senha form #inputs .input ion-icon {
   width: 1.2em;
   position: absolute;
   left: 20px;
@@ -492,7 +506,28 @@ main #login form #inputs .input ion-icon {
   align-items: center;
   color: var(--placeholder);
 }
-main #login form #ancoras {
+main #redefinicao-senha form #inputs .autenticacao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7em;
+  flex-wrap: wrap;
+  width: 100%;
+}
+main #redefinicao-senha form #inputs .autenticacao input {
+  border: 1px solid rgb(215, 209, 209);
+  outline: none;
+  padding: 1em;
+  border-radius: 0.5em;
+  width: 3em;
+  height: 3em;
+  text-align: center;
+  transition: border 0.1s ease-in-out;
+}
+main #redefinicao-senha form #inputs .autenticacao input:focus {
+  border: 2px solid var(--ciano);
+}
+main #redefinicao-senha form #inputs .nova-senha {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -500,16 +535,71 @@ main #login form #ancoras {
   gap: 1em;
   width: 100%;
 }
-main #login form #ancoras #esqueci-a-senha a {
+main #redefinicao-senha form #inputs .nova-senha input {
+  border: 1px solid rgb(215, 209, 209);
+  outline: none;
+  padding: 1em;
+  border-radius: 0.5em;
+  width: 100%;
+  height: 3.8em;
+  transition: border 0.1s ease-in-out;
+}
+main #redefinicao-senha form #inputs .nova-senha input::-moz-placeholder {
+  font-size: 1.2em;
+  color: var(--placeholder);
+}
+main #redefinicao-senha form #inputs .nova-senha input::placeholder {
+  font-size: 1.2em;
+  color: var(--placeholder);
+}
+main #redefinicao-senha form #inputs .nova-senha input:focus {
+  border: 2px solid var(--ciano);
+}
+main #redefinicao-senha form #inputs .resposta-senha {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+main #redefinicao-senha form #inputs .resposta-senha .topo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+main #redefinicao-senha form #inputs .resposta-senha .topo #icon-confirmacao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4em;
+  height: 4em;
+  background-color: white;
+  border: 2px solid var(--ciano);
+  border-radius: 50%;
+}
+main #redefinicao-senha form #inputs .resposta-senha .topo #icon-confirmacao ion-icon {
+  font-size: 2em;
+  color: var(--ciano);
+}
+main #redefinicao-senha form #inputs .off {
+  display: none;
+}
+main #redefinicao-senha form #ancoras {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+}
+main #redefinicao-senha form #ancoras #esqueci-a-senha a {
   color: var(--placeholder);
   text-decoration: none;
   cursor: pointer;
-  transition: color 0.15s ease-in-out;
 }
-main #login form #ancoras #esqueci-a-senha a:hover {
-  color: var(--ciano);
-}
-main #login form #entrar {
+main #redefinicao-senha form #avancar {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -518,15 +608,15 @@ main #login form #entrar {
   outline: none;
   border-radius: 1.8em;
   padding: 0.8em;
-  width: 100%;
+  width: 12em;
   height: 3.2em;
   transition: background-color 0.2s ease-in-out;
 }
-main #login form #entrar:hover, main #login form #entrar:active {
+main #redefinicao-senha form #avancar:hover, main #redefinicao-senha form #avancar:active {
   background-color: var(--laranja-interaction);
   cursor: pointer;
 }
-main #login form #entrar a {
+main #redefinicao-senha form #avancar a {
   text-decoration: none;
   color: white;
   font-size: 1.2em;
@@ -534,19 +624,56 @@ main #login form #entrar a {
 
 /* tablets */
 @media screen and (min-width: 600px) and (max-width: 1024px) {
-  main #login {
+  main #redefinicao-senha {
     height: 30em;
     width: 70%;
+    font-size: 1.4em;
+  }
+  main #redefinicao-senha form #inputs .autenticacao input {
+    width: 4.5em;
+    height: 4.5em;
+  }
+  main #redefinicao-senha form #inputs .input input, main #redefinicao-senha form #inputs .nova-senha input {
+    height: 3.5em;
+    font-size: 0.75em;
+  }
+  main #redefinicao-senha form #avancar {
+    width: 14em;
+    height: 3.6em;
+  }
+  main #redefinicao-senha form #avancar a {
     font-size: 1.4em;
   }
 }
 /* desktops e laptops */
 @media screen and (min-width: 1025px) {
-  main #login {
+  main #redefinicao-senha {
     height: 30em;
-    width: 30em;
+    width: 32em;
   }
-  main #login #topo h1 {
+  main #redefinicao-senha .topo {
+    width: 80%;
+  }
+  main #redefinicao-senha .topo h1 {
     font-size: 1.8em;
   }
-}/*# sourceMappingURL=area_restrita.css.map */
+  main #redefinicao-senha .off {
+    display: none;
+  }
+  main #redefinicao-senha form {
+    width: 80%;
+  }
+  main #redefinicao-senha form #inputs .autenticacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.1em;
+  }
+  main #redefinicao-senha form #inputs .autenticacao input {
+    width: 4em;
+    height: 4em;
+  }
+  main #redefinicao-senha form #inputs .off {
+    display: none;
+  }
+}/*# sourceMappingURL=redefinir_senha.css.map */

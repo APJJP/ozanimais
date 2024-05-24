@@ -35,6 +35,11 @@ def area_restrita():
     return render_template('area_restrita.html')
 
 
+@app.route('/redefinir_senha')
+def redefinir_senha():
+    return render_template('redefinir_senha.html')
+
+
 @app.route('/doar_agora')
 def doar_agora():
     return render_template('doar_agora.html')

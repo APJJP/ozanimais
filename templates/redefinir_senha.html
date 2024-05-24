@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alterar senha - Ozanimais</title>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="/static/imagens/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/static/imagens/favicon.ico" type="image/x-icon">
+
+        <!-- Remixicons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin=""/>
+
+        <!-- Swiper -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/static/styles/redefinir_senha.css">
+    </head>
+
+    <body>
+        <header class="scrolled">
+            <a id="ancora-logo-topo" href="/">
+                <div class="logo_fundo">
+                    <div class="logo">
+                    </div>
+                </div>
+            </a>
+
+            <nav>
+                <div class="nav-mobile">
+                    <div class="menu-hamburguer">
+                        <ion-icon name="menu-outline"></ion-icon>
+                    </div>
+                    
+                    <div class="logo"></div>
+                    
+                    <div class="doe-agora"><span>Doe agora</span></div>
+                </div>
+                
+                <div class="nav-desktop">
+                    <ul>
+                        <li><a href="/">Início</a></li>
+                        <li><a href="/quem_somos">Quem somos</a></li>
+                        <li><a href="/nossos_animais">Nossos animais</a></li>
+                        <li><button class="como-ajudar"><a id="btnComoAjudar" href="/como_ajudar">Como ajudar?</a></button></li>
+                    </ul>
+                </div> 
+            </nav>
+        </header>
+
+        <main>
+            <div id="redefinicao-senha">
+                <!-- TO DO -->
+                <!-- <div class="voltar">
+                    <i class="ri-arrow-left-s-line"></i>
+                </div> -->
+
+                <div class="topo">
+                    <h1 id="titulo">Esqueceu a senha?</h1>
+                    <p id="subtitulo">Por favor, informe o seu email para receber um código e redefinir a sua senha.</p>
+                </div>
+
+                <form>
+                    <div id="inputs">                            
+                        <div class="input">
+                            <input type="text" name="email" id="email" maxlength=255 placeholder = "Email" required>
+                            <ion-icon name="person-outline"></ion-icon>
+                        </div>
+                        
+                        <div class="autenticacao off">
+                            <input type="text" name="digito" id="digito1" maxlength=1 required>
+                            <input type="text" name="digito" id="digito2" maxlength=1 required>
+                            <input type="text" name="digito" id="digito3" maxlength=1 required>
+                            <input type="text" name="digito" id="digito4" maxlength=1 required>
+                            <input type="text" name="digito" id="digito5" maxlength=1 required>
+                        </div>
+                        
+                        <div class="nova-senha off">
+                            <input type="password" name="senha" id="senha" maxlength=255 placeholder = "Senha" required>
+                            <input type="password" name="confirmacao-senha" id="confirmacao-senha" maxlength=255 placeholder = "Confirme sua senha" required>
+                        </div>
+
+                        <div class="resposta-senha off">
+                            <div class="topo">
+                                <div id="icon-confirmacao">
+                                    <ion-icon name="checkmark"></ion-icon>
+                                </div>
+
+                                <h2>Senha alterada</h2>
+                            </div>
+                            
+
+                            
+                            <p>Sua senha foi alterada com sucesso.</p>
+                        </div>
+                        
+                    </div>   
+
+                    <div id="ancoras">
+                        <button id="avancar"><a id="texto_botao">Receber código</a></button>
+                    </div>   
+                </form>
+            </div>
+        </main>
+
+        <!-- Ioicons -->
+        <script  type="module"  src ="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" ></script> 
+        <script  nomodule  src ="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+        <!-- Swiper -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+        <script src="/static/scripts/redefinir_senha.js"></script>
+    </body>
+
+</html>
