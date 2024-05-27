@@ -419,23 +419,12 @@ main #redefinicao-senha {
   justify-content: center;
   align-items: center;
   gap: 3em;
-  height: 35em;
   width: 85%;
+  height: 40em;
   padding: 2em;
   background-color: white;
   border-radius: 1.2em;
   box-shadow: 0px 0px 25px -10px #000000;
-  /* .voltar {
-      @include flex-properties;
-      height: 3em;
-      width: 3em;
-      background-color: #ECECEC;
-      border-radius: 50%;
-
-      i {
-          font-size: 1.6em;
-      }
-  } */
 }
 main #redefinicao-senha .topo {
   display: flex;
@@ -445,8 +434,36 @@ main #redefinicao-senha .topo {
   /* width: 70%; */
   width: 100%;
 }
+main #redefinicao-senha .topo #btn-voltar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding-bottom: 1em;
+}
+main #redefinicao-senha .topo #btn-voltar .icon-voltar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3em;
+  height: 3em;
+  background-color: #ECECEC;
+  border-radius: 50%;
+  transition: background-color 0.2s ease-in-out;
+}
+main #redefinicao-senha .topo #btn-voltar .icon-voltar:hover, main #redefinicao-senha .topo #btn-voltar .icon-voltar:active {
+  background-color: var(--cinza-claro);
+  cursor: pointer;
+}
+main #redefinicao-senha .topo #btn-voltar .icon-voltar i {
+  font-size: 1.6em;
+}
 main #redefinicao-senha .topo h1 {
   font-size: 1.5em;
+}
+main #redefinicao-senha .topo p {
+  text-align: justify;
 }
 main #redefinicao-senha .off {
   display: none;
@@ -476,13 +493,13 @@ main #redefinicao-senha form #inputs .input {
   position: relative;
 }
 main #redefinicao-senha form #inputs .input input {
-  border: 1px solid rgb(215, 209, 209);
-  outline: none;
-  padding: 1em;
-  padding-left: 4em;
-  border-radius: 0.5em;
   width: 100%;
   height: 3.8em;
+  padding: 1em;
+  padding-left: 4em;
+  outline: none;
+  border: 1px solid rgb(215, 209, 209);
+  border-radius: 0.5em;
   transition: border 0.1s ease-in-out;
 }
 main #redefinicao-senha form #inputs .input input::-moz-placeholder {
@@ -497,13 +514,13 @@ main #redefinicao-senha form #inputs .input input:focus {
   border: 2px solid var(--ciano);
 }
 main #redefinicao-senha form #inputs .input ion-icon {
-  width: 1.2em;
-  position: absolute;
-  left: 20px;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 1.2em;
+  height: 100%;
+  position: absolute;
+  left: 20px;
   color: var(--placeholder);
 }
 main #redefinicao-senha form #inputs .autenticacao {
@@ -515,12 +532,12 @@ main #redefinicao-senha form #inputs .autenticacao {
   width: 100%;
 }
 main #redefinicao-senha form #inputs .autenticacao input {
-  border: 1px solid rgb(215, 209, 209);
-  outline: none;
-  padding: 1em;
-  border-radius: 0.5em;
   width: 3em;
   height: 3em;
+  padding: 1em;
+  outline: none;
+  border: 1px solid rgb(215, 209, 209);
+  border-radius: 0.5em;
   text-align: center;
   transition: border 0.1s ease-in-out;
 }
@@ -536,12 +553,12 @@ main #redefinicao-senha form #inputs .nova-senha {
   width: 100%;
 }
 main #redefinicao-senha form #inputs .nova-senha input {
-  border: 1px solid rgb(215, 209, 209);
-  outline: none;
-  padding: 1em;
-  border-radius: 0.5em;
   width: 100%;
   height: 3.8em;
+  padding: 1em;
+  outline: none;
+  border: 1px solid rgb(215, 209, 209);
+  border-radius: 0.5em;
   transition: border 0.1s ease-in-out;
 }
 main #redefinicao-senha form #inputs .nova-senha input::-moz-placeholder {
@@ -599,24 +616,24 @@ main #redefinicao-senha form #ancoras #esqueci-a-senha a {
   text-decoration: none;
   cursor: pointer;
 }
-main #redefinicao-senha form #avancar {
+main #redefinicao-senha form #btn-avancar {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--laranja);
-  border: none;
-  outline: none;
-  border-radius: 1.8em;
-  padding: 0.8em;
-  width: 12em;
+  width: 100%;
   height: 3.2em;
+  padding: 0.8em;
+  background-color: var(--laranja);
+  outline: none;
+  border: none;
+  border-radius: 1.8em;
   transition: background-color 0.2s ease-in-out;
 }
-main #redefinicao-senha form #avancar:hover, main #redefinicao-senha form #avancar:active {
+main #redefinicao-senha form #btn-avancar:hover, main #redefinicao-senha form #btn-avancar:active {
   background-color: var(--laranja-interaction);
   cursor: pointer;
 }
-main #redefinicao-senha form #avancar a {
+main #redefinicao-senha form #btn-avancar a {
   text-decoration: none;
   color: white;
   font-size: 1.2em;
@@ -625,8 +642,8 @@ main #redefinicao-senha form #avancar a {
 /* tablets */
 @media screen and (min-width: 600px) and (max-width: 1024px) {
   main #redefinicao-senha {
-    height: 30em;
     width: 70%;
+    height: 30em;
     font-size: 1.4em;
   }
   main #redefinicao-senha form #inputs .autenticacao input {
