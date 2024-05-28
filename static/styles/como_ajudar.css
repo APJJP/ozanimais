@@ -406,4 +406,98 @@ footer #footer-bottom {
     align-items: flex-start;
     gap: 5em;
   }
+}
+/* desktop first */
+main {
+  padding-top: 0;
+}
+main #topo-main {
+  width: 100%;
+  height: 700px;
+  background-image: url("/static/imagens/topo_como-ajudar.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+main #itens-essenciais {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  padding: 3em;
+}
+main #itens-essenciais .topo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+main #itens-essenciais #categorias {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+main #itens-essenciais #categorias #topo-categorias, main #itens-essenciais #categorias #fundo-categorias {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3em;
+}
+main #itens-essenciais #categorias #topo-categorias .categoria, main #itens-essenciais #categorias #fundo-categorias .categoria {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  width: 25em;
+  height: 30em;
+  padding: 2em;
+  background-color: white;
+}
+main #itens-essenciais #categorias #topo-categorias .categoria .introducao, main #itens-essenciais #categorias #fundo-categorias .categoria .introducao {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+main #itens-essenciais #categorias #topo-categorias .categoria .introducao .icon, main #itens-essenciais #categorias #fundo-categorias .categoria .introducao .icon {
+  padding: 1.5em;
+  background-color: orange;
+  border-radius: 50%;
+}
+main #itens-essenciais #categorias #topo-categorias .categoria .introducao .icon img, main #itens-essenciais #categorias #fundo-categorias .categoria .introducao .icon img {
+  width: 5em;
+  height: 5em;
+}
+main #itens-essenciais #categorias #topo-categorias .categoria .introducao h3, main #itens-essenciais #categorias #fundo-categorias .categoria .introducao h3 {
+  text-align: center;
+}
+main #itens-essenciais #categorias #topo-categorias .categoria .detalhes-categoria, main #itens-essenciais #categorias #fundo-categorias .categoria .detalhes-categoria {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+main #itens-essenciais #categorias #topo-categorias .categoria .detalhes-categoria p, main #itens-essenciais #categorias #fundo-categorias .categoria .detalhes-categoria p {
+  text-align: center;
+}
+main #doar-dinheiro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  padding: 3em;
+}
+main #doar-dinheiro .topo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
 }/*# sourceMappingURL=como_ajudar.css.map */
