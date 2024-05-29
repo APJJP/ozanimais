@@ -18,6 +18,7 @@ main {
     #itens-essenciais {
         @include flex-properties($direction: column, $gap: 2em);
         padding: 3em;
+        position: relative;
 
         .topo {
             @include flex-properties($direction: column, $gap: 2em);
@@ -31,9 +32,10 @@ main {
 
                 .categoria {
                     @include flex-properties($direction: column, $gap: 2em);
-                    width: 25em;
+                    width: 22em;
                     height: 30em;
-                    padding: 2em;
+                    padding: 1em;
+                    border-radius: 1.5em;
                     background-color: white;
 
                     .introducao {
@@ -65,14 +67,141 @@ main {
                 }
             }
         }
+
+        #patas1 {
+            width: 7em;
+            position: absolute;
+            top: 3em;
+            right: 2em;
+        }
+        #patas2 {
+            width: 7em;
+            position: absolute;
+            bottom: 3em;
+            left: 2em;
+        }
     }
 
     #doar-dinheiro {
         @include flex-properties($direction: column, $gap: 2em);
         padding: 3em;
+        background-color: var(--azul-claro);
 
         .topo {
             @include flex-properties($direction: column, $gap: 2em);
+        }
+
+        #sugestoes {
+            @include flex-properties($gap: 2em);
+
+            .sugestao {
+                @include flex-properties($direction: column, $justify: flex-start, $gap: 1em);
+                width: 16.5em;
+                height: 14em;
+                border-radius: 1em;
+                background-color: white;
+                position: relative;
+
+                .topo-sugestao {
+                    @include flex-properties($gap: 1em);
+                    width: 100%;
+                    height: 45%;
+                    padding: 2em;
+                    border-top-right-radius: 1em;
+                    border-top-left-radius: 1em;
+                    background-color: #57CDD7;
+
+                    .icon {
+                        img {
+                            width: 4em;
+                            height: 4em;
+                        }
+                    }
+                }
+
+                .descricao-sugestao {
+                    padding: 1em;
+                    p {
+                        text-align: center;
+                    }
+                }
+
+                .doar-agora {
+                    @include flex-properties();
+                    width: 12em;
+                    height: 3em;
+                    outline: none;
+                    border: none;
+                    border-radius: 1em;
+                    background-color: var(--laranja);
+                    transition: background-color 0.2s ease-in-out;
+                    position: absolute;
+                    bottom: -1.5em;
+
+                    &:hover, &:active {
+                        background-color: var(--laranja-interaction);
+                        cursor: pointer;
+                    }
+                    
+                    span {
+                        font-size: 1.2em;
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        #doar-valor {
+            @include flex-properties();
+            width: 18em;
+            height: 3em;
+            margin-top: 3em;
+            outline: none;
+            border: none;
+            border-radius: 1em;
+            background-color: #009caa;
+            transition: background-color 0.3s ease-in-out;
+
+            &:hover, &:active {
+                background-color: var(--laranja-interaction);
+                cursor: pointer;
+            }
+            
+            span {
+                font-size: 1.2em;
+                color: white;
+            }
+        }
+    }
+
+    #apadrinhar-ong {
+        @include flex-properties();
+        padding: 3em;
+
+        #sobre-apadrinhamento {
+            @include flex-properties($direction: column, $gap: 1.5em);
+
+            #quero-apadrinhar {
+                @include flex-properties();
+                width: 18em;
+                height: 3em;
+                margin-top: 3em;
+                outline: none;
+                border: none;
+                border-radius: 1em;
+                background-color: var(--laranja);
+                transition: background-color 0.2s ease-in-out;
+    
+                &:hover, &:active {
+                    background-color: var(--laranja-interaction);
+                    cursor: pointer;
+                }
+
+                span {
+                    font-size: 1.2em;
+                    color: white;
+                }
+            }
         }
     }
 }
