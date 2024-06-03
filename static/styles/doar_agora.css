@@ -406,4 +406,130 @@ footer #footer-bottom {
     align-items: flex-start;
     gap: 5em;
   }
+}
+/* mobile first */
+main {
+  padding-top: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main p {
+  display: inline-block;
+}
+main #doacao {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3em;
+  width: 100%;
+  min-height: 100vh;
+  padding: 2em;
+  border-radius: 0;
+  background-color: white;
+}
+main #doacao #valor-doacao {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  width: 100%;
+}
+main #doacao #valor-doacao #valor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  width: 8em;
+  padding: 0.5em;
+  border: 1px solid rgb(215, 209, 209);
+  border-radius: 1em;
+  transition: border-color 0.1s ease-in-out;
+}
+main #doacao #valor-doacao #valor:focus-within {
+  border: 2px solid var(--ciano);
+}
+main #doacao #valor-doacao #valor p {
+  font-size: 1.1em;
+}
+main #doacao #valor-doacao #valor input {
+  width: 3em;
+  outline: none;
+  border: none;
+  font-size: 1em;
+}
+main #doacao #forma-pagamento {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  width: 100%;
+}
+main #doacao #forma-pagamento #formas-pagamento {
+  width: 100%;
+  border: 1px solid rgb(215, 209, 209);
+  border-radius: 0.8em;
+}
+main #doacao #forma-pagamento #formas-pagamento .opcao {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 0.5em 1.5em;
+}
+main #doacao #forma-pagamento #formas-pagamento .opcao input {
+  width: 1.3em;
+  height: 1.3em;
+  margin: 0.1em;
+}
+main #doacao #forma-pagamento #formas-pagamento .opcao label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+main #doacao #forma-pagamento #formas-pagamento .opcao label svg {
+  width: 2em;
+}
+main #doacao #forma-pagamento #formas-pagamento .opcao label #icon-boleto {
+  display: inline-block;
+  height: 2em;
+}
+main #doacao #forma-pagamento #formas-pagamento .opcao label #icon-boleto img {
+  width: 2em;
+}
+main #doacao #forma-pagamento #formas-pagamento #opcao1 {
+  border-bottom: 1px solid rgb(215, 209, 209);
+}
+main #doacao #doar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--laranja);
+  border: none;
+  outline: none;
+  border-radius: 1.8em;
+  padding: 0.8em;
+  width: 100%;
+  height: 3.2em;
+  transition: background-color 0.2s ease-in-out;
+}
+main #doacao #doar:hover, main #doacao #doar:active {
+  background-color: var(--laranja-interaction);
+  cursor: pointer;
+}
+main #doacao #doar span {
+  color: white;
+  font-size: 1.2em;
+}
+
+/* desktops e laptops */
+@media screen and (min-width: 1025px) {
+  main #doacao {
+    width: 30em;
+    min-height: 30em;
+    border-radius: 1.2em;
+  }
 }/*# sourceMappingURL=doar_agora.css.map */
