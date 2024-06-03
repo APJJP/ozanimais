@@ -407,14 +407,14 @@ footer #footer-bottom {
     gap: 5em;
   }
 }
-/* desktop first */
+/* mobile first */
 main {
   padding-top: 0;
 }
 main #topo-main {
   width: 100%;
-  height: 700px;
-  background-image: url("/static/imagens/topo_como-ajudar.png");
+  min-height: 100vh;
+  background-image: url("/static/imagens/topo_como-ajudar_mobile.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -433,6 +433,7 @@ main #itens-essenciais .topo {
   justify-content: center;
   align-items: center;
   gap: 2em;
+  z-index: 100;
 }
 main #itens-essenciais #categorias {
   display: flex;
@@ -440,12 +441,15 @@ main #itens-essenciais #categorias {
   justify-content: center;
   align-items: center;
   gap: 2em;
+  z-index: 100;
 }
 main #itens-essenciais #categorias #topo-categorias, main #itens-essenciais #categorias #fundo-categorias {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3em;
+  gap: 2em;
+  width: 100%;
 }
 main #itens-essenciais #categorias #topo-categorias .categoria, main #itens-essenciais #categorias #fundo-categorias .categoria {
   display: flex;
@@ -453,7 +457,7 @@ main #itens-essenciais #categorias #topo-categorias .categoria, main #itens-esse
   justify-content: center;
   align-items: center;
   gap: 2em;
-  width: 22em;
+  width: 90%;
   height: 30em;
   padding: 1em;
   border-radius: 1.5em;
@@ -488,17 +492,22 @@ main #itens-essenciais #categorias #topo-categorias .categoria .detalhes-categor
 main #itens-essenciais #categorias #topo-categorias .categoria .detalhes-categoria p, main #itens-essenciais #categorias #fundo-categorias .categoria .detalhes-categoria p {
   text-align: center;
 }
+main #itens-essenciais #categorias #topo-categorias .categoria .detalhes-categoria ul, main #itens-essenciais #categorias #fundo-categorias .categoria .detalhes-categoria ul {
+  width: 80%;
+}
 main #itens-essenciais #patas1 {
-  width: 7em;
+  width: 5em;
   position: absolute;
-  top: 3em;
+  top: 1em;
   right: 2em;
+  z-index: 0;
 }
 main #itens-essenciais #patas2 {
-  width: 7em;
+  width: 5em;
   position: absolute;
-  bottom: 3em;
+  bottom: 1em;
   left: 2em;
+  z-index: 0;
 }
 main #doar-dinheiro {
   display: flex;
@@ -518,9 +527,10 @@ main #doar-dinheiro .topo {
 }
 main #doar-dinheiro #sugestoes {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2em;
+  gap: 4em;
 }
 main #doar-dinheiro #sugestoes .sugestao {
   display: flex;
@@ -528,8 +538,9 @@ main #doar-dinheiro #sugestoes .sugestao {
   justify-content: flex-start;
   align-items: center;
   gap: 1em;
-  width: 16.5em;
-  height: 14em;
+  min-width: 16em;
+  max-width: 20em;
+  height: 16em;
   border-radius: 1em;
   background-color: white;
   position: relative;
@@ -601,9 +612,14 @@ main #doar-dinheiro #doar-valor span {
 }
 main #apadrinhar-ong {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1em;
   padding: 3em;
+}
+main #apadrinhar-ong #caricatura img {
+  width: 25em;
 }
 main #apadrinhar-ong #sobre-apadrinhamento {
   display: flex;
@@ -632,4 +648,178 @@ main #apadrinhar-ong #sobre-apadrinhamento #quero-apadrinhar:hover, main #apadri
 main #apadrinhar-ong #sobre-apadrinhamento #quero-apadrinhar span {
   font-size: 1.2em;
   color: white;
+}
+main #h1-newsletter {
+  grid-area: h1;
+}
+main form {
+  grid-area: form;
+}
+main #newsletter {
+  /* background-color: rgb(0, 153, 173); */
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  grid-template-areas: "h1" "form";
+  gap: 2em;
+  height: auto;
+  padding: 3em 1em;
+  background-color: #007CAC;
+}
+main #newsletter h1 {
+  display: inline-block;
+  width: 80%;
+  margin: auto;
+  color: white;
+}
+main #newsletter form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+main #newsletter form #input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5em;
+  position: relative;
+}
+main #newsletter form input {
+  width: 20em;
+  height: 3.8em;
+  outline: none;
+  border: none;
+  border-radius: 0.5em;
+  padding: 1em;
+}
+main #newsletter form input::-moz-placeholder {
+  font-size: 1.2em;
+}
+main #newsletter form input::placeholder {
+  font-size: 1.2em;
+}
+main #newsletter form #email {
+  border-top-left-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  border-top-right-radius: 1.9em;
+  border-bottom-right-radius: 1.9em;
+}
+main #newsletter form .assinar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8em;
+  height: 3.2em;
+  outline: none;
+  border: none;
+  border-radius: 1.8em;
+  padding: 0.8em;
+  background-color: var(--laranja);
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: background-color 0.2s ease-in-out;
+}
+main #newsletter form .assinar:hover {
+  background-color: var(--laranja-interaction);
+  cursor: pointer;
+}
+main #newsletter form .assinar span {
+  color: white;
+  font-size: 1em;
+}
+main #newsletter form #nome-completo, main #newsletter form #email {
+  transition: outline 0.1s ease-in-out;
+}
+main #newsletter form #nome-completo:focus, main #newsletter form #email:focus {
+  outline: 3px solid var(--ciano);
+}
+
+/* tablets */
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+  main #topo-main {
+    background-image: url("/static/imagens/topo_como-ajudar_tablets.png");
+  }
+}
+/* desktops e laptops*/
+@media screen and (min-width: 1025px) {
+  main #topo-main {
+    min-height: 700px;
+    max-height: 700px;
+    background-image: url("/static/imagens/topo_como-ajudar.png");
+  }
+  main #itens-essenciais .topo {
+    z-index: 0;
+  }
+  main #itens-essenciais #categorias {
+    z-index: 0;
+  }
+  main #itens-essenciais #categorias #topo-categorias, main #itens-essenciais #categorias #fundo-categorias {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+  }
+  main #itens-essenciais #categorias #topo-categorias .categoria, main #itens-essenciais #categorias #fundo-categorias .categoria {
+    width: 22em;
+    height: 30em;
+  }
+  main #itens-essenciais #categorias #topo-categorias .categoria .detalhes-categoria ul, main #itens-essenciais #categorias #fundo-categorias .categoria .detalhes-categoria ul {
+    width: 100%;
+  }
+  main #itens-essenciais #patas1 {
+    width: 7em;
+    top: 3em;
+    right: 2em;
+  }
+  main #itens-essenciais #patas2 {
+    width: 7em;
+    bottom: 3em;
+    left: 2em;
+  }
+  main #doar-dinheiro #sugestoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+  }
+  main #doar-dinheiro #sugestoes .sugestao {
+    min-width: 16.5em;
+    max-width: 16.5em;
+    height: 16em;
+  }
+  main #apadrinhar-ong {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  main #apadrinhar-ong #caricatura img {
+    width: 25em;
+  }
+  main #newsletter {
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    grid-template-areas: "h1 form";
+    gap: 0;
+    width: 100%;
+    height: 400px;
+  }
+  main #newsletter h1 {
+    width: 15em;
+  }
+  main #newsletter form input {
+    width: 40em;
+    height: 3.8em;
+  }
+  main #newsletter form input::-moz-placeholder {
+    font-size: 1.2em;
+  }
+  main #newsletter form input::placeholder {
+    font-size: 1.2em;
+  }
 }/*# sourceMappingURL=como_ajudar.css.map */

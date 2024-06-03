@@ -618,6 +618,7 @@ main #historias-marcantes #historia-animal #resumo p {
   text-align: justify;
 }
 
+/* desktops e laptops*/
 @media screen and (min-width: 1025px) {
   .swiper2 {
     height: 600px;
