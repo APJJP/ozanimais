@@ -417,7 +417,7 @@ main {
 main p {
   display: inline-block;
 }
-main #doacao {
+main .doacao {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -429,7 +429,10 @@ main #doacao {
   border-radius: 0;
   background-color: white;
 }
-main #doacao #valor-doacao {
+main .doacao h2 {
+  text-align: center;
+}
+main .doacao #valor-doacao {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -437,7 +440,7 @@ main #doacao #valor-doacao {
   gap: 0.5em;
   width: 100%;
 }
-main #doacao #valor-doacao #valor {
+main .doacao #valor-doacao #valor {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -448,19 +451,25 @@ main #doacao #valor-doacao #valor {
   border-radius: 1em;
   transition: border-color 0.1s ease-in-out;
 }
-main #doacao #valor-doacao #valor:focus-within {
+main .doacao #valor-doacao #valor:focus-within {
   border: 2px solid var(--ciano);
 }
-main #doacao #valor-doacao #valor p {
+main .doacao #valor-doacao #valor p {
   font-size: 1.1em;
 }
-main #doacao #valor-doacao #valor input {
+main .doacao #valor-doacao #valor input {
   width: 3em;
   outline: none;
   border: none;
   font-size: 1em;
 }
-main #doacao #forma-pagamento {
+main .doacao #valor-doacao .erro-valor {
+  color: red;
+}
+main .doacao #valor-doacao .off {
+  display: none;
+}
+main .doacao #forma-pagamento {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -468,68 +477,187 @@ main #doacao #forma-pagamento {
   gap: 0.5em;
   width: 100%;
 }
-main #doacao #forma-pagamento #formas-pagamento {
+main .doacao #forma-pagamento #formas-pagamento {
   width: 100%;
   border: 1px solid rgb(215, 209, 209);
   border-radius: 0.8em;
+  /* #opcao1 {
+      border-bottom: 1px solid rgb(215, 209, 209);
+  } */
 }
-main #doacao #forma-pagamento #formas-pagamento .opcao {
+main .doacao #forma-pagamento #formas-pagamento .opcao {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+  padding: 1em 1.5em;
+}
+main .doacao #forma-pagamento #formas-pagamento .opcao .opcao-topo {
+  display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 1em;
-  padding: 0.5em 1.5em;
 }
-main #doacao #forma-pagamento #formas-pagamento .opcao input {
-  width: 1.3em;
-  height: 1.3em;
-  margin: 0.1em;
+main .doacao #forma-pagamento #formas-pagamento .opcao .opcao-topo input[type=radio] {
+  display: none;
 }
-main #doacao #forma-pagamento #formas-pagamento .opcao label {
+main .doacao #forma-pagamento #formas-pagamento .opcao .opcao-topo input[type=radio] + label:before {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  border: 1px solid gray;
+  border-radius: 50%;
+  background-color: white;
+  content: "";
+  box-sizing: border-box;
+  cursor: pointer;
+}
+main .doacao #forma-pagamento #formas-pagamento .opcao .opcao-topo input[type=radio]:checked + label:before {
+  background-color: var(--ciano);
+  outline: 1px solid var(--ciano);
+  border: 3px solid white;
+  box-sizing: border-box;
+}
+main .doacao #forma-pagamento #formas-pagamento .opcao .opcao-topo label {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.5em;
 }
-main #doacao #forma-pagamento #formas-pagamento .opcao label svg {
+main .doacao #forma-pagamento #formas-pagamento .opcao .opcao-topo label svg {
   width: 2em;
 }
-main #doacao #forma-pagamento #formas-pagamento .opcao label #icon-boleto {
+main .doacao #forma-pagamento #formas-pagamento .opcao .opcao-topo label #icon-boleto {
   display: inline-block;
   height: 2em;
 }
-main #doacao #forma-pagamento #formas-pagamento .opcao label #icon-boleto img {
+main .doacao #forma-pagamento #formas-pagamento .opcao .opcao-topo label #icon-boleto img {
   width: 2em;
 }
-main #doacao #forma-pagamento #formas-pagamento #opcao1 {
-  border-bottom: 1px solid rgb(215, 209, 209);
-}
-main #doacao #doar {
+main .doacao #doar {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--laranja);
-  border: none;
-  outline: none;
-  border-radius: 1.8em;
-  padding: 0.8em;
   width: 100%;
   height: 3.2em;
+  outline: none;
+  border: none;
+  border-radius: 1.8em;
+  padding: 0.8em;
+  background-color: var(--laranja);
   transition: background-color 0.2s ease-in-out;
 }
-main #doacao #doar:hover, main #doacao #doar:active {
+main .doacao #doar:hover, main .doacao #doar:active {
   background-color: var(--laranja-interaction);
   cursor: pointer;
 }
-main #doacao #doar span {
+main .doacao #doar span {
   color: white;
   font-size: 1.2em;
+}
+main .pix-pagamento {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3em;
+  width: 100%;
+  min-height: 100vh;
+  padding: 2em;
+  border-radius: 0;
+  background-color: white;
+}
+main .pix-pagamento h2, main .pix-pagamento h3 {
+  text-align: center;
+}
+main .pix-pagamento #infos-pagamento .info-pagamento {
+  display: grid;
+  grid-template-columns: 15em auto;
+  grid-template-rows: auto;
+  grid-template-areas: "descricao valor";
+}
+main .pix-pagamento #infos-pagamento .info-pagamento .descricao {
+  grid-area: "descricao";
+}
+main .pix-pagamento #infos-pagamento .info-pagamento .valor-total {
+  grid-area: "valor";
+}
+main .pix-pagamento #infos-pagamento .info-pagamento .valor {
+  text-align: right;
+}
+main .pix-pagamento #info-pix {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+main .pix-pagamento #info-pix ol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  width: 80%;
+}
+main .pix-pagamento #info-pix #copia-cola {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+main .pix-pagamento #info-pix #copia-cola #pix-codigo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+main .pix-pagamento #info-pix #copia-cola #copiar-pix {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8em;
+  width: 10em;
+  height: 3.2em;
+  outline: none;
+  border: none;
+  border-radius: 1.5em;
+  padding: 0.8em;
+  background-color: var(--laranja);
+  transition: background-color 0.2s ease-in-out;
+}
+main .pix-pagamento #info-pix #copia-cola #copiar-pix:hover, main .pix-pagamento #info-pix #copia-cola #copiar-pix:active {
+  background-color: var(--laranja-interaction);
+  cursor: pointer;
+}
+main .pix-pagamento #info-pix #copia-cola #copiar-pix ion-icon {
+  color: white;
+  font-size: 1.5em;
+}
+main .pix-pagamento #info-pix #copia-cola #copiar-pix span {
+  color: white;
+  font-size: 1.2em;
+}
+main .off {
+  display: none;
 }
 
 /* desktops e laptops */
 @media screen and (min-width: 1025px) {
-  main #doacao {
+  main .doacao, main .pix-pagamento {
     width: 30em;
     min-height: 30em;
     border-radius: 1.2em;
+  }
+  main .pix-pagamento {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3em;
+    min-height: 50em;
+    padding: 0 2em;
+  }
+  main .off {
+    display: none;
   }
 }/*# sourceMappingURL=doar_agora.css.map */

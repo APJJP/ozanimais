@@ -12,13 +12,17 @@ main {
         display: inline-block;
     }
 
-    #doacao {
+    .doacao {
         @include flex-properties($direction: column, $gap: 3em);
         width: 100%;
         min-height: 100vh;
         padding: 2em;
         border-radius: 0;
         background-color: white;
+
+        h2 {
+            text-align: center;
+        }
 
         #valor-doacao {
             @include flex-properties($direction: column, $gap: 0.5em);
@@ -47,6 +51,14 @@ main {
                     font-size: 1em;
                 }
             }
+
+            .erro-valor {
+                color: red;
+            }
+
+            .off {
+                display: none;
+            }
         }
 
         #forma-pagamento {
@@ -59,48 +71,69 @@ main {
                 border-radius: 0.8em;
 
                 .opcao {
-                    @include flex-properties($justify: null, $gap: 1em);
-                    padding: 0.5em 1.5em;
+                    @include flex-properties($direction: column, $align: null, $gap: 1em);
+                    padding: 1em 1.5em;
 
-                    input {
-                        width: 1.3em;
-                        height: 1.3em;
-                        margin: 0.1em;
-                    }
+                    .opcao-topo {
+                        @include flex-properties($direction: row, $justify: null, $gap: 1em);
 
-                    label {
-                        @include flex-properties($gap: 0.5em);
+                        input[type="radio"] {
+                            display: none;
     
-                        svg {
-                            width: 2em;
+                            + label:before {
+                                display: inline-block;
+                                width: 1.2em;
+                                height: 1.2em;
+                                border: 1px solid gray;
+                                border-radius: 50%;
+                                background-color: white;
+                                content: '';
+                                box-sizing: border-box;
+                                cursor: pointer;
+                            }
+    
+                            &:checked + label:before {
+                                background-color: var(--ciano);
+                                outline: 1px solid var(--ciano);
+                                border: 3px solid white;
+                                box-sizing: border-box;
+                            }
                         }
-    
-                        #icon-boleto {
-                            display: inline-block;
-                            height: 2em;
-    
-                            img {
+                     
+                        label {
+                            @include flex-properties($gap: 0.5em);
+        
+                            svg {
                                 width: 2em;
+                            }
+        
+                            #icon-boleto {
+                                display: inline-block;
+                                height: 2em;
+        
+                                img {
+                                    width: 2em;
+                                }
                             }
                         }
                     }
                 }
 
-                #opcao1 {
+                /* #opcao1 {
                     border-bottom: 1px solid rgb(215, 209, 209);
-                }
+                } */
             }
         }
 
         #doar {
             @include flex-properties();
-            background-color: var(--laranja);
-            border:none;
-            outline: none;
-            border-radius: 1.8em;
-            padding: 0.8em;
             width: 100%;
             height: 3.2em;
+            outline: none;
+            border: none;
+            border-radius: 1.8em;
+            padding: 0.8em;
+            background-color: var(--laranja);
             transition: background-color 0.2s ease-in-out;
 
             &:hover, &:active {
@@ -114,16 +147,107 @@ main {
             }
         }
     }
+
+    .pix-pagamento {
+        @include flex-properties($direction: column, $align:null, $gap: 3em);
+        width: 100%;
+        min-height: 100vh;
+        padding: 2em;
+        border-radius: 0;
+        background-color: white;
+
+        h2, h3 {
+            text-align: center;
+        }
+
+        #infos-pagamento {
+            .info-pagamento {
+                display: grid;
+                grid-template-columns: 15em auto;
+                grid-template-rows: auto;
+                grid-template-areas: "descricao valor";
+
+                .descricao {
+                    grid-area: 'descricao';
+                }
+                .valor-total {
+                    grid-area: 'valor';
+                }
+
+                .valor {
+                    text-align: right;
+                }
+            }
+        }
+
+        #info-pix {
+            @include flex-properties($direction: column, $gap: 1em);
+
+            ol {
+                @include flex-properties($direction: column, $gap: 1em);
+                width: 80%;
+            }
+
+            #copia-cola {
+                @include flex-properties($gap: 1em);
+
+                #pix-codigo {
+                    @include flex-properties($direction: column, $gap: 1em);
+                }
+
+                #copiar-pix {
+                    @include flex-properties($gap: 0.8em);
+                    width: 10em;
+                    height: 3.2em;
+                    outline: none;
+                    border: none;
+                    border-radius: 1.5em;
+                    padding: 0.8em;
+                    background-color: var(--laranja);
+                    transition: background-color 0.2s ease-in-out;
+
+                    &:hover, &:active {
+                        background-color: var(--laranja-interaction);
+                        cursor: pointer;
+                    }
+
+                    ion-icon {
+                        color: white;
+                        font-size: 1.5em;
+                    }
+
+                    span {
+                        color: white;
+                        font-size: 1.2em;
+                    }
+                }
+            }
+        }
+    }
+
+    .off {
+        display: none;
+    }
 }
 
 
 /* desktops e laptops */
 @media screen and (min-width: 1025px) {
     main {
-        #doacao {
+        .doacao, .pix-pagamento {
             width: 30em;
             min-height: 30em;
             border-radius: 1.2em;
+        }
+
+        .pix-pagamento {
+            @include flex-properties($direction: column, $align: null, $gap: 3em);
+            min-height: 50em;
+            padding: 0 2em;
+        }
+
+        .off {
+            display: none;
         }
     }
 }
