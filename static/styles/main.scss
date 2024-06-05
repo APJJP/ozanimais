@@ -205,6 +205,7 @@ main {
     }
 }
 
+
 /* desktops e laptops*/
 
 @media screen and (min-width: 1025px) {
@@ -256,7 +257,7 @@ main {
                 padding: 1em;
                 transition: background-color 0.2s ease-in-out;
                 
-                &:hover, &:active {
+                &:active {
                     background-color: var(--laranja-interaction);
                     cursor: pointer;
                 }

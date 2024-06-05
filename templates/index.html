@@ -30,7 +30,15 @@
             <nav>
                 <div class="nav-mobile">
                     <div class="menu-hamburguer">
-                        <ion-icon name="menu-outline"></ion-icon>
+                    </div>
+
+                    <div class="menu-mobile hidden">
+                        <ul>
+                            <li><span onclick="redirecionar('#')">Início</span></li>
+                            <li><span onclick="redirecionar('/quem_somos')">Quem somos</span></li>
+                            <li><span onclick="redirecionar('/nossos_animais')">Nossos animais</span></li>
+                            <li><span onclick="redirecionar('/como_ajudar')">Como ajudar</span></li>
+                        </ul>
                     </div>
                     
                     <div class="logo"></div>
@@ -196,6 +204,10 @@
         <!-- Swiper -->
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+        <!-- Script do menu hamburguer -->
+        <script src="/static/scripts/menu_hamburguer.js"></script>
+
+        <!-- Script principal -->
         <script src="/static/scripts/main.js"></script>
     </body>
 </html>

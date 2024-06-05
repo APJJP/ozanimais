@@ -31,6 +31,12 @@
   box-sizing: border-box;
 }
 
+main {
+  background-color: #F3F4F6;
+  min-height: 100vh;
+  padding-top: 4em;
+}
+
 /* Swiper */
 .swiper-slide img {
   width: 100%;
@@ -52,12 +58,6 @@
   background: white;
 }
 
-main {
-  background-color: #F3F4F6;
-  min-height: 100vh;
-  padding-top: 4em;
-}
-
 /* Header e footer */
 header {
   display: flex;
@@ -68,7 +68,7 @@ header {
   background-color: transparent;
   position: fixed;
   top: 0;
-  z-index: 1000;
+  z-index: 900;
   box-shadow: none;
   transition: background-color 0.3s ease-in-out;
 }
@@ -92,11 +92,84 @@ header nav .nav-mobile {
   padding: 0.5em;
   /* font-size: 0.95em; */
 }
-header nav .nav-mobile .menu-hamburguer ion-icon {
+header nav .nav-mobile .menu-hamburguer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 2em;
   height: 2em;
+  cursor: pointer;
+  position: relative;
+  z-index: 1000;
+  transition: 0.2s;
+}
+header nav .nav-mobile .menu-hamburguer::before {
+  content: "";
+  width: 2em;
+  height: 3px;
+  background-color: white;
+  position: absolute;
+  transition: 0.2s;
+  transform: translateY(-0.5em);
+  box-shadow: 0 0.5em 0 white;
+}
+header nav .nav-mobile .menu-hamburguer::after {
+  content: "";
+  width: 2em;
+  height: 3px;
+  background-color: white;
+  position: absolute;
+  transition: 0.2s;
+  transform: translateY(0.5em);
+}
+header nav .nav-mobile .menu-ativo::before {
+  transform: translateY(0px) rotate(45deg);
+  box-shadow: 0 0 0 white;
+}
+header nav .nav-mobile .menu-ativo::after {
+  transform: translateY(0px) rotate(-45deg);
+  box-shadow: 0 0 0 white;
+}
+header nav .nav-mobile .menu-mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--ciano);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 995;
+}
+header nav .nav-mobile .menu-mobile ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  list-style: none;
+  font-size: 1.3em;
+}
+header nav .nav-mobile .menu-mobile span {
+  padding: 5px 0;
   color: white;
-  transition: background-color 0.3s ease-in-out;
+  position: relative;
+  transition: width 0.3s ease-in-out;
+}
+header nav .nav-mobile .menu-mobile span::after {
+  width: 0;
+  height: 2px;
+  background-color: white;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: width 0.2s ease-in-out;
+}
+header nav .nav-mobile .menu-mobile span:hover::after {
+  width: 100%;
 }
 header nav .nav-mobile .logo {
   width: 8em;
@@ -119,6 +192,9 @@ header nav .nav-mobile .doe-agora span {
   font-size: 0.8em;
   color: white;
 }
+header nav .nav-mobile .hidden {
+  display: none;
+}
 header nav .nav-desktop {
   display: none;
 }
@@ -130,8 +206,18 @@ header.scrolled {
 header.scrolled nav .nav-mobile .logo {
   background-image: url("/static/imagens/logo3.png");
 }
-header.scrolled nav .nav-mobile .menu-hamburguer ion-icon {
-  color: var(--ciano);
+header.scrolled nav .nav-mobile .menu-hamburguer::before {
+  background-color: var(--ciano);
+  box-shadow: 0 0.5em 0 var(--ciano);
+}
+header.scrolled nav .nav-mobile .menu-hamburguer::after {
+  background-color: var(--ciano);
+}
+header.scrolled nav .nav-mobile .menu-ativo::before {
+  box-shadow: 0 0 0 var(--ciano);
+}
+header.scrolled nav .nav-mobile .menu-ativo::after {
+  box-shadow: 0 0 0 var(--ciano);
 }
 header.scrolled nav .nav-mobile .doe-agora a {
   color: white;
@@ -146,7 +232,6 @@ footer {
   width: 100%;
   height: auto;
   padding: 2em 0;
-  /* background-color: var(--cinza-escuro); */
   background-color: var(--teste7);
   color: white;
 }
@@ -258,9 +343,6 @@ footer #footer-bottom {
     top: 0;
     z-index: 1000;
     box-shadow: none;
-    /* &.scrolled {
-        background-color: var(--ciano);
-    } */
   }
   header #ancora-logo-topo {
     display: block;
@@ -363,9 +445,6 @@ footer #footer-bottom {
   header.scrolled {
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 12px;
-    /* .como-ajudar {
-        background-color: var(--laranja);
-    } */
   }
   header.scrolled #ancora-logo-topo .logo_fundo .logo {
     background-image: url("/static/imagens/logo3.png");
@@ -406,4 +485,9 @@ footer #footer-bottom {
     align-items: flex-start;
     gap: 5em;
   }
+}
+.no-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
 }/*# sourceMappingURL=apadrinhar_ong.css.map */
