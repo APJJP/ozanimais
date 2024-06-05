@@ -107,28 +107,23 @@ header nav .nav-mobile .menu-hamburguer::before {
   content: "";
   width: 2em;
   height: 3px;
-  background-color: white;
   position: absolute;
   transition: 0.2s;
   transform: translateY(-0.5em);
-  box-shadow: 0 0.5em 0 white;
 }
 header nav .nav-mobile .menu-hamburguer::after {
   content: "";
   width: 2em;
   height: 3px;
-  background-color: white;
   position: absolute;
   transition: 0.2s;
   transform: translateY(0.5em);
 }
 header nav .nav-mobile .menu-ativo::before {
   transform: translateY(0px) rotate(45deg);
-  box-shadow: 0 0 0 white;
 }
 header nav .nav-mobile .menu-ativo::after {
   transform: translateY(0px) rotate(-45deg);
-  box-shadow: 0 0 0 white;
 }
 header nav .nav-mobile .menu-mobile {
   display: flex;
@@ -205,19 +200,6 @@ header.scrolled {
 }
 header.scrolled nav .nav-mobile .logo {
   background-image: url("/static/imagens/logo3.png");
-}
-header.scrolled nav .nav-mobile .menu-hamburguer::before {
-  background-color: var(--ciano);
-  box-shadow: 0 0.5em 0 var(--ciano);
-}
-header.scrolled nav .nav-mobile .menu-hamburguer::after {
-  background-color: var(--ciano);
-}
-header.scrolled nav .nav-mobile .menu-ativo::before {
-  box-shadow: 0 0 0 var(--ciano);
-}
-header.scrolled nav .nav-mobile .menu-ativo::after {
-  box-shadow: 0 0 0 var(--ciano);
 }
 header.scrolled nav .nav-mobile .doe-agora a {
   color: white;
@@ -490,4 +472,34 @@ footer #footer-bottom {
   overflow: hidden;
   position: fixed;
   width: 100%;
+}
+
+header nav .nav-mobile .menu-hamburguer::before {
+  content: "";
+  width: 2em;
+  height: 3px;
+  background-color: var(--ciano);
+  position: absolute;
+  transition: 0.2s;
+  transform: translateY(-0.5em);
+  box-shadow: 0 0.5em 0 var(--ciano);
+}
+header nav .nav-mobile .menu-hamburguer::after {
+  content: "";
+  width: 2em;
+  height: 3px;
+  background-color: var(--ciano);
+  position: absolute;
+  transition: 0.2s;
+  transform: translateY(0.5em);
+}
+header nav .nav-mobile .menu-ativo::before {
+  background-color: white;
+  transform: translateY(0px) rotate(45deg);
+  box-shadow: 0 0 0 white;
+}
+header nav .nav-mobile .menu-ativo::after {
+  background-color: white;
+  transform: translateY(0px) rotate(-45deg);
+  box-shadow: 0 0 0 white;
 }/*# sourceMappingURL=nossos_animais.css.map */

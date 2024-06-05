@@ -205,6 +205,50 @@ main {
     }
 }
 
+header {
+    nav {    
+        .nav-mobile {
+            .menu-hamburguer {
+                &::before {
+                    background-color: white;
+                    box-shadow: 0 0.5em 0 white;
+                }
+
+                &::after {
+                    background-color: white;
+                }
+            }
+
+            .menu-ativo {
+                &::before {
+                    box-shadow: 0 0 0 white;
+                }
+
+                &::after {
+                    box-shadow: 0 0 0 white;
+                }
+            }
+        }
+    }
+}
+
+header.scrolled {
+    nav {
+        .nav-mobile {
+            .menu-hamburguer {
+                &::before {
+                    background-color: var(--ciano);
+                    box-shadow: 0 0.5em 0 var(--ciano);
+                }
+
+                &::after {
+                    background-color: var(--ciano);
+                }
+            }
+        }
+    }
+}
+
 
 /* desktops e laptops*/
 

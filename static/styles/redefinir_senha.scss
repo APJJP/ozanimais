@@ -213,6 +213,49 @@ main {
     }
 }
 
+header {
+    nav {    
+        .nav-mobile {
+            .menu-hamburguer {
+                &::before {
+                    content: '';
+                    width: 2em;
+                    height: 3px;
+                    background-color: var(--ciano);
+                    position: absolute;
+                    transition: 0.2s;
+                    transform: translateY(-0.5em);
+                    box-shadow: 0 0.5em 0 var(--ciano);
+                }
+
+                &::after {
+                    content: '';
+                    width: 2em;
+                    height: 3px;
+                    background-color: var(--ciano);
+                    position: absolute;
+                    transition: 0.2s;
+                    transform: translateY(0.5em);
+                }
+            }
+
+            .menu-ativo {
+                &::before {
+                    background-color: white;
+                    transform: translateY(0px) rotate(45deg);
+                    box-shadow: 0 0 0 white;
+                }
+
+                &::after {
+                    background-color: white;
+                    transform: translateY(0px) rotate(-45deg);
+                    box-shadow: 0 0 0 white;
+                }
+            }
+        }
+    }
+}
+
 
 /* tablets */
 @media screen and (min-width: 600px) and (max-width: 1024px) {
