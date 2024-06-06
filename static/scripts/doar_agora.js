@@ -5,6 +5,11 @@ let btnDoar = document.querySelector('#doar')
 let opcaoPix = document.querySelector("#pix")
 let divPagamentoPix = document.querySelector(".pix-pagamento")
 let valorAPagar = document.querySelector("#valor-total")
+let codigoPix = document.querySelector('#codigo-pix')
+let btnCopiar = document.querySelector('#copiar-pix')
+
+/* codigoPix.value = 'Teste de copiar texto' */
+
 
 // Restringe a entrada para permitir apenas caracteres numéricos e vírgula removendo caracteres não numéricos e não vírgula
 function permitirApenasNumerosEVirgula(char) {
@@ -39,7 +44,7 @@ function formatarValor(number) {
     return parteInteira + parteDecimal
 }
 
-
+// Função para converter a string do valor para um número float
 function stringParaFloat(valorString) {
     // Remove os pontos de milhar da string e substitui a vírgula por ponto
     var valorNumerico = valorString.replace(/\./g, "").replace(",", ".")
@@ -59,9 +64,22 @@ btnDoar.addEventListener('click', function (event) {
             valorAPagar.innerText = `R$ ${inputValorDoacao.value}`
             
             /* gerarPix(inputValorDoacao.value) */
+            codigoPix.value = 'Teste de copiar texto'
         }
     }
     else {
         msgErroValor.classList.toggle('off')
     }
+})
+
+btnCopiar.addEventListener('click', function (event) {
+    let texto = codigoPix.value
+
+    navigator.clipboard.writeText(texto)
+        .then(() => {
+            alert("Texto copiado para a área de transferência: " + texto)
+        })
+        .catch(err => {
+            console.error('Falha ao copiar texto: ', err)
+        })
 })

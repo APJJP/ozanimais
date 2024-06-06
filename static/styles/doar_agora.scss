@@ -161,6 +161,8 @@ main {
         }
 
         #infos-pagamento {
+            @include flex-properties($direction: column, $align: null,  $gap: 0.5em);
+
             .info-pagamento {
                 display: grid;
                 grid-template-columns: 15em auto;
@@ -178,6 +180,12 @@ main {
                     text-align: right;
                 }
             }
+
+            .linha {
+                width: 100%;
+                height: 1px;
+                background-color: var(--cinza-claro2);
+            }
         }
 
         #info-pix {
@@ -186,19 +194,43 @@ main {
             ol {
                 @include flex-properties($direction: column, $gap: 1em);
                 width: 80%;
+
+                li {
+                    text-align: center;
+                }
             }
 
             #copia-cola {
-                @include flex-properties($gap: 1em);
+                @include flex-properties($align: flex-end, $gap: 1em);
 
                 #pix-codigo {
-                    @include flex-properties($direction: column, $gap: 1em);
+                    @include flex-properties($direction: column, $gap: 0.3em);
+                    width: 50%;
+
+                    #codigo-pix {
+                        border: 1px solid rgb(215, 209, 209);
+                        outline: none;
+                        padding: 1em;
+                        border-radius: 0.5em;
+                        width: 100%;
+                        height: 3em;
+                        transition: border 0.1s ease-in-out;
+    
+                        &::placeholder {
+                            font-size: 1.2em;
+                            color: var(--placeholder);
+                        }
+
+                        &:focus {
+                            border: 2px solid var(--ciano);
+                        }
+                    }
                 }
 
                 #copiar-pix {
                     @include flex-properties($gap: 0.8em);
                     width: 10em;
-                    height: 3.2em;
+                    height: 3em;
                     outline: none;
                     border: none;
                     border-radius: 1.5em;
@@ -303,6 +335,9 @@ header {
 /* desktops e laptops */
 @media screen and (min-width: 1025px) {
     main {
+        padding-top: 6em;
+        padding-bottom: 2em;
+
         .doacao, .pix-pagamento {
             width: 30em;
             min-height: 30em;

@@ -17,6 +17,7 @@
   --laranja: rgb(253,102,81);
   --laranja-interaction: #ff472f;
   --cinza-claro: #CBCBCB;
+  --cinza-claro2: rgb(215, 209, 209);
   --cinza: #7A777E;
   --cinza-escuro: #1E1E1E;
   --placeholder: rgb(141, 138, 138);
@@ -636,6 +637,12 @@ main .pix-pagamento {
 main .pix-pagamento h2, main .pix-pagamento h3 {
   text-align: center;
 }
+main .pix-pagamento #infos-pagamento {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5em;
+}
 main .pix-pagamento #infos-pagamento .info-pagamento {
   display: grid;
   grid-template-columns: 15em auto;
@@ -650,6 +657,11 @@ main .pix-pagamento #infos-pagamento .info-pagamento .valor-total {
 }
 main .pix-pagamento #infos-pagamento .info-pagamento .valor {
   text-align: right;
+}
+main .pix-pagamento #infos-pagamento .linha {
+  width: 100%;
+  height: 1px;
+  background-color: var(--cinza-claro2);
 }
 main .pix-pagamento #info-pix {
   display: flex;
@@ -666,10 +678,13 @@ main .pix-pagamento #info-pix ol {
   gap: 1em;
   width: 80%;
 }
+main .pix-pagamento #info-pix ol li {
+  text-align: center;
+}
 main .pix-pagamento #info-pix #copia-cola {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   gap: 1em;
 }
 main .pix-pagamento #info-pix #copia-cola #pix-codigo {
@@ -677,7 +692,28 @@ main .pix-pagamento #info-pix #copia-cola #pix-codigo {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1em;
+  gap: 0.3em;
+  width: 50%;
+}
+main .pix-pagamento #info-pix #copia-cola #pix-codigo #codigo-pix {
+  border: 1px solid rgb(215, 209, 209);
+  outline: none;
+  padding: 1em;
+  border-radius: 0.5em;
+  width: 100%;
+  height: 3em;
+  transition: border 0.1s ease-in-out;
+}
+main .pix-pagamento #info-pix #copia-cola #pix-codigo #codigo-pix::-moz-placeholder {
+  font-size: 1.2em;
+  color: var(--placeholder);
+}
+main .pix-pagamento #info-pix #copia-cola #pix-codigo #codigo-pix::placeholder {
+  font-size: 1.2em;
+  color: var(--placeholder);
+}
+main .pix-pagamento #info-pix #copia-cola #pix-codigo #codigo-pix:focus {
+  border: 2px solid var(--ciano);
 }
 main .pix-pagamento #info-pix #copia-cola #copiar-pix {
   display: flex;
@@ -685,7 +721,7 @@ main .pix-pagamento #info-pix #copia-cola #copiar-pix {
   align-items: center;
   gap: 0.8em;
   width: 10em;
-  height: 3.2em;
+  height: 3em;
   outline: none;
   border: none;
   border-radius: 1.5em;
@@ -767,6 +803,10 @@ header nav .nav-mobile .menu-ativo::after {
 } */
 /* desktops e laptops */
 @media screen and (min-width: 1025px) {
+  main {
+    padding-top: 6em;
+    padding-bottom: 2em;
+  }
   main .doacao, main .pix-pagamento {
     width: 30em;
     min-height: 30em;
