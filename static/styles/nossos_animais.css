@@ -503,4 +503,129 @@ header nav .nav-mobile .menu-ativo::after {
   background-color: white;
   transform: translateY(0px) rotate(-45deg);
   box-shadow: 0 0 0 white;
+}
+
+/* desktop first */
+main {
+  padding-top: 7em;
+}
+main h1 {
+  text-align: center;
+  margin-bottom: 2em;
+}
+main .animais.desktop {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+main .animais.desktop #linha1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+main .animais.desktop #linha1 .animal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  border-radius: 1.5em;
+  background-color: white;
+}
+main .animais.desktop #linha1 .animal .img-animal {
+  width: 17em;
+  height: 15em;
+  border-top-right-radius: 1.5em;
+  border-top-left-radius: 1.5em;
+  background-color: var(--ciano);
+}
+main .animais.desktop #linha1 .animal .infos-animal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.1em;
+}
+main .animais.desktop #linha1 .animal .conhecer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 3.2em;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  padding: 0.8em;
+  outline: none;
+  border: none;
+  border-radius: 1.8em;
+  background-color: var(--laranja);
+  transition: background-color 0.2s ease-in-out;
+}
+main .animais.desktop #linha1 .animal .conhecer:hover, main .animais.desktop #linha1 .animal .conhecer:active {
+  background-color: var(--laranja-interaction);
+  cursor: pointer;
+}
+main .animais.desktop #linha1 .animal .conhecer span {
+  color: white;
+  font-size: 1.2em;
+}
+main .animais.mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+main .animais.mobile .animal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  width: 80%;
+  border-radius: 1.5em;
+  background-color: white;
+}
+main .animais.mobile .animal .img-animal {
+  width: 100%;
+  height: 15em;
+  border-top-right-radius: 1.5em;
+  border-top-left-radius: 1.5em;
+  background-color: var(--ciano);
+}
+main .animais.mobile .animal .infos-animal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.1em;
+}
+main .animais.mobile .animal .conhecer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 3.2em;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  padding: 0.8em;
+  outline: none;
+  border: none;
+  border-radius: 1.8em;
+  background-color: var(--laranja);
+  transition: background-color 0.2s ease-in-out;
+}
+main .animais.mobile .animal .conhecer:hover, main .animais.mobile .animal .conhecer:active {
+  background-color: var(--laranja-interaction);
+  cursor: pointer;
+}
+main .animais.mobile .animal .conhecer span {
+  color: white;
+  font-size: 1.2em;
+}
+main .animais.off {
+  display: none;
 }/*# sourceMappingURL=nossos_animais.css.map */

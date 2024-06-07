@@ -44,3 +44,117 @@ header {
         }
     }
 }
+
+/* desktop first */
+
+main {
+    padding-top: 7em;
+
+    h1 {
+        text-align: center;
+        margin-bottom: 2em;
+    }
+
+    .animais {
+        &.desktop {
+            @include flex-properties($direction: column, $gap: 2em);
+
+            #linha1 {
+                @include flex-properties($gap: 2em);
+
+                .animal {
+                    @include flex-properties($direction: column, $gap: 1em);
+                    border-radius: 1.5em;
+                    background-color: white;
+
+                    .img-animal {
+                        width: 17em;
+                        height: 15em;
+                        border-top-right-radius: 1.5em;
+                        border-top-left-radius: 1.5em;
+                        background-color: var(--ciano);
+                    }
+
+                    .infos-animal {
+                        @include flex-properties($direction: column, $gap: 0.1em);
+                    }
+
+                    .conhecer {
+                        @include flex-properties();
+                        width: 60%;
+                        height: 3.2em;
+                        margin-top: 1em;
+                        margin-bottom: 2em;
+                        padding: 0.8em;
+                        outline: none;
+                        border:none;
+                        border-radius: 1.8em;
+                        background-color: var(--laranja);                       
+                        transition: background-color 0.2s ease-in-out;
+
+                        &:hover, &:active {
+                            background-color: var(--laranja-interaction);
+                            cursor: pointer;
+                        }
+
+                        span {
+                            color: white;
+                            font-size: 1.2em;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.mobile {
+            @include flex-properties($direction: column, $gap: 2em);
+
+            .animal {
+                @include flex-properties($direction: column, $gap: 1em);
+                width: 80%;
+                border-radius: 1.5em;
+                background-color: white;
+
+                .img-animal {
+                    width: 100%;
+                    height: 15em;
+                    border-top-right-radius: 1.5em;
+                    border-top-left-radius: 1.5em;
+                    background-color: var(--ciano);
+                }
+
+                .infos-animal {
+                    @include flex-properties($direction: column, $gap: 0.1em);
+                }
+
+                .conhecer {
+                    @include flex-properties();
+                    width: 60%;
+                    height: 3.2em;
+                    margin-top: 1em;
+                    margin-bottom: 2em;
+                    padding: 0.8em;
+                    outline: none;
+                    border:none;
+                    border-radius: 1.8em;
+                    background-color: var(--laranja);                       
+                    transition: background-color 0.2s ease-in-out;
+
+                    &:hover, &:active {
+                        background-color: var(--laranja-interaction);
+                        cursor: pointer;
+                    }
+
+                    span {
+                        color: white;
+                        font-size: 1.2em;
+                    }
+                }
+            }
+        }
+
+        &.off {
+            display: none;
+        }
+    }
+}
