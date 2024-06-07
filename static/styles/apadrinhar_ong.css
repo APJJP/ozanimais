@@ -520,7 +520,7 @@ main #cadastro-padrinho {
   background-color: white;
   box-shadow: 0px 0px 25px -10px #000000;
 }
-main #cadastro-padrinho #infos-cadastro {
+main #cadastro-padrinho .infos-cadastro {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -533,57 +533,118 @@ main #cadastro-padrinho #infos-cadastro {
   border-radius: 1.5em;
   background-color: var(--ciano);
 }
-main #cadastro-padrinho #infos-cadastro h2, main #cadastro-padrinho #infos-cadastro p {
+main #cadastro-padrinho .infos-cadastro h1, main #cadastro-padrinho .infos-cadastro p {
   color: white;
   text-align: center;
 }
-main #cadastro-padrinho #formulario-cadastro {
+main #cadastro-padrinho .formulario-cadastro {
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 1;
 }
-main #cadastro-padrinho #formulario-cadastro form {
+main #cadastro-padrinho .formulario-cadastro form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2em;
+  gap: 3em;
   width: 100%;
+  padding-top: 6em;
+  position: relative;
 }
-main #cadastro-padrinho #formulario-cadastro form .inputs {
+main #cadastro-padrinho .formulario-cadastro form .inputs {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1em;
+  gap: 3em;
   width: 80%;
 }
-main #cadastro-padrinho #formulario-cadastro form .inputs input {
+main #cadastro-padrinho .formulario-cadastro form .inputs .input {
+  width: 45.5%;
+  position: relative;
+}
+main #cadastro-padrinho .formulario-cadastro form .inputs .input input {
   border: 1px solid rgb(215, 209, 209);
   outline: none;
   padding: 1em;
   border-radius: 0.5em;
-  width: 45.5%;
+  width: 100%;
   height: 3.5em;
   transition: border 0.1s ease-in-out;
 }
-main #cadastro-padrinho #formulario-cadastro form .inputs input::-moz-placeholder {
+main #cadastro-padrinho .formulario-cadastro form .inputs .input input::-moz-placeholder {
   font-size: 1.2em;
   color: var(--placeholder);
 }
-main #cadastro-padrinho #formulario-cadastro form .inputs input::placeholder {
+main #cadastro-padrinho .formulario-cadastro form .inputs .input input::placeholder {
   font-size: 1.2em;
   color: var(--placeholder);
 }
-main #cadastro-padrinho #formulario-cadastro form .inputs input:focus {
+main #cadastro-padrinho .formulario-cadastro form .inputs .input input:focus {
   border: 2px solid var(--ciano);
 }
-main #cadastro-padrinho #formulario-cadastro form #declaracao {
-  width: 80%;
+main #cadastro-padrinho .formulario-cadastro form .inputs .input p {
+  position: absolute;
+  bottom: -1.8em;
+  left: 0;
+  font-size: 0.9em;
+  color: red;
 }
-main #cadastro-padrinho #formulario-cadastro form #declaracao label {
+main #cadastro-padrinho .formulario-cadastro form .inputs .input-invalido input {
+  border: 1px solid red;
+}
+main #cadastro-padrinho .formulario-cadastro form .declaracao {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 80%;
+  margin-top: 2em;
+  position: relative;
+}
+main #cadastro-padrinho .formulario-cadastro form .declaracao input[type=radio] {
+  display: none;
+}
+main #cadastro-padrinho .formulario-cadastro form .declaracao input[type=radio] + label:before {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.2em;
+  border: 1px solid gray;
+  border-radius: 50%;
+  background-color: white;
+  content: "";
+  box-sizing: border-box;
+  cursor: pointer;
+}
+main #cadastro-padrinho .formulario-cadastro form .declaracao input[type=radio]:checked + label:before {
+  background-color: var(--ciano);
+  outline: 1px solid var(--ciano);
+  border: 3px solid white;
+  box-sizing: border-box;
+}
+main #cadastro-padrinho .formulario-cadastro form .declaracao label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
   color: var(--placeholder);
-  text-align: center;
+  text-align: justify;
+}
+main #cadastro-padrinho .formulario-cadastro form .declaracao .msg-erro {
+  position: absolute;
+  bottom: -1.8em;
+  left: 0;
+  font-size: 0.9em;
+  color: red;
+}
+main #cadastro-padrinho .formulario-cadastro form .unchecked input[type=radio] + label:before {
+  border: 1px solid red;
+}
+main #cadastro-padrinho .formulario-cadastro form #info-asterisco {
+  position: absolute;
+  top: 0;
+  left: 10%;
+  color: var(--placeholder);
 }
 main #cadastro-padrinho #cadastrar {
   display: flex;

@@ -56,36 +56,56 @@
 
         <main>
             <div id="cadastro-padrinho">
-                <div id="infos-cadastro">
-                    <h2>Apadrinhe a ONG</h2>
+                <div class="infos-cadastro">
+                    <h1>Apadrinhe a ONG</h1>
                     <p>Para se tornar um padrinho ou madrinha da ONG, preencha o formulário ao lado com seus dados. Ao se cadastrar, você receberá mensalmente uma cobrança de R$ 5,00.</p>
                 </div>
 
-                <div id="formulario-cadastro">
-                    <form>
+                <div class="formulario-cadastro">
+                    <form id="cadastro">
                         <div id="nome-completo" class="inputs">
-                            <input type="text" name="nome" id="nome"  placeholder='Nome' maxlength=200 required>
-                            
-                            <input type="text" name="sobrenome" id="sobrenome"  placeholder='Sobrenome' maxlength=200 required>
+                            <div class="input div-nome">
+                                <input type="text" name="nome" id="nome"  placeholder='Nome*' maxlength=255 required>
+                                <p class="msg-erro nome-invalido"></p>
+                            </div>
+
+                            <div class="input div-sobrenome">
+                                <input type="text" name="sobrenome" id="sobrenome"  placeholder='Sobrenome*' maxlength=255 required>
+                                <p class="msg-erro sobrenome-invalido"></p>
+                            </div>
                         </div>
             
                         <div id="contato" class="inputs">
-                            <input type="email" name="email" id="email" placeholder='Email' maxlength=200 required>
+                            <div class="input div-email">
+                                <input type="email" name="email" id="email" placeholder='Email*' maxlength=255 required>
 
-                            <input type="tel" name="telefone" id="telefone" placeholder='Telefone' required>
+                                <p class="msg-erro email-invalido"></p>
+                            </div>
+                            
+                            <div class="input div-telefone">
+                                <input type="tel" name="telefone" id="telefone" placeholder='Telefone*' required>
+
+                                <p class="msg-erro tel-invalido"></p>
+                            </div>
+                            
                         </div>
 
-                        <div id="declaracao">
-                            <input type="radio" id="pix" name="forma_pagamento" value="pix" required>
+                        <div class="declaracao">
+                            <input type="radio" id="radio-declaracao" name="radio-declaracao" required>
 
-                            <label for="pix">Estou ciente de que a doação será cobrada automaticamente todo mês.</label>
+                            <label for="radio-declaracao">Estou ciente de que a doação será cobrada automaticamente todo mês.*</label>
+
+                            <p class="msg-erro declaracao-unchecked"></p>
                         </div>
 
-                        <button id="cadastrar"><span>Cadastrar</span></button>
+                        <button id="cadastrar"><span>Se cadastrar</span></button>
+
+                        <p id="info-asterisco">* Indica um campo obrigatório</p>
                     </form>
                 </div>
             </div>
         </main>
+
 
         <!-- Ioicons -->
         <script  type="module"  src ="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" ></script> 
@@ -94,11 +114,19 @@
         <!-- Swiper -->
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+        <!-- jQuery Mask Plugin -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+
+        
         <!-- Script do menu hamburguer -->
         <script src="/static/scripts/menu_hamburguer.js"></script>
-        
+
         <!-- Script principal -->
-        <!-- <script src="/static/scripts/apadrinhar_ong.js"></script> -->
+        <script src="/static/scripts/apadrinhar_ong.js"></script>
     </body>
 
 </html>

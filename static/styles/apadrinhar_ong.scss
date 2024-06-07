@@ -57,7 +57,7 @@ main {
         background-color: white;
         box-shadow: 0px 0px 25px -10px #000000;
 
-        #infos-cadastro {
+        .infos-cadastro {
             @include flex-properties($direction: column, $gap: 1em);
             width: 40%;
             height: 30em;
@@ -66,53 +66,127 @@ main {
             border-radius: 1.5em;
             background-color: var(--ciano);
             
-            h2, p {
+            h1, p {
                 color:white;
                 text-align: center;
             }
         }
 
-        #formulario-cadastro {
+        .formulario-cadastro {
             @include flex-properties();
             flex: 1;
 
             form {
-                @include flex-properties($direction: column, $gap: 2em);
+                @include flex-properties($direction: column, $gap: 3em);
                 width: 100%;
+                padding-top: 6em;
+                position: relative;
 
                 .inputs {
-                    @include flex-properties($gap: 1em);
+                    @include flex-properties($gap: 3em);
                     width: 80%;
 
-                    input {
-                        border: 1px solid rgb(215, 209, 209);
-                        outline: none;
-                        padding: 1em;
-                        border-radius: 0.5em;
+                    .input {
                         width: 45.5%;
-                        height: 3.5em;
-                        transition: border 0.1s ease-in-out;
+                        position: relative;
+
+                        input {
+                            border: 1px solid rgb(215, 209, 209);
+                            outline: none;
+                            padding: 1em;
+                            border-radius: 0.5em;
+                            width: 100%;
+                            height: 3.5em;
+                            transition: border 0.1s ease-in-out;
+        
+                            &::placeholder {
+                                font-size: 1.2em;
+                                color: var(--placeholder);
+                            }
     
-                        &::placeholder {
-                            font-size: 1.2em;
-                            color: var(--placeholder);
+                            &:focus {
+                                border: 2px solid var(--ciano);
+                            }
                         }
 
-                        &:focus {
-                            border: 2px solid var(--ciano);
+                        p {
+                            position: absolute;
+                            bottom: -1.8em;
+                            left: 0;
+                            font-size: 0.9em;
+                            color: red;
+                        }
+                    }
+
+                    .input-invalido {
+                        input {
+                            border: 1px solid red;
                         }
                     }
                 }
 
-                #declaracao {
+                .declaracao {
+                    @include flex-properties($direction: row, $justify: null);
                     width: 80%;
+                    margin-top: 2em;
+                    position: relative;
+
+                    input[type="radio"] {
+                        display: none;
+
+                        + label:before {
+                            display: inline-block;
+                            width: 1.5em;
+                            height: 1.2em;
+                            border: 1px solid gray;
+                            border-radius: 50%;
+                            background-color: white;
+                            content: '';
+                            box-sizing: border-box;
+                            cursor: pointer;
+                        }
+
+                        &:checked + label:before {
+                            background-color: var(--ciano);
+                            outline: 1px solid var(--ciano);
+                            border: 3px solid white;
+                            box-sizing: border-box;
+                        }
+                    }
 
                     label {
+                        @include flex-properties($gap: 1.5em);
                         color: var(--placeholder);
-                        text-align: center;
+                        text-align: justify;
+                    }
+
+                    .msg-erro {
+                        position: absolute;
+                            bottom: -1.8em;
+                            left: 0;
+                            font-size: 0.9em;
+                            color: red;
                     }
                 }
+
+                .unchecked {
+                    input[type="radio"] {
+
+                        + label:before {
+                            border: 1px solid red;
+                        }
+                    }
+                }
+
+                #info-asterisco {
+                    position: absolute;
+                    top: 0;
+                    left: 10%;
+                    color: var(--placeholder);
+                }
             }
+
+            
         }
 
         #cadastrar {
