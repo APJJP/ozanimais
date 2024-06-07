@@ -17,6 +17,7 @@
   --laranja: rgb(253,102,81);
   --laranja-interaction: #ff472f;
   --cinza-claro: #CBCBCB;
+  --cinza-claro2: rgb(215, 209, 209);
   --cinza: #7A777E;
   --cinza-escuro: #1E1E1E;
   --placeholder: rgb(141, 138, 138);
@@ -502,4 +503,106 @@ header nav .nav-mobile .menu-ativo::after {
   background-color: white;
   transform: translateY(0px) rotate(-45deg);
   box-shadow: 0 0 0 white;
+}
+
+/* desktop first */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main #cadastro-padrinho {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  border-radius: 1.5em;
+  background-color: white;
+  box-shadow: 0px 0px 25px -10px #000000;
+}
+main #cadastro-padrinho #infos-cadastro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  width: 40%;
+  height: 30em;
+  margin: 1em;
+  padding: 2em;
+  border-radius: 1.5em;
+  background-color: var(--ciano);
+}
+main #cadastro-padrinho #infos-cadastro h2, main #cadastro-padrinho #infos-cadastro p {
+  color: white;
+  text-align: center;
+}
+main #cadastro-padrinho #formulario-cadastro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+main #cadastro-padrinho #formulario-cadastro form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  width: 100%;
+}
+main #cadastro-padrinho #formulario-cadastro form .inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  width: 80%;
+}
+main #cadastro-padrinho #formulario-cadastro form .inputs input {
+  border: 1px solid rgb(215, 209, 209);
+  outline: none;
+  padding: 1em;
+  border-radius: 0.5em;
+  width: 45.5%;
+  height: 3.5em;
+  transition: border 0.1s ease-in-out;
+}
+main #cadastro-padrinho #formulario-cadastro form .inputs input::-moz-placeholder {
+  font-size: 1.2em;
+  color: var(--placeholder);
+}
+main #cadastro-padrinho #formulario-cadastro form .inputs input::placeholder {
+  font-size: 1.2em;
+  color: var(--placeholder);
+}
+main #cadastro-padrinho #formulario-cadastro form .inputs input:focus {
+  border: 2px solid var(--ciano);
+}
+main #cadastro-padrinho #formulario-cadastro form #declaracao {
+  width: 80%;
+}
+main #cadastro-padrinho #formulario-cadastro form #declaracao label {
+  color: var(--placeholder);
+  text-align: center;
+}
+main #cadastro-padrinho #cadastrar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  height: 3.2em;
+  outline: none;
+  border: none;
+  border-radius: 1.8em;
+  padding: 0.8em;
+  background-color: var(--laranja);
+  transition: background-color 0.2s ease-in-out;
+}
+main #cadastro-padrinho #cadastrar:hover, main #cadastro-padrinho #cadastrar:active {
+  background-color: var(--laranja-interaction);
+  cursor: pointer;
+}
+main #cadastro-padrinho #cadastrar span {
+  color: white;
+  font-size: 1.2em;
 }/*# sourceMappingURL=apadrinhar_ong.css.map */

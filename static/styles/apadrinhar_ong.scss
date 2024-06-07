@@ -44,3 +44,97 @@ header {
         }
     }
 }
+
+/* desktop first */
+
+main {
+    @include flex-properties();
+
+    #cadastro-padrinho {
+        @include flex-properties();
+        width: 80%;
+        border-radius: 1.5em;
+        background-color: white;
+        box-shadow: 0px 0px 25px -10px #000000;
+
+        #infos-cadastro {
+            @include flex-properties($direction: column, $gap: 1em);
+            width: 40%;
+            height: 30em;
+            margin: 1em;
+            padding: 2em;
+            border-radius: 1.5em;
+            background-color: var(--ciano);
+            
+            h2, p {
+                color:white;
+                text-align: center;
+            }
+        }
+
+        #formulario-cadastro {
+            @include flex-properties();
+            flex: 1;
+
+            form {
+                @include flex-properties($direction: column, $gap: 2em);
+                width: 100%;
+
+                .inputs {
+                    @include flex-properties($gap: 1em);
+                    width: 80%;
+
+                    input {
+                        border: 1px solid rgb(215, 209, 209);
+                        outline: none;
+                        padding: 1em;
+                        border-radius: 0.5em;
+                        width: 45.5%;
+                        height: 3.5em;
+                        transition: border 0.1s ease-in-out;
+    
+                        &::placeholder {
+                            font-size: 1.2em;
+                            color: var(--placeholder);
+                        }
+
+                        &:focus {
+                            border: 2px solid var(--ciano);
+                        }
+                    }
+                }
+
+                #declaracao {
+                    width: 80%;
+
+                    label {
+                        color: var(--placeholder);
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        #cadastrar {
+            @include flex-properties();
+            width: 25%;
+            height: 3.2em;
+            outline: none;
+            border: none;
+            border-radius: 1.8em;
+            padding: 0.8em;
+            background-color: var(--laranja);
+            transition: background-color 0.2s ease-in-out;
+
+            &:hover, &:active {
+                background-color: var(--laranja-interaction);
+                cursor: pointer;
+            }
+
+            span {
+                color: white;
+                font-size: 1.2em;
+            }
+        }
+    }
+}
