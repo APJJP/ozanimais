@@ -2,6 +2,12 @@
 
 @import 'base';
 
+.swiper-button-prev, .swiper-button-next {
+    display: none;
+}
+
+/* mobile first */
+
 header {
     nav {    
         .nav-mobile {
@@ -45,10 +51,10 @@ header {
     }
 }
 
-/* desktop first */
-
 main {
-    padding-top: 7em;
+    @include flex-properties($direction: column);
+    /* padding-top: 7em;
+    padding-bottom: 4em; */
 
     h1 {
         text-align: center;
@@ -56,105 +62,183 @@ main {
     }
 
     .animais {
-        &.desktop {
-            @include flex-properties($direction: column, $gap: 2em);
+        display: grid;
+        grid-template-columns: auto; /* Define 3 colunas */
+        row-gap: 3em;
+        place-items: center;
+        width: 80%;
 
-            #linha1 {
-                @include flex-properties($gap: 2em);
+        .animal {
+            @include flex-properties($direction: column, $gap: 1em);
+            width: 100%;
+            border-radius: 1.5em;
+            background-color: white;
 
-                .animal {
-                    @include flex-properties($direction: column, $gap: 1em);
-                    border-radius: 1.5em;
-                    background-color: white;
+            .img-animal {
+                @include flex-properties();
+                width: 100%;
+                height: 15em;
+                border-top-right-radius: 1.5em;
+                border-top-left-radius: 1.5em;
+                background-color: var(--ciano);
 
-                    .img-animal {
-                        width: 17em;
-                        height: 15em;
-                        border-top-right-radius: 1.5em;
-                        border-top-left-radius: 1.5em;
-                        background-color: var(--ciano);
-                    }
+                img {
+                    width: 75%;
+                }
+            }
 
-                    .infos-animal {
-                        @include flex-properties($direction: column, $gap: 0.1em);
-                    }
+            .infos-animal {
+                @include flex-properties($direction: column, $gap: 0.1em);
+            }
 
-                    .conhecer {
-                        @include flex-properties();
-                        width: 60%;
-                        height: 3.2em;
-                        margin-top: 1em;
-                        margin-bottom: 2em;
-                        padding: 0.8em;
-                        outline: none;
-                        border:none;
-                        border-radius: 1.8em;
-                        background-color: var(--laranja);                       
-                        transition: background-color 0.2s ease-in-out;
+            .conhecer {
+                @include flex-properties();
+                width: 60%;
+                height: 3.2em;
+                margin-top: 1em;
+                margin-bottom: 2em;
+                padding: 0.8em;
+                outline: none;
+                border:none;
+                border-radius: 1.8em;
+                background-color: var(--laranja);                       
+                transition: background-color 0.2s ease-in-out;
 
-                        &:hover, &:active {
-                            background-color: var(--laranja-interaction);
-                            cursor: pointer;
-                        }
+                &:hover, &:active {
+                    background-color: var(--laranja-interaction);
+                    cursor: pointer;
+                }
 
-                        span {
-                            color: white;
-                            font-size: 1.2em;
-                        }
-                    }
+                span {
+                    color: white;
+                    font-size: 1.2em;
                 }
             }
         }
 
-        &.mobile {
-            @include flex-properties($direction: column, $gap: 2em);
-
-            .animal {
-                @include flex-properties($direction: column, $gap: 1em);
-                width: 80%;
-                border-radius: 1.5em;
-                background-color: white;
-
-                .img-animal {
-                    width: 100%;
-                    height: 15em;
-                    border-top-right-radius: 1.5em;
-                    border-top-left-radius: 1.5em;
-                    background-color: var(--ciano);
+        .animal2 {
+            .img-animal {
+                img {
+                    width: 68.5%;
                 }
+            }   
+        }
 
-                .infos-animal {
-                    @include flex-properties($direction: column, $gap: 0.1em);
-                }
-
-                .conhecer {
-                    @include flex-properties();
+        .animal3 {
+            .img-animal {
+                img {
                     width: 60%;
-                    height: 3.2em;
-                    margin-top: 1em;
-                    margin-bottom: 2em;
-                    padding: 0.8em;
-                    outline: none;
-                    border:none;
-                    border-radius: 1.8em;
-                    background-color: var(--laranja);                       
-                    transition: background-color 0.2s ease-in-out;
+                }
+            }   
+        }
 
-                    &:hover, &:active {
-                        background-color: var(--laranja-interaction);
-                        cursor: pointer;
-                    }
-
-                    span {
-                        color: white;
-                        font-size: 1.2em;
-                    }
+        .animal4 {
+            .img-animal {
+                img {
+                    width: 81.5%;
                 }
             }
         }
 
-        &.off {
-            display: none;
+        .animal6 {
+            .img-animal {
+                img {
+                    width: 39%;
+                }
+            }   
+        }
+    }
+
+    #animal-Vida {
+        @include flex-properties($direction: column, $align: null, $gap:null);
+        width: 100%;
+        padding: 0;
+        position: relative;
+
+        .swiperVida {
+            height: 25em;
+            width: 100%;
+        }
+
+        #historia-Vida {
+            @include flex-properties($direction: column, $gap: 1em);
+            width: 100%;
+            padding: 2em 3em;
+
+            h1 {
+                margin-bottom: 0;
+            }
+
+            #resumo {
+                @include flex-properties($direction: column, $gap: 1em);
+
+                p {
+                    text-align: justify;
+                }
+            }
+        }
+
+        #btn-voltar {
+            @include flex-properties();
+            position: absolute;
+            top: 1em;
+            left: 1em;
+            z-index: 899;
+
+            .icon-voltar {
+                @include flex-properties;
+                width: 3em;
+                height: 3em;
+                background-color: #ECECEC;
+                border-radius: 50%;
+                transition: background-color 0.2s ease-in-out;
+                
+                &:hover, &:active {
+                    background-color: var(--cinza-claro);
+                    cursor: pointer;
+                }
+    
+                i {
+                    font-size: 1.6em;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    main {
+        padding-bottom: 0;
+
+        .animais {
+            grid-template-columns: repeat(3, 1fr); /* Define 3 colunas */
+            column-gap: 3em;
+            width: 80%;
+        }
+
+        #animal-Vida {
+            @include flex-properties($direction:row, $align: null, $gap:null);
+            padding: 0;
+            width: 100%;
+    
+            .swiperVida {
+                min-height: 110vh;
+                width: 50%;
+            }
+    
+            #historia-Vida {
+                width: 50%;
+                @include flex-properties($direction: column, $gap: 1em);
+                padding: 0 2em;
+    
+                h1 {
+                    margin-bottom: 0;
+                }
+    
+                #resumo {
+                    @include flex-properties($direction: column, $gap: 1em);
+                }
+            }
         }
     }
 }

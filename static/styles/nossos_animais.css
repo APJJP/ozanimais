@@ -475,6 +475,11 @@ footer #footer-bottom {
   width: 100%;
 }
 
+.swiper-button-prev, .swiper-button-next {
+  display: none;
+}
+
+/* mobile first */
 header nav .nav-mobile .menu-hamburguer::before {
   content: "";
   width: 2em;
@@ -505,105 +510,56 @@ header nav .nav-mobile .menu-ativo::after {
   box-shadow: 0 0 0 white;
 }
 
-/* desktop first */
 main {
-  padding-top: 7em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* padding-top: 7em;
+  padding-bottom: 4em; */
 }
 main h1 {
   text-align: center;
   margin-bottom: 2em;
 }
-main .animais.desktop {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2em;
-}
-main .animais.desktop #linha1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2em;
-}
-main .animais.desktop #linha1 .animal {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1em;
-  border-radius: 1.5em;
-  background-color: white;
-}
-main .animais.desktop #linha1 .animal .img-animal {
-  width: 17em;
-  height: 15em;
-  border-top-right-radius: 1.5em;
-  border-top-left-radius: 1.5em;
-  background-color: var(--ciano);
-}
-main .animais.desktop #linha1 .animal .infos-animal {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0.1em;
-}
-main .animais.desktop #linha1 .animal .conhecer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 60%;
-  height: 3.2em;
-  margin-top: 1em;
-  margin-bottom: 2em;
-  padding: 0.8em;
-  outline: none;
-  border: none;
-  border-radius: 1.8em;
-  background-color: var(--laranja);
-  transition: background-color 0.2s ease-in-out;
-}
-main .animais.desktop #linha1 .animal .conhecer:hover, main .animais.desktop #linha1 .animal .conhecer:active {
-  background-color: var(--laranja-interaction);
-  cursor: pointer;
-}
-main .animais.desktop #linha1 .animal .conhecer span {
-  color: white;
-  font-size: 1.2em;
-}
-main .animais.mobile {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2em;
-}
-main .animais.mobile .animal {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1em;
+main .animais {
+  display: grid;
+  grid-template-columns: auto; /* Define 3 colunas */
+  row-gap: 3em;
+  place-items: center;
   width: 80%;
+}
+main .animais .animal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
   border-radius: 1.5em;
   background-color: white;
 }
-main .animais.mobile .animal .img-animal {
+main .animais .animal .img-animal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 15em;
   border-top-right-radius: 1.5em;
   border-top-left-radius: 1.5em;
   background-color: var(--ciano);
 }
-main .animais.mobile .animal .infos-animal {
+main .animais .animal .img-animal img {
+  width: 75%;
+}
+main .animais .animal .infos-animal {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 0.1em;
 }
-main .animais.mobile .animal .conhecer {
+main .animais .animal .conhecer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -618,14 +574,125 @@ main .animais.mobile .animal .conhecer {
   background-color: var(--laranja);
   transition: background-color 0.2s ease-in-out;
 }
-main .animais.mobile .animal .conhecer:hover, main .animais.mobile .animal .conhecer:active {
+main .animais .animal .conhecer:hover, main .animais .animal .conhecer:active {
   background-color: var(--laranja-interaction);
   cursor: pointer;
 }
-main .animais.mobile .animal .conhecer span {
+main .animais .animal .conhecer span {
   color: white;
   font-size: 1.2em;
 }
-main .animais.off {
-  display: none;
+main .animais .animal2 .img-animal img {
+  width: 68.5%;
+}
+main .animais .animal3 .img-animal img {
+  width: 60%;
+}
+main .animais .animal4 .img-animal img {
+  width: 81.5%;
+}
+main .animais .animal6 .img-animal img {
+  width: 39%;
+}
+main #animal-Vida {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+  position: relative;
+}
+main #animal-Vida .swiperVida {
+  height: 25em;
+  width: 100%;
+}
+main #animal-Vida #historia-Vida {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+  padding: 2em 3em;
+}
+main #animal-Vida #historia-Vida h1 {
+  margin-bottom: 0;
+}
+main #animal-Vida #historia-Vida #resumo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+main #animal-Vida #historia-Vida #resumo p {
+  text-align: justify;
+}
+main #animal-Vida #btn-voltar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  z-index: 899;
+}
+main #animal-Vida #btn-voltar .icon-voltar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3em;
+  height: 3em;
+  background-color: #ECECEC;
+  border-radius: 50%;
+  transition: background-color 0.2s ease-in-out;
+}
+main #animal-Vida #btn-voltar .icon-voltar:hover, main #animal-Vida #btn-voltar .icon-voltar:active {
+  background-color: var(--cinza-claro);
+  cursor: pointer;
+}
+main #animal-Vida #btn-voltar .icon-voltar i {
+  font-size: 1.6em;
+}
+
+@media screen and (min-width: 1025px) {
+  main {
+    padding-bottom: 0;
+  }
+  main .animais {
+    grid-template-columns: repeat(3, 1fr); /* Define 3 colunas */
+    -moz-column-gap: 3em;
+         column-gap: 3em;
+    width: 80%;
+  }
+  main #animal-Vida {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+  }
+  main #animal-Vida .swiperVida {
+    min-height: 110vh;
+    width: 50%;
+  }
+  main #animal-Vida #historia-Vida {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: 0 2em;
+  }
+  main #animal-Vida #historia-Vida h1 {
+    margin-bottom: 0;
+  }
+  main #animal-Vida #historia-Vida #resumo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+  }
 }/*# sourceMappingURL=nossos_animais.css.map */

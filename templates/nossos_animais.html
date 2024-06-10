@@ -9,6 +9,9 @@
         <link rel="shortcut icon" href="/static/imagens/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/static/imagens/favicon.ico" type="image/x-icon">
 
+        <!-- Remixicons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin=""/>
+
         <!-- Swiper -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
@@ -55,75 +58,30 @@
         </header>
 
         <main>
-            <h1>Conheça alguns dos nossos animais</h1>
+            <h1 id="titulo-principal">Conheça alguns dos nossos animais</h1>
 
-            <div class="animais desktop off">
-                <div id="linha1">
-                    <div class="animal animal1">
-                        <div class="img-animal"></div>
-
-                        <h2 class="nome-animal">Nome</h2>
-
-                        <div class="infos-animal">
-                            <p class="sexo">Sexo</p>
-                            <p class="raca">Raça</p>
-                            <p class="idade">Idade</p>
-                            <p class="tempo-ong">Na ONG desde:</p>
-                        </div>
-
-                        <button class="conhecer"><span>Conhecer</span></button>
-                    </div>
-
-                    <div class="animal animal2">
-                        <div class="img-animal"></div>
-
-                        <h2 class="nome-animal">Nome</h2>
-
-                        <div class="infos-animal">
-                            <p class="sexo">Sexo</p>
-                            <p class="raca">Raça</p>
-                            <p class="idade">Idade</p>
-                            <p class="tempo-ong">Na ONG desde:</p>
-                        </div>
-
-                        <button class="conhecer"><span>Conhecer</span></button>
-                    </div>
-
-                    <div class="animal animal3">
-                        <div class="img-animal"></div>
-
-                        <h2 class="nome-animal">Nome</h2>
-
-                        <div class="infos-animal">
-                            <p class="sexo">Sexo</p>
-                            <p class="raca">Raça</p>
-                            <p class="idade">Idade</p>
-                            <p class="tempo-ong">Na ONG desde:</p>
-                        </div>
-
-                        <button class="conhecer"><span>Conhecer</span></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="animais mobile">
+            <div class="animais">
                 <div class="animal animal1">
-                    <div class="img-animal"></div>
+                    <div class="img-animal">
+                        <img src="/static/imagens/vida.png">
+                    </div>
 
-                    <h2 class="nome-animal">Nome</h2>
+                    <h2 class="nome-animal">Vida</h2>
 
                     <div class="infos-animal">
-                        <p class="sexo">Sexo</p>
-                        <p class="raca">Raça</p>
-                        <p class="idade">Idade</p>
-                        <p class="tempo-ong">Na ONG desde:</p>
+                        <p class="sexo">Fêmea</p>
+                        <p class="raca">Buldogue francês</p>
+                        <p class="idade">8 anos</p>
+                        <p class="tempo-ong">Na ONG desde: 2018</p>
                     </div>
 
-                    <button class="conhecer"><span>Conhecer</span></button>
+                    <button class="conhecer" onclick="mostrarAnimal('animal-Vida')"><span>Conhecer</span></button>
                 </div>
 
                 <div class="animal animal2">
-                    <div class="img-animal"></div>
+                    <div class="img-animal">
+                        <img src="/static/imagens/dog2.png">
+                    </div>
 
                     <h2 class="nome-animal">Nome</h2>
 
@@ -138,7 +96,9 @@
                 </div>
 
                 <div class="animal animal3">
-                    <div class="img-animal"></div>
+                    <div class="img-animal">
+                        <img src="/static/imagens/dog3.png">
+                    </div>
 
                     <h2 class="nome-animal">Nome</h2>
 
@@ -150,6 +110,105 @@
                     </div>
 
                     <button class="conhecer"><span>Conhecer</span></button>
+                </div>
+
+                <div class="animal animal4">
+                    <div class="img-animal">
+                        <img src="/static/imagens/dog4.png">
+                    </div>
+
+                    <h2 class="nome-animal">Nome</h2>
+
+                    <div class="infos-animal">
+                        <p class="sexo">Sexo</p>
+                        <p class="raca">Raça</p>
+                        <p class="idade">Idade</p>
+                        <p class="tempo-ong">Na ONG desde:</p>
+                    </div>
+
+                    <button class="conhecer"><span>Conhecer</span></button>
+                </div>
+
+                <div class="animal animal5">
+                    <div class="img-animal">
+                        <img src="/static/imagens/dog5.png">
+                    </div>
+
+                    <h2 class="nome-animal">Nome</h2>
+
+                    <div class="infos-animal">
+                        <p class="sexo">Sexo</p>
+                        <p class="raca">Raça</p>
+                        <p class="idade">Idade</p>
+                        <p class="tempo-ong">Na ONG desde:</p>
+                    </div>
+
+                    <button class="conhecer"><span>Conhecer</span></button>
+                </div>
+
+                <div class="animal animal6">
+                    <div class="img-animal">
+                        <img src="/static/imagens/dog6.png">
+                    </div>
+
+                    <h2 class="nome-animal">Nome</h2>
+
+                    <div class="infos-animal">
+                        <p class="sexo">Sexo</p>
+                        <p class="raca">Raça</p>
+                        <p class="idade">Idade</p>
+                        <p class="tempo-ong">Na ONG desde:</p>
+                    </div>
+
+                    <button class="conhecer"><span>Conhecer</span></button>
+                </div>
+            </div>
+
+            <div id="animal-Vida" style="display: none;">
+                <div class="swiperVida swiper">
+
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="/static/imagens/vida2.png" alt="Slide 1"></div>
+                        <div class="swiper-slide"><img src="/static/imagens/vida3.png" alt="Slide 2"></div>
+                        <div class="swiper-slide"><img src="/static/imagens/vida4.png" alt="Slide 3"></div>
+                        <div class="swiper-slide"><img src="/static/imagens/vida5.png" alt="Slide 4"></div>
+                        <div class="swiper-slide"><img src="/static/imagens/vida6.png" alt="Slide 5"></div>
+                    </div>
+    
+                    <div class="swiper-pagination"></div>
+                </div>
+
+                <div id="historia-Vida">
+                    <h1>Vida</h1>
+
+                    <div id="resumo">
+                        <p>Em 2018, tive hérnia de disco e fiquei paralítica. Meu antigo papai, 
+                            que era patrão da minha atual mamãe, pediu ajuda a ela porque sabia do amor 
+                            incondicional que ela tem pelos animais. Ela cuidou de mim por dois meses, fazendo 
+                            vários tratamentos para eu voltar a andar. Fisioterapia, hidroterapia, acupuntura... 
+                            foram tantos procedimentos que mal me lembro de todos. Mas meu papai desistiu de mim e disse que, 
+                            se minha mamãe não ficasse comigo, ele me faria eutanásia.</p>
+                        <p>Minha mamãe, representante de vendas, não podia 
+                            ficar comigo, pois estava sempre na estrada. Com medo de perder o emprego, ela me devolveu, achando que 
+                            ele não faria maldade comigo. No dia seguinte, meu papai me levou para uma clínica para me colocar 
+                            para dormir para sempre. Por sorte, minha mamãe descobriu e, desesperada, abandonou 
+                            tudo para me salvar a tempo. Foi um milagre!</p>
+                        <p>
+                            Depois de um tempo, as coisas ficaram difíceis de novo. Meu ex-papai mudou o jeito de mamãe trabalhar, 
+                            passando de um horário flexível para um horário fixo. Isso complicou tudo, porque mamãe dependia de 
+                            duas pessoas de confiança para ficar comigo, e elas não podiam estar comigo o tempo todo.
+                            Ela tentou  de tudo para negociar com ele, até mesmo abrir mão de benefícios e aceitar trabalhar apenas 
+                            por comissão, mas ele não aceitou. No final, mamãe teve que tomar uma decisão difícil: deixar o trabalho 
+                            para cuidar de mim. E agora, graças a ela, tenho uma vida feliz ao lado de muitos outros amiguinhos 
+                            cãezinhos que ela cuida com tanto amor. Sou muito grata por ter uma mamãe tão especial.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="btn-voltar" onclick="voltarParaPaginaNormal()">
+                    <div class="icon-voltar">
+                        <i class="ri-arrow-left-s-line"></i>
+                    </div>
                 </div>
             </div>
         </main>
@@ -165,7 +224,7 @@
         <script src="/static/scripts/menu_hamburguer.js"></script>
         
         <!-- Script principal -->
-        <!-- <script src="/static/scripts/nossos_animais.js"></script> -->
+        <script src="/static/scripts/nossos_animais.js"></script>
     </body>
 
 </html>
