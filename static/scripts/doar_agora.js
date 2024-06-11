@@ -83,3 +83,28 @@ btnCopiar.addEventListener('click', function (event) {
             console.error('Falha ao copiar texto: ', err)
         })
 })
+
+
+
+
+
+window.onload = function() {
+    // Verificar se há um hash na URL ao carregar a página
+    if (window.location.hash) {
+        // Extrair o ID do animal do hash e exibi-lo
+        let tipoPix = window.location.hash.substring(1)
+        mostrarPix(tipoPix)
+    }
+}
+
+function mostrarPix(tipoPix) {
+    if (tipoPix === 'doar_arroz') {
+        inputValorDoacao.value = '35,00'
+    }
+    else if(tipoPix === 'doar_gas')  {
+        inputValorDoacao.value = '78,90'
+    }
+    else {
+        inputValorDoacao.value = '130,00'
+    }
+}

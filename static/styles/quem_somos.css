@@ -148,13 +148,14 @@ header nav .nav-mobile .menu-mobile ul {
   list-style: none;
   font-size: 1.3em;
 }
-header nav .nav-mobile .menu-mobile span {
+header nav .nav-mobile .menu-mobile a {
   padding: 5px 0;
   color: white;
+  text-decoration: none;
   position: relative;
   transition: width 0.3s ease-in-out;
 }
-header nav .nav-mobile .menu-mobile span::after {
+header nav .nav-mobile .menu-mobile a::after {
   width: 0;
   height: 2px;
   background-color: white;
@@ -164,7 +165,7 @@ header nav .nav-mobile .menu-mobile span::after {
   bottom: 0;
   transition: width 0.2s ease-in-out;
 }
-header nav .nav-mobile .menu-mobile span:hover::after {
+header nav .nav-mobile .menu-mobile a:hover::after {
   width: 100%;
 }
 header nav .nav-mobile .logo {
@@ -302,8 +303,103 @@ footer #footer-bottom {
   text-align: center;
 }
 
+/* newsletter */
+#h1-newsletter {
+  grid-area: h1;
+}
+
+form {
+  grid-area: form;
+}
+
+#newsletter {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  grid-template-areas: "h1" "form";
+  gap: 2em;
+  height: auto;
+  padding: 3em 1em;
+  background-color: #007CAC;
+}
+#newsletter h1 {
+  display: inline-block;
+  width: 80%;
+  margin: auto;
+  color: white;
+}
+#newsletter form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+#newsletter form #input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5em;
+  position: relative;
+}
+#newsletter form input {
+  width: 20em;
+  height: 3.8em;
+  outline: none;
+  border: none;
+  border-radius: 0.5em;
+  padding: 1em;
+}
+#newsletter form input::-moz-placeholder {
+  font-size: 1.2em;
+}
+#newsletter form input::placeholder {
+  font-size: 1.2em;
+}
+#newsletter form #email {
+  border-top-left-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  border-top-right-radius: 1.9em;
+  border-bottom-right-radius: 1.9em;
+}
+#newsletter form .assinar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8em;
+  height: 3.2em;
+  outline: none;
+  border: none;
+  border-radius: 1.8em;
+  padding: 0.8em;
+  background-color: var(--laranja);
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: background-color 0.2s ease-in-out;
+}
+#newsletter form .assinar:hover {
+  background-color: var(--laranja-interaction);
+  cursor: pointer;
+}
+#newsletter form .assinar span {
+  color: white;
+  font-size: 1em;
+}
+#newsletter form #nome-completo, #newsletter form #email {
+  transition: outline 0.1s ease-in-out;
+}
+#newsletter form #nome-completo:focus, #newsletter form #email:focus {
+  outline: 3px solid var(--ciano);
+}
+
 /* celulares de tela pequena */
-@media screen and (min-width: 320px) and (max-width: 370px) {
+@media screen and (max-width: 309px) {
+  header nav .nav-mobile .doe-agora {
+    display: none;
+  }
+}
+@media screen and (min-width: 310px) and (max-width: 370px) {
   header {
     font-size: 0.9em;
   }
@@ -447,6 +543,27 @@ footer #footer-bottom {
   header.scrolled nav .nav-mobile .doe-agora a {
     color: white;
   }
+  main #newsletter {
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    grid-template-areas: "h1 form";
+    gap: 0;
+    width: 100%;
+    height: 400px;
+  }
+  main #newsletter h1 {
+    width: 15em;
+  }
+  main #newsletter form input {
+    width: 40em;
+    height: 3.8em;
+  }
+  main #newsletter form input::-moz-placeholder {
+    font-size: 1.2em;
+  }
+  main #newsletter form input::placeholder {
+    font-size: 1.2em;
+  }
   footer {
     display: flex;
     flex-direction: column;
@@ -503,4 +620,72 @@ header nav .nav-mobile .menu-ativo::after {
   background-color: white;
   transform: translateY(0px) rotate(-45deg);
   box-shadow: 0 0 0 white;
+}
+
+/* mobile first */
+main {
+  padding-top: 3.5em;
+}
+main #nossa-historia {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+main #nossa-historia .imagem {
+  display: none;
+}
+main #nossa-historia .swiper {
+  width: 100%;
+}
+main #nossa-historia .swiper-slide {
+  overflow: hidden;
+}
+main #nossa-historia .swiper-slide #img3 {
+  width: 130%;
+}
+main #nossa-historia .swiper-slide #img4 {
+  width: 135%;
+}
+main #nossa-historia .texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1em;
+  padding: 3em;
+  text-align: justify;
+}
+
+/* desktops e laptops */
+@media screen and (min-width: 1025px) {
+  main #nossa-historia {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  main #nossa-historia .imagem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
+  main #nossa-historia .imagem img {
+    width: 100%;
+  }
+  main #nossa-historia .swiper {
+    display: none;
+  }
+  main #nossa-historia .texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 2em;
+    width: 50%;
+    padding: 0 3em;
+  }
 }/*# sourceMappingURL=quem_somos.css.map */

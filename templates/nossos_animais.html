@@ -34,10 +34,10 @@
 
                     <div class="menu-mobile hidden">
                         <ul>
-                            <li><span onclick="redirecionar('/')">Início</span></li>
-                            <li><span onclick="redirecionar('/quem_somos')">Quem somos</span></li>
-                            <li><span onclick="redirecionar('#')">Nossos animais</span></li>
-                            <li><span onclick="redirecionar('/como_ajudar')">Como ajudar</span></li>
+                            <li><a href="/" onclick="delayRedirection(event, this)">Início</a></li>
+                            <li><a href="/quem_somos" onclick="delayRedirection(event, this)">Quem somos</a></li>
+                            <li><a href="#" onclick="delayRedirection(event, this)">Nossos animais</a></li>
+                            <li><a href="/como_ajudar" onclick="delayRedirection(event, this)">Como ajudar</a></li>
                         </ul>
                     </div>
                     
@@ -168,9 +168,9 @@
                 <div class="swiperVida swiper">
 
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="/static/imagens/vida2.png" alt="Slide 1"></div>
-                        <div class="swiper-slide"><img src="/static/imagens/vida3.png" alt="Slide 2"></div>
-                        <div class="swiper-slide"><img src="/static/imagens/vida4.png" alt="Slide 3"></div>
+                        <div class="swiper-slide"><img src="/static/imagens/vida-capa.png" alt="Slide 1"></div>
+                        <div class="swiper-slide"><img src="/static/imagens/vida2.png" alt="Slide 2"></div>
+                        <div class="swiper-slide"><img src="/static/imagens/vida3.png" alt="Slide 3"></div>
                         <div class="swiper-slide"><img src="/static/imagens/vida5.png" alt="Slide 4"></div>
                         <div class="swiper-slide"><img src="/static/imagens/vida6.png" alt="Slide 5"></div>
                     </div>
@@ -210,6 +210,18 @@
                         <i class="ri-arrow-left-s-line"></i>
                     </div>
                 </div>
+            </div>
+
+            <div id="newsletter">
+                <h1 id="h1-newsletter">Assine nossa newsletter e fique por dentro das últimas notícias da ONG</h1>
+
+                <form>
+                    <input id="nome-completo" name="nome-completo" type="text" placeholder="Nome completo"/>
+                    <div id="input-wrapper">
+                        <input id="email" name="email" type="email" placeholder="E-mail"/>
+                        <div class="assinar"><span>Assinar</span></div>
+                    </div>   
+                </form>
             </div>
         </main>
 

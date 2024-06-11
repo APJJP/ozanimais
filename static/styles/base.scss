@@ -154,9 +154,10 @@ header {
                     font-size: 1.3em;
                 }
 
-                span {
+                a {
                     padding: 5px 0;
                     color: white;
+                    text-decoration: none;
                     position: relative;
                     transition: width 0.3s ease-in-out;
     
@@ -319,8 +320,110 @@ footer {
     }
 }
 
+
+/* newsletter */
+
+#h1-newsletter {
+    grid-area: h1;
+}
+form {
+    grid-area: form;
+}
+
+#newsletter {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: "h1" "form";
+    gap: 2em;
+    height: auto;
+    padding: 3em 1em;
+    background-color: #007CAC;
+
+    h1 {
+        display: inline-block;
+        width: 80%;
+        margin: auto;
+        color: white;
+    }
+
+    form {
+        @include flex-properties($direction: column, $gap: 1em);
+
+        #input-wrapper {
+            @include flex-properties();
+            border-radius: 0.5em;
+            position: relative;
+        }
+
+        input {
+            width: 20em;
+            height: 3.8em;
+            outline: none;
+            border: none;
+            border-radius: 0.5em;
+            padding: 1em;
+            
+            &::placeholder {
+                font-size: 1.2em;
+            }
+        }
+
+        #email {
+            border-top-left-radius: 0.5em;
+            border-bottom-left-radius: 0.5em;
+            border-top-right-radius: 1.9em;
+            border-bottom-right-radius: 1.9em;
+        }
+
+        .assinar {
+            @include flex-properties();
+            width: 8em;
+            height: 3.2em;
+            outline: none;
+            border: none;
+            border-radius: 1.8em;
+            padding: 0.8em;
+            background-color: var(--laranja);
+            position: absolute;
+            top: 0;
+            right: 0;
+            transition: background-color 0.2s ease-in-out;
+
+            &:hover {
+                background-color: var(--laranja-interaction);
+                cursor: pointer;
+            }
+
+            span {
+                color: white;
+                font-size: 1em;
+            }
+        }
+
+        #nome-completo, #email {
+            transition: outline 0.1s ease-in-out;
+
+            &:focus {
+                outline: 3px solid var(--ciano);
+            }
+        }
+    } 
+}
+
 /* celulares de tela pequena */
-@media screen and (min-width: 320px) and (max-width: 370px) {
+@media screen and (max-width: 309px) {
+    header {
+        nav {
+            .nav-mobile {
+                .doe-agora {
+                    display: none;
+                }
+            }
+        }
+    } 
+}
+@media screen and (min-width: 310px) and (max-width: 370px) {
     header {
         font-size: 0.9em;
     }
@@ -484,6 +587,32 @@ footer {
                 .doe-agora {
                     a {
                         color: white;
+                    }
+                }
+            }
+        }
+    }
+
+    main {
+        #newsletter {
+            grid-template-columns: auto auto;
+            grid-template-rows: auto;
+            grid-template-areas: "h1 form";
+            gap: 0;
+            width: 100%;
+            height: 400px;
+    
+            h1 {
+                width: 15em;             
+            }
+    
+            form { 
+                input {
+                    width: 40em;
+                    height: 3.8em;
+                    
+                    &::placeholder {
+                        font-size: 1.2em;
                     }
                 }
             }

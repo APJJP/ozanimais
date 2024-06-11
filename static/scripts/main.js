@@ -26,10 +26,10 @@ let swiper1 = new Swiper('.swiper1', {
       }, */
     },
   
-    navigation: {
+    /* navigation: {
       nextEl: '.swiper1 .swiper-button-next',
       prevEl: '.swiper1 .swiper-button-prev',
-    },
+    }, */
   })
 
 

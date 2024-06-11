@@ -34,10 +34,10 @@
 
                     <div class="menu-mobile hidden">
                         <ul>
-                            <li><span onclick="redirecionar('#')">Início</span></li>
-                            <li><span onclick="redirecionar('/quem_somos')">Quem somos</span></li>
-                            <li><span onclick="redirecionar('/nossos_animais')">Nossos animais</span></li>
-                            <li><span onclick="redirecionar('/como_ajudar')">Como ajudar</span></li>
+                            <li><a href="#" onclick="delayRedirection(event, this)">Início</a></li>
+                            <li><a href="/quem_somos" onclick="delayRedirection(event, this)">Quem somos</a></li>
+                            <li><a href="/nossos_animais" onclick="delayRedirection(event, this)">Nossos animais</a></li>
+                            <li><a href="/nossos_animais" onclick="delayRedirection(event, this)">Como ajudar</a></li>
                         </ul>
                     </div>
                     
@@ -110,9 +110,11 @@
                 <div class="swiper2 swiper">
 
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="/static/imagens/img4.jpg" alt="Slide 1"></div>
-                        <div class="swiper-slide"><img src="/static/imagens/img4.jpg" alt="Slide 2"></div>
-                        <div class="swiper-slide"><img src="/static/imagens/img5.jpg" alt="Slide 3"></div>
+                        <div class="swiper-slide"><img src="/static/imagens/vida-capa.png" alt="Slide 1"></div>
+                        <div class="swiper-slide"><img src="/static/imagens/vida2.png" alt="Slide 2"></div>
+                        <div class="swiper-slide"><img src="/static/imagens/vida3.png" alt="Slide 3"></div>
+                        <div class="swiper-slide"><img src="/static/imagens/vida5.png" alt="Slide 4"></div>
+                        <div class="swiper-slide"><img src="/static/imagens/vida6.png" alt="Slide 5"></div>
                     </div>
                 
                     <!-- <div class="swiper-button-prev"></div>
@@ -150,19 +152,19 @@
                     <div class="footer-section institucional">
                         <h2>Institucional</h2>
                         <ul>
-                            <li><a href="#">Início</a></li>
-                            <li><a href="/quem_somos">Quem somos</a></li>
-                            <li><a href="/nossos_animais">Nossos animais</a></li>
-                            <li><a href="/como_ajudar">Como ajudar</a></li>
-                            <li><a href="/area_restrita">Área Restrita</a></li>
+                            <li><a href="#" onclick="delayRedirection(event, this)">Início</a></li>
+                            <li><a href="/quem_somos" onclick="delayRedirection(event, this)">Quem somos</a></li>
+                            <li><a href="/nossos_animais" onclick="delayRedirection(event, this)">Nossos animais</a></li>
+                            <li><a href="/como_ajudar" onclick="delayRedirection(event, this)">Como ajudar</a></li>
+                            <li><a href="/area_restrita" onclick="delayRedirection(event, this)">Área Restrita</a></li>
                         </ul>
                     </div>
         
                     <div class="footer-section colabore">
                         <h2>Colabore</h2>
                         <ul>
-                            <li><a href="/doar_agora">Doe qualquer valor</a></li>
-                            <li><a href="/apadrinhar_ong">Apadrinhe a ONG</a></li>
+                            <li><a href="/doar_agora" onclick="delayRedirection(event, this)">Doe qualquer valor</a></li>
+                            <li><a href="/apadrinhar_ong" onclick="delayRedirection(event, this)">Apadrinhe a ONG</a></li>
                             <!-- <li><a>Seja voluntário</a></li> -->
                         </ul>
                     </div>
@@ -170,16 +172,16 @@
                     <div class="footer-section contato">
                         <h2>Contato</h2>
                         <ul>
-                            <li><a href="mailto:ozanimais.ong@gmail.com"><ion-icon name="mail-outline"></ion-icon>ozanimais.ong@gmail.com</a></li>
-                            <li><a href="https://api.whatsapp.com/send?phone=5521996967377" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon>(21) 99696-7377</a></li>
+                            <li><a href="mailto:ozanimais.ong@gmail.com" onclick="delayRedirection(event, this)"><ion-icon name="mail-outline"></ion-icon>ozanimais.ong@gmail.com</a></li>
+                            <li><a href="https://api.whatsapp.com/send?phone=5521996967377" onclick="delayRedirection(event, this)"><ion-icon name="logo-whatsapp"></ion-icon>(21) 99696-7377</a></li>
                         </ul>
                     </div>
         
                     <div class="footer-section redes-sociais">
                         <h2>Redes Sociais</h2>
                         <ul>
-                            <li><a href="https://www.facebook.com/ozanimais/" target="_blank"><ion-icon name="logo-facebook"></ion-icon>ozanimais</a></li>
-                            <li><a href="https://www.instagram.com/ong.ozanimais/" target="_blank"><ion-icon name="logo-instagram"></ion-icon>ong.ozanimais</a></li>
+                            <li><a href="https://www.facebook.com/ozanimais/" onclick="delayRedirection(event, this)"><ion-icon name="logo-facebook"></ion-icon>ozanimais</a></li>
+                            <li><a href="https://www.instagram.com/ong.ozanimais/" onclick="delayRedirection(event, this)"><ion-icon name="logo-instagram"></ion-icon>ong.ozanimais</a></li>
                         </ul>
                     </div>
                 </div>

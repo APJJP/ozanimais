@@ -153,7 +153,8 @@ main {
                         cursor: pointer;
                     }
                     
-                    span {
+                    a {
+                        text-decoration: none;
                         font-size: 1.2em;
                         color: white;
                     }
@@ -177,7 +178,8 @@ main {
                 cursor: pointer;
             }
             
-            span {
+            a {
+                text-decoration: none;
                 font-size: 1.2em;
                 color: white;
             }
@@ -213,101 +215,13 @@ main {
                     cursor: pointer;
                 }
 
-                span {
+                a {
+                    text-decoration: none;
                     font-size: 1.2em;
                     color: white;
                 }
             }
         }
-    }
-
-    #h1-newsletter {
-        grid-area: h1;
-    }
-    form {
-        grid-area: form;
-    }
-
-    #newsletter {
-        /* background-color: rgb(0, 153, 173); */
-        display: grid;
-        grid-template-columns: auto;
-        grid-template-rows: auto auto;
-        grid-template-areas: "h1" "form";
-        gap: 2em;
-        height: auto;
-        padding: 3em 1em;
-        background-color: #007CAC;
-
-        h1 {
-            display: inline-block;
-            width: 80%;
-            margin: auto;
-            color: white;
-        }
-
-        form {
-            @include flex-properties($direction: column, $gap: 1em);
-
-            #input-wrapper {
-                @include flex-properties();
-                border-radius: 0.5em;
-                position: relative;
-            }
-
-            input {
-                width: 20em;
-                height: 3.8em;
-                outline: none;
-                border: none;
-                border-radius: 0.5em;
-                padding: 1em;
-                
-                &::placeholder {
-                    font-size: 1.2em;
-                }
-            }
-
-            #email {
-                border-top-left-radius: 0.5em;
-                border-bottom-left-radius: 0.5em;
-                border-top-right-radius: 1.9em;
-                border-bottom-right-radius: 1.9em;
-            }
-
-            .assinar {
-                @include flex-properties();
-                width: 8em;
-                height: 3.2em;
-                outline: none;
-                border: none;
-                border-radius: 1.8em;
-                padding: 0.8em;
-                background-color: var(--laranja);
-                position: absolute;
-                top: 0;
-                right: 0;
-                transition: background-color 0.2s ease-in-out;
-
-                &:hover {
-                    background-color: var(--laranja-interaction);
-                    cursor: pointer;
-                }
-
-                span {
-                    color: white;
-                    font-size: 1em;
-                }
-            }
-
-            #nome-completo, #email {
-                transition: outline 0.1s ease-in-out;
-
-                &:focus {
-                    outline: 3px solid var(--ciano);
-                }
-            }
-        } 
     }
 }
 
@@ -429,30 +343,6 @@ header {
             #caricatura {
                 img {
                     width: 25em;
-                }
-            }
-        }
-        
-        #newsletter {
-            grid-template-columns: auto auto;
-            grid-template-rows: auto;
-            grid-template-areas: "h1 form";
-            gap: 0;
-            width: 100%;
-            height: 400px;
-    
-            h1 {
-                width: 15em;             
-            }
-    
-            form { 
-                input {
-                    width: 40em;
-                    height: 3.8em;
-                    
-                    &::placeholder {
-                        font-size: 1.2em;
-                    }
                 }
             }
         }

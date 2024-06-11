@@ -31,10 +31,10 @@
 
                     <div class="menu-mobile hidden">
                         <ul>
-                            <li><span onclick="redirecionar('/')">Início</span></li>
-                            <li><span onclick="redirecionar('#')">Quem somos</span></li>
-                            <li><span onclick="redirecionar('/nossos_animais')">Nossos animais</span></li>
-                            <li><span onclick="redirecionar('/como_ajudar')">Como ajudar</span></li>
+                            <li><a href="/" onclick="delayRedirection(event, this)">Início</a></li>
+                            <li><a href="#" onclick="delayRedirection(event, this)">Quem somos</a></li>
+                            <li><a href="/nossos_animais" onclick="delayRedirection(event, this)">Nossos animais</a></li>
+                            <li><a href="/como_ajudar" onclick="delayRedirection(event, this)">Como ajudar</a></li>
                         </ul>
                     </div>
                     
@@ -54,7 +54,86 @@
             </nav>
         </header>
 
-        <main></main>
+        <main>
+            <div id="nossa-historia">
+                <div class="imagem">
+                    <img src="/static/imagens/ong1.png">
+                    <img src="/static/imagens/ong5.png">
+                    <img src="/static/imagens/ong3.png">
+                    <img src="/static/imagens/ong4.png">
+                </div>
+
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="/static/imagens/ong1.png" id="img1" alt="Slide 1"></div>
+                        <div class="swiper-slide"><img src="/static/imagens/ong2.png" id="img2" alt="Slide 2"></div>
+                        <div class="swiper-slide"><img src="/static/imagens/ong3.png" id="img3" alt="Slide 3"></div>
+                        <div class="swiper-slide"><img src="/static/imagens/ong4.png" id="img4" alt="Slide 4"></div>
+                    </div>
+    
+                    <div class="swiper-pagination"></div>
+                </div>
+                
+                <div class="texto">
+                    <h1>Nossa história</h1>
+
+                    <p>A ONG Ozanimais é uma organização sem fins lucrativos localizada no Engenho do Mato, 
+                        em Niterói-RJ, dedicada ao resgate, cuidado e proteção de animais em situação de 
+                        vulnerabilidade.
+                    </p>
+
+                    <p>Tudo começou em 2018, quando uma Buldogue Francês pertencente ao ex-patrão de Ozana San, 
+                        presidente da ONG Ozanimais, ficou paralisada devido a uma hérnia de disco. Diante da 
+                        situação, ele pediu ajuda a Ozana para cuidar dela. Após dois meses de tratamento 
+                        intensivo, envolvendo fisioterapia, hidroterapia, e acupuntura, o antigo empregador de 
+                        Ozana decidiu não manter mais a cadela e sugeriu que ela ficasse com Ozana. No entanto, 
+                        devido aos compromissos profissionais de Ozana como representante de vendas, ela não 
+                        podia assumir a responsabilidade total pelo cuidado da cadela. Apesar disso, o antigo 
+                        chefe insistiu que ela cuidaria da cadela ou caso contrário, ele a submeteria à 
+                        eutanásia. Ozana não acreditou que o seu antigo empregador seria capaz de fazer isso 
+                        e, com medo de perder o emprego, devolveu a cadela para ele. No dia seguinte, ela 
+                        descobriu que ele a havia deixado em uma clínica veterinária para ser sacrificada. 
+                        Decidida a salvar a vida da cadela, Ozana agiu rapidamente, mesmo ciente dos riscos 
+                        para seu emprego.
+                    </p>
+
+                    <p>Após o incidente, a situação profissional de Ozana tornou-se ainda mais complicada. Seu 
+                        chefe alterou suas condições de trabalho, tornando impossível conciliar os cuidados
+                        necessários à cadela com suas obrigações profissionais. Mesmo ao tentar negociar uma 
+                        solução viável, Ozana não conseguiu chegar a um acordo e, eventualmente, optou por 
+                        deixar o emprego para dedicar-se aos cuidados da cadela. A partir desse momento, 
+                        movida pela compaixão, Ozana tornou-se protetora animal, acolhendo e cuidando de 
+                        animais doentes e idosos encontrados nas ruas de Niterói.
+                    </p>
+
+                    <p>Com o passar do tempo, o número de animais sob os cuidados de Ozana cresceu 
+                        consideravelmente, levando-a a fundar a ONG Ozanimais. Apesar das dificuldades 
+                        enfrentadas, Ozana continua seu trabalho incansável, também realizando castrações 
+                        em cadelas de rua. Sua única fonte de apoio é a generosidade da comunidade e do 
+                        supermercado Maravista, que doa carne para os animais, uma vez que não recebe ajuda 
+                        do poder público.
+                    </p>
+
+                    <p>Atualmente, Ozana cuida de 48 cães em sua casa, todos resgatados em estado
+                        crítico e que não são disponibilizados para adoção, pois ela teme que voltem a sofrer.
+                        Apesar das limitações de espaço e recursos, Ozana continua sua missão, buscando 
+                        maneiras de expandir suas operações para poder ajudar ainda mais animais necessitados.
+                    </p>
+                </div>   
+            </div>
+
+            <div id="newsletter">
+                <h1 id="h1-newsletter">Assine nossa newsletter e fique por dentro das últimas notícias da ONG</h1>
+
+                <form>
+                    <input id="nome-completo" name="nome-completo" type="text" placeholder="Nome completo"/>
+                    <div id="input-wrapper">
+                        <input id="email" name="email" type="email" placeholder="E-mail"/>
+                        <div class="assinar"><span>Assinar</span></div>
+                    </div>   
+                </form>
+            </div>
+        </main>
 
         <!-- Ioicons -->
         <script  type="module"  src ="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" ></script> 
@@ -67,7 +146,7 @@
         <script src="/static/scripts/menu_hamburguer.js"></script>
 
         <!-- Script principal -->
-        <!-- <script src="/static/scripts/quem_somos.js"></script> -->
+        <script src="/static/scripts/quem_somos.js"></script>
     </body>
 
 </html>

@@ -44,3 +44,68 @@ header {
         }
     }
 }
+
+/* mobile first */
+
+main {
+    padding-top: 3.5em;
+
+    #nossa-historia {
+        @include flex-properties($direction: column);
+        width: 100%;
+
+        .imagem {
+             display: none;
+        }
+
+        .swiper {
+            width: 100%;
+        }
+
+        .swiper-slide {
+            overflow: hidden;
+
+            #img3 {
+                width: 130%;
+            }
+            #img4 {
+                width: 135%;
+            }
+        }
+
+        .texto {
+            @include flex-properties($direction: column, $align: flex-end, $gap: 1em);
+            padding: 3em;
+            text-align: justify;
+        }
+    }
+}
+
+
+/* desktops e laptops */
+@media screen and (min-width: 1025px) {
+    main {   
+        #nossa-historia {
+            @include flex-properties($direction: row);
+    
+            .imagem {
+                @include flex-properties($direction: column);
+                width: 50%;
+    
+                img {
+                    width: 100%;
+                }
+            }
+
+            .swiper {
+                display: none;
+            }
+    
+            .texto {
+                @include flex-properties($direction: column, $align: flex-end, $gap: 2em);
+                width: 50%;
+                padding: 0 3em;
+            }
+        }
+    }
+}

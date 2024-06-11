@@ -34,10 +34,10 @@
 
                     <div class="menu-mobile hidden">
                         <ul>
-                            <li><span onclick="redirecionar('/')">Início</span></li>
-                            <li><span onclick="redirecionar('/quem_somos')">Quem somos</span></li>
-                            <li><span onclick="redirecionar('/nossos_animais')">Nossos animais</span></li>
-                            <li><span onclick="redirecionar('#')">Como ajudar</span></li>
+                            <li><a href="/" onclick="delayRedirection(event, this)">Início</a></li>
+                            <li><a href="/quem_somos" onclick="delayRedirection(event, this)">Quem somos</a></li>
+                            <li><a href="/nossos_animais" onclick="delayRedirection(event, this)">Nossos animais</a></li>
+                            <li><a href="#" onclick="delayRedirection(event, this)">Como ajudar</a></li>
                         </ul>
                     </div>
                     
@@ -182,7 +182,7 @@
                             <p>A ONG consome 5kg de arroz, macarrão ou canjiquinha por dia.</p>
                         </div>
 
-                        <button class="doar-agora"><span>Doar agora</span></button>
+                        <button class="doar-agora"><a href="/doar_agora#doar_arroz">Doar agora</a></button>
                     </div>
 
                     <div class="sugestao">
@@ -201,7 +201,7 @@
                             <p>A ONG consome dois botijões de gás por mês.</p>
                         </div>
 
-                        <button class="doar-agora"><span>Doar agora</span></button>
+                        <button class="doar-agora"><a href="/doar_agora#doar_gas">Doar agora</a></button>
                     </div>
 
                     <div class="sugestao">
@@ -220,11 +220,11 @@
                             <p>A ONG consome 15kg de ração por dia.</p>
                         </div>
 
-                        <button class="doar-agora"><span>Doar agora</span></button>
+                        <button class="doar-agora"><a href="/doar_agora#doar_racao">Doar agora</a></button>
                     </div>
                 </div>
 
-                <button id="doar-valor"><span>Doar outros valores</span></button>
+                <button id="doar-valor"><a href="/doar_agora">Doar outros valores</a></button>
             </div>
 
             <div id="apadrinhar-ong">
@@ -239,7 +239,7 @@
                         Com uma <strong>contribuição mensal</strong> de apenas <strong>R$ 5,00</strong>, você pode se tornar um padrinho ou madrinha da nossa ONG, ajudando-nos a garantir recursos fixos para suprir as necessidades diárias dos animais que estão sob nossa proteção.
                     </p>
 
-                    <button id="quero-apadrinhar"><span>Quero apadrinhar</span></button>
+                    <button id="quero-apadrinhar"><a href="/apadrinhar_ong">Quero apadrinhar</a></button>
                 </div>
                 <!-- <div class="topo">
                     <h1>Apadrinhe a ONG</h1>
@@ -330,7 +330,7 @@
         <script src="/static/scripts/menu_hamburguer.js"></script>
         
         <!-- Script principal -->
-        <!-- <script src="/static/scripts/como_ajudar.js"></script> -->
+        <script src="/static/scripts/como_ajudar.js"></script>
     </body>
     
 </html>
