@@ -599,7 +599,7 @@ main {
 main #topo-main {
   width: 100%;
   min-height: 100vh;
-  background-image: url("/static/imagens/topo_como-ajudar_mobile.png");
+  background-image: url("/static/imagens/topo_como-ajudar_celular.png");
   background-size: cover;
   background-repeat: no-repeat;
 }

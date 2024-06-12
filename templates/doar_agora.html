@@ -57,18 +57,20 @@
                 <h2>Doar para a ONG Ozanimais</h2>
 
                 <div id="valor-doacao">
-                    <p>Valor da doação</p>
+                    <h4>Valor da doação</h4>
                     
                     <div id="valor">
                         <p>R$</p>
-                        <input type="text" name="valor_doacao" id="valor_doacao" maxlength=255 placeholder="00,00" required/>
+                        <input type="text" name="valor_doacao" id="valor_doacao" maxlength=255 placeholder="00,00" readonly/>
                     </div>
 
-                    <p class="erro-valor off">Informe o valor da doação</p>
+                    <p id="valor-pix-geral">*O valor da doação será ajustado pelo usuário por meio do aplicativo do seu banco, após escanear o código PIX ou fornecer o Pix Copia e Cola.</p>
+
+                    <!-- <p class="erro-valor off">Informe o valor da doação</p> -->
                 </div>
 
                 <div id="forma-pagamento">
-                    <p>Forma de pagamento</p>
+                    <h4>Forma de pagamento</h4>
 
                     <div id="formas-pagamento">
                         <div class="opcao" id="opcao1">
@@ -106,7 +108,7 @@
                     </div>
                 </div>
                 
-                <button id="doar"><span>Doar</span></button>
+                <button id="doar"><span>Continuar</span></button>
             </form>
 
             <div class="pix-pagamento off">
@@ -135,7 +137,12 @@
                         <li>Confirme os detalhes do pagamento e autorize a transação.</li>
                     </ol>
 
-                    <div id="qr-code"></div>
+                    <div id="qr-code">
+                        <img id="qr-code-geral" src="/static/imagens/qr-code-pix-geral.jpg">
+                        <img id="qr-code-arroz" src="/static/imagens/qr-code-arroz.jpg">
+                        <img id="qr-code-gas" src="">
+                        <img id="qr-code-racao" src="">
+                    </div>
 
                     <div id="copia-cola">
                         <div id="pix-codigo">
@@ -151,6 +158,58 @@
                 </div>
             </div>
         </main>
+
+        <footer>
+            <div id="footer-container">
+                <div id="footer-ancoras">
+                    <div class="footer-section institucional">
+                        <h2>Institucional</h2>
+                        <ul>
+                            <li><a href="/" onclick="delayRedirection(event, this)">Início</a></li>
+                            <li><a href="/quem_somos" onclick="delayRedirection(event, this)">Quem somos</a></li>
+                            <li><a href="/nossos_animais" onclick="delayRedirection(event, this)">Nossos animais</a></li>
+                            <li><a href="/como_ajudar" onclick="delayRedirection(event, this)">Como ajudar</a></li>
+                        </ul>
+                    </div>
+        
+                    <div class="footer-section colabore">
+                        <h2>Colabore</h2>
+                        <ul>
+                            <li><a href="#" onclick="delayRedirection(event, this)">Doe qualquer valor</a></li>
+                            <li><a href="/apadrinhar_ong" onclick="delayRedirection(event, this)">Apadrinhe a ONG</a></li>
+                            <!-- <li><a>Seja voluntário</a></li> -->
+                        </ul>
+                    </div>
+        
+                    <div class="footer-section contato">
+                        <h2>Contato</h2>
+                        <ul>
+                            <li><a href="mailto:ozanimais.ong@gmail.com" onclick="delayRedirection(event, this)"><ion-icon name="mail-outline"></ion-icon>ozanimais.ong@gmail.com</a></li>
+                            <li><a href="https://api.whatsapp.com/send?phone=5521996967377" onclick="delayRedirection(event, this)"><ion-icon name="logo-whatsapp"></ion-icon>(21) 99696-7377</a></li>
+                        </ul>
+                    </div>
+        
+                    <div class="footer-section redes-sociais">
+                        <h2>Redes Sociais</h2>
+                        <ul>
+                            <li><a href="https://www.facebook.com/ozanimais/" onclick="delayRedirection(event, this)"><ion-icon name="logo-facebook"></ion-icon>ozanimais</a></li>
+                            <li><a href="https://www.instagram.com/ong.ozanimais/" onclick="delayRedirection(event, this)"><ion-icon name="logo-instagram"></ion-icon>ong.ozanimais</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a id="ancora-logo-footer" href="/">
+                    <div class="logo_fundo">
+                        <div class="logo"></div>
+                    </div>
+                </a>
+            </div>
+
+            <div id="footer-bottom">
+                <p>Ozanimais &copy; 2024. Todos os direitos reservados.</p>
+            </div>
+
+        </footer>
 
         <!-- Ioicons -->
         <script  type="module"  src ="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" ></script> 

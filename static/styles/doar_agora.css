@@ -798,6 +798,13 @@ main .pix-pagamento #info-pix ol {
 main .pix-pagamento #info-pix ol li {
   text-align: center;
 }
+main .pix-pagamento #info-pix #qr-code {
+  width: 15em;
+  height: 15em;
+}
+main .pix-pagamento #info-pix #qr-code img {
+  width: 15em;
+}
 main .pix-pagamento #info-pix #copia-cola {
   display: flex;
   justify-content: center;
@@ -921,20 +928,22 @@ header nav .nav-mobile .menu-ativo::after {
 /* desktops e laptops */
 @media screen and (min-width: 1025px) {
   main {
-    padding-top: 6em;
-    padding-bottom: 2em;
+    padding-top: 7em;
+    padding-bottom: 3em;
   }
   main .doacao, main .pix-pagamento {
     width: 30em;
-    min-height: 30em;
     border-radius: 1.2em;
+  }
+  main .doacao {
+    min-height: 35em;
   }
   main .pix-pagamento {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 3em;
-    min-height: 50em;
+    min-height: 60em;
     padding: 0 2em;
   }
   main .off {

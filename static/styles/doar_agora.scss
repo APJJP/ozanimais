@@ -200,6 +200,15 @@ main {
                 }
             }
 
+            #qr-code {
+                width: 15em;
+                height: 15em;
+
+                img {
+                    width: 15em;
+                }
+            }
+
             #copia-cola {
                 @include flex-properties($align: flex-end, $gap: 1em);
 
@@ -335,18 +344,21 @@ header {
 /* desktops e laptops */
 @media screen and (min-width: 1025px) {
     main {
-        padding-top: 6em;
-        padding-bottom: 2em;
+        padding-top: 7em;
+        padding-bottom: 3em;
 
         .doacao, .pix-pagamento {
             width: 30em;
-            min-height: 30em;
             border-radius: 1.2em;
+        }
+
+        .doacao {
+            min-height: 35em;
         }
 
         .pix-pagamento {
             @include flex-properties($direction: column, $align: null, $gap: 3em);
-            min-height: 50em;
+            min-height: 60em;
             padding: 0 2em;
         }
 
