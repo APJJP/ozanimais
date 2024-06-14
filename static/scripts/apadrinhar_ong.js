@@ -1,15 +1,15 @@
 let form = document.querySelector('#cadastro')
-let btnCadastrar= document.querySelector('#cadastrar')
+let btnCadastrar = document.querySelector('#cadastrar')
 
 let inputNome = document.querySelector('#nome')
 let inputSobrenome = document.querySelector('#sobrenome')
-let inputEmail= document.querySelector('#email')
-let inputTelefone= document.querySelector('#telefone')
+let inputEmail = document.querySelector('#email')
+let inputTelefone = document.querySelector('#telefone')
 
 let divNome = document.querySelector('.div-nome')
 let divSobrenome = document.querySelector('.div-sobrenome')
-let divEmail= document.querySelector('.div-email')
-let divTelefone= document.querySelector('.div-telefone')
+let divEmail = document.querySelector('.div-email')
+let divTelefone = document.querySelector('.div-telefone')
 
 let msgErroNome = document.querySelector('.nome-invalido')
 let msgErroSobrenome = document.querySelector('.sobrenome-invalido')
@@ -34,7 +34,7 @@ function formatarNome(input) {
     input.value = string
 
     // Capitaliza a primeira letra de cada palavra
-    string = string.toLowerCase().replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase() })
+    string = string.toLowerCase().replace(/(?:^|\s)\S/g, function (a) { return a.toUpperCase() })
     input.value = string
 }
 
@@ -44,12 +44,12 @@ function impedirEspaco(input) {
 }
 
 // Aplica uma máscara para formatar o número de telefone no formato (00) 0000-0000
-$(document).ready(function(){
+$(document).ready(function () {
     $('#telefone').mask('(00) 00000-0000')
 })
 
 form.addEventListener("input", (e) => {
-    switch(e.target.id) {
+    switch (e.target.id) {
         case 'nome':
             formatarNome(inputNome)
             break
@@ -68,7 +68,7 @@ function checarInput(inputAtual, msgErro, div) {
     let input = inputAtual.value
     let ehValido = false
 
-    if(!input) {
+    if (!input) {
         msgErro.innerHTML = "Preencha este campo."
         ehValido = false
     }
@@ -77,7 +77,7 @@ function checarInput(inputAtual, msgErro, div) {
         ehValido = true
     }
 
-    if(!ehValido) {
+    if (!ehValido) {
         div.classList.add("input-invalido")
     }
     else {
@@ -90,7 +90,7 @@ function checarEmail() {
     let email = inputEmail.value
     let ehValido = false
 
-    if(!email) {
+    if (!email) {
         msgErroEmail.innerHTML = "Preencha este campo."
         ehValido = false
     }
@@ -103,7 +103,7 @@ function checarEmail() {
         ehValido = true
     }
 
-    if(!ehValido) {
+    if (!ehValido) {
         divEmail.classList.add("input-invalido")
     }
     else {
@@ -116,11 +116,11 @@ function checarTelefone() {
     let tel = inputTelefone.value
     let ehValido = false
 
-    if(!tel) {
+    if (!tel) {
         msgErroTelefone.innerHTML = "Preencha este campo."
         ehValido = false
     }
-    else if(tel.length !== 15) {
+    else if (tel.length !== 15) {
         msgErroTelefone.innerHTML = "Insira um número válido."
         ehValido = false
     }
@@ -129,16 +129,16 @@ function checarTelefone() {
         ehValido = true
     }
 
-    if(!ehValido) {
+    if (!ehValido) {
         divTelefone.classList.add("input-invalido")
     }
     else {
         divTelefone.classList.remove("input-invalido")
-    } 
+    }
 }
 
 // Função para verificar se o radio da declaração foi selecionado
-function checarDeclaracao() {
+/* function checarDeclaracao() {
     let radioDeclaracao = document.getElementById("radio-declaracao");
     let declaracaoDiv = document.querySelector(".declaracao");
 
@@ -151,7 +151,23 @@ function checarDeclaracao() {
         msgErroDeclaracao.innerHTML = "A declaração é obrigatória."
         declaracaoDiv.classList.remove('unchecked');
     }
+} */
+
+function checarDeclaracao() {
+    let radioDeclaracao = document.getElementById("radio-declaracao");
+    let declaracaoDiv = document.querySelector(".declaracao");
+
+    if (!radioDeclaracao.checked) {
+        // O radio button não está marcado
+        msgErroDeclaracao.innerHTML = "A declaração é obrigatória.";
+        declaracaoDiv.classList.add('unchecked');
+    } else {
+        // O radio button está marcado
+        msgErroDeclaracao.innerHTML = "";
+        declaracaoDiv.classList.remove('unchecked');
+    }
 }
+
 
 // Função para validar um endereço de e-mail usando expressão regular
 function validarEmail(email) {
@@ -159,7 +175,7 @@ function validarEmail(email) {
     return regex.test(email)
 }
 
-btnCadastrar.addEventListener('click', function (event) {
+/* btnCadastrar.addEventListener('click', function (event) {
     event.preventDefault()
 
     checarInput(inputNome, msgErroNome, divNome)
@@ -179,4 +195,45 @@ btnCadastrar.addEventListener('click', function (event) {
         alert('Não foi possível efetuar o cadastro. Por favor, corrija os erros.')
     }
 
-})
+}) */
+
+
+
+btnCadastrar.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    checarInput(inputNome, msgErroNome, divNome);
+    checarInput(inputSobrenome, msgErroSobrenome, divSobrenome);
+    checarEmail();
+    checarTelefone();
+    checarDeclaracao();
+
+    let inputsInvalidos = document.querySelectorAll(".input-invalido");
+    let declaracaoUnchecked = document.querySelector(".declaracao.unchecked");
+
+    if (inputsInvalidos.length === 0 && !declaracaoUnchecked) {
+        let email = inputEmail.value;
+
+        fetch('/verificar_email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email: email })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.existe) {
+                    alert('Email já cadastrado. Por favor, use outro email.');
+                } else {
+                    alert('Cadastro efetuado com sucesso!');
+                    form.submit();
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+    } else {
+        alert('Não foi possível efetuar o cadastro. Por favor, corrija os erros.');
+    }
+});

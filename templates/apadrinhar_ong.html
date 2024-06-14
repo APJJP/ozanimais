@@ -62,7 +62,8 @@
                 </div>
 
                 <div class="formulario-cadastro">
-                    <form id="cadastro">
+                    
+                    <form id="cadastro" action="/cadastrar_padrinho" method="post">
                         <div id="nome-completo" class="inputs">
                             <div class="input div-nome">
                                 <input type="text" name="nome" id="nome"  placeholder='Nome*' maxlength=255 required>
@@ -98,7 +99,7 @@
                             <p class="msg-erro declaracao-unchecked"></p>
                         </div>
 
-                        <button id="cadastrar"><span>Se cadastrar</span></button>
+                        <button id="cadastrar" type="submit"><span>Se cadastrar</span></button>
 
                         <p id="info-asterisco">* Indica um campo obrigatório</p>
                     </form>

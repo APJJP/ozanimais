@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ozanimais</title>
 
+    
+
         <!-- Favicon -->
         <link rel="shortcut icon" href="/static/imagens/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/static/imagens/favicon.ico" type="image/x-icon">
@@ -97,11 +99,11 @@
             <div id="newsletter">
                 <h1 id="h1-newsletter">Assine nossa newsletter e fique por dentro das últimas notícias da ONG</h1>
 
-                <form>
+                <form action="/cadastrar_assinante" method="post" id="cadastro-assinante">
                     <input id="nome-completo" name="nome-completo" type="text" placeholder="Nome completo"/>
                     <div id="input-wrapper">
                         <input id="email" name="email" type="email" placeholder="E-mail"/>
-                        <div class="assinar"><span>Assinar</span></div>
+                        <button class="assinar" type="submit"><span>Assinar</span></button>
                     </div>   
                 </form>
             </div>
@@ -208,6 +210,9 @@
 
         <!-- Script do menu hamburguer -->
         <script src="/static/scripts/menu_hamburguer.js"></script>
+
+         <!-- Script do newsletter -->
+         <script src="/static/scripts/newsletter.js"></script>
 
         <!-- Script principal -->
         <script src="/static/scripts/main.js"></script>
