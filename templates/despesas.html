@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Despesas</title>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="/static/imagens/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/static/imagens/favicon.ico" type="image/x-icon">
+
+        <!-- Remixicons -->
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin=""/> -->
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="static/styles/sistema.css">
+    </head>
+
+    <body class="body-cachorro">
+        <h1>Despesas</h1>
+
+        {% set mensagem = get_flashed_messages()%}
+        {% if mensagem %}
+        <div class="mensagem_flash">
+            {{mensagem[0]}}
+        </div>
+        {% endif %}
+
+        <form action ='/cadastrar_despesas' method='post'>
+            <label for="data_despesas">Data: </label>
+            <input type="date" name="data_despesas" id="data_despesas" placeholder="Digite aqui a data">
+            <p></p>
+            <label for="valor_despesas">Valor: </label>
+            <input type="number" name = "valor_despesas" id="valor_despesas" placeholder="Digite o valor">
+            <p></p>
+            <label for="descricao_despesas">Descrição:</label><p></p>
+            <textarea rows = "10" cols = "30" placeholder="Digite aqui a descrição da despesas!" id= "descricao_despesas" name = "descricao_despesas"></textarea>
+            <p></p>
+            <button type="submit">Cadastrar</button>
+        </form>
+
+
+        <div id="despesasFrente">
+            <h1 id="despesasCad">Despesas cadastradas</h1>
+            <div id="despesas Fundo">
+                {% if despesas %}
+                    {% for i in despesas%}
+                    <form action="/excluir_despesas" method="post">
+                        <ul id="lista">
+                            <input type="hidden" name="idDespesas" value="{{i.id_despesas}}">
+                            <input type="hidden" name="descricao_despesas" value="{{i.descricao_despesas}}">
+                            <li>Data: {{i.data_despesas}}</li>
+                            <li>Valor: {{i.valor_despesas}}</li>
+                            <li>Descrição: {{i.descricao_despesas}}</li>
+                        </ul>
+                        <div id="btnExcluir">
+                            <button type="submit" id="excluir">EXCLUIR</button>
+                        </div>
+                    </form>
+                        <hr id="linha"></hr>
+
+
+                    {% endfor %}
+
+                {% else %}
+                <h1>não existem despesas cadastradas</h1>
+                {% endif %}
+
+            </div>
+        </div>
+
+        <!-- Ionicons -->
+        <script  type="module"  src ="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" ></script> 
+        <script  nomodule  src ="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+        <!-- Script principal -->
+        <!-- <script src="/static/scripts/despesas_sistema.js"></script>   -->  
+    </body>
+</html>

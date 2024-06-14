@@ -592,235 +592,73 @@ form {
   width: 100%;
 }
 
-/* mobile first */
-.swiper {
-  margin: auto;
-  width: 100%;
-  height: 20em;
-}
-
-.swiper1 {
-  min-height: 100vh;
-}
-
-.swiper-button-prev, .swiper-button-next {
-  display: none;
-}
-
 main {
   display: flex;
   flex-direction: column;
-  padding-top: 0;
-}
-main h1 {
-  font-size: 1.8em;
-}
-main #apresentacao {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1em;
-  padding: 4em 0;
+  background-color: #04C7EA;
 }
-main #apresentacao .logo_fundo {
+main .titulo {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20em;
-  height: 15em;
-}
-main #apresentacao .logo_fundo .logo {
-  width: 100%;
-  height: 100%;
-  background-image: url("/static/imagens/logo.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-main #apresentacao #sobre-nos {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2em;
-}
-main #apresentacao #sobre-nos #texto-sobre-nos {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  width: 80%;
-}
-main #apresentacao #sobre-nos #texto-sobre-nos h1, main #apresentacao #sobre-nos #texto-sobre-nos p {
-  display: inline-block;
-}
-main #apresentacao #sobre-nos #texto-sobre-nos p {
-  width: 100%;
-  text-align: justify;
-}
-main #apresentacao .saiba-mais {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 10em;
-  height: 3.7em;
-  background-color: var(--laranja);
-  outline: none;
-  border: none;
-  border-radius: 1.8em;
-  padding: 1em;
-  transition: background-color 0.2s ease-in-out;
-}
-main #apresentacao .saiba-mais:hover, main #apresentacao .saiba-mais:active {
-  background-color: var(--laranja-interaction);
-  cursor: pointer;
-}
-main #apresentacao .saiba-mais a {
-  text-decoration: none;
-  color: white;
-  font-size: 1.2em;
-}
-main #historias-marcantes {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2em;
   width: 100%;
   padding: 2em;
+  background-color: #04C7EA;
 }
-main #historias-marcantes .swiper2 {
-  width: 100%;
+main .titulo h1 {
+  color: aliceblue;
 }
-main #historias-marcantes .swiper2 .swiper-pagination {
-  text-align: right;
-  top: 10px;
-  bottom: auto;
+main .tabelas {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 60%;
+  height: 400px;
+  background-color: #FF8F80;
+  border-radius: 12px;
 }
-main #historias-marcantes #historia-animal {
-  flex: 1;
+main .tabelas .dog .h2-autenticacao, main .tabelas .des .h2-autenticacao {
+  padding-bottom: 2rem;
+  color: white;
+}
+main .tabelas .dog img, main .tabelas .des img {
+  width: 90%;
+  position: relative;
+  transition: transform 0.5s;
+  border-radius: 15%;
+}
+main .tabelas .dog img:hover, main .tabelas .des img:hover {
+  transform: scale(1.1);
+}
+main .tabelas .dog {
+  /* background-image: url('/static/imgs/cachorro.png'); */
+  /* background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%; */
+  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 1em;
-  padding: 0;
+  justify-content: center;
+  padding: 10px;
+  height: 200px;
+  width: 25%;
+  border-radius: 22px;
 }
-main #historias-marcantes #historia-animal #resumo {
+main .tabelas .des {
+  /* background-image: url('/static/imgs/des.jpg');
+  background-position: center;
+  background-repeat: no-repeat; */
+  text-align: center;
+  /* background-size: 100%; */
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 1em;
-}
-main #historias-marcantes #historia-animal #resumo p {
-  text-align: justify;
-}
-
-header nav .nav-mobile .menu-hamburguer::before {
-  background-color: white;
-  box-shadow: 0 0.5em 0 white;
-}
-header nav .nav-mobile .menu-hamburguer::after {
-  background-color: white;
-}
-header nav .nav-mobile .menu-ativo::before {
-  box-shadow: 0 0 0 white;
-}
-header nav .nav-mobile .menu-ativo::after {
-  box-shadow: 0 0 0 white;
-}
-
-header.scrolled nav .nav-mobile .menu-hamburguer::before {
-  background-color: var(--ciano);
-  box-shadow: 0 0.5em 0 var(--ciano);
-}
-header.scrolled nav .nav-mobile .menu-hamburguer::after {
-  background-color: var(--ciano);
-}
-
-/* desktops e laptops*/
-@media screen and (min-width: 1025px) {
-  .swiper2 {
-    height: 600px;
-  }
-  /* .swiper-button-prev, .swiper-button-next {
-      display: block;
-  } */
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  main #apresentacao {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 2em;
-    padding: 4em 0;
-  }
-  main #apresentacao .logo_fundo {
-    width: 30em;
-    height: 20em;
-  }
-  main #apresentacao #sobre-nos {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 2em;
-  }
-  main #apresentacao #sobre-nos #texto-sobre-nos {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-  }
-  main #apresentacao #sobre-nos #texto-sobre-nos h1, main #apresentacao #sobre-nos #texto-sobre-nos p {
-    display: inline-block;
-  }
-  main #apresentacao #sobre-nos #texto-sobre-nos p {
-    width: 40em;
-    text-align: justify;
-  }
-  main #apresentacao .saiba-mais {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 10em;
-    height: 3.7em;
-    background-color: var(--laranja);
-    outline: none;
-    border: none;
-    border-radius: 1.8em;
-    padding: 1em;
-    transition: background-color 0.2s ease-in-out;
-  }
-  main #apresentacao .saiba-mais:active {
-    background-color: var(--laranja-interaction);
-    cursor: pointer;
-  }
-  main #apresentacao .saiba-mais span {
-    color: white;
-    font-size: 1.2em;
-  }
-  main #historias-marcantes {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-  }
-  main #historias-marcantes .swiper2 {
-    width: 50%;
-  }
-  main #historias-marcantes #historia-animal {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2em;
-    padding: 0 2em;
-  }
-}/*# sourceMappingURL=main.css.map */
+  justify-content: center;
+  padding: 10px;
+  height: 200px;
+  width: 25%;
+  border-radius: 22px;
+}/*# sourceMappingURL=home_sistema.css.map */

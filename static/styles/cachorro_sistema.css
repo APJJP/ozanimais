@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 :root {
   --swiper-theme-color: white;
@@ -592,235 +593,59 @@ form {
   width: 100%;
 }
 
-/* mobile first */
-.swiper {
-  margin: auto;
-  width: 100%;
-  height: 20em;
-}
-
-.swiper1 {
-  min-height: 100vh;
-}
-
-.swiper-button-prev, .swiper-button-next {
-  display: none;
-}
-
 main {
   display: flex;
   flex-direction: column;
-  padding-top: 0;
-}
-main h1 {
-  font-size: 1.8em;
-}
-main #apresentacao {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1em;
-  padding: 4em 0;
+  background-color: #04C7EA;
+  color: aliceblue;
 }
-main #apresentacao .logo_fundo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 20em;
-  height: 15em;
-}
-main #apresentacao .logo_fundo .logo {
-  width: 100%;
-  height: 100%;
-  background-image: url("/static/imagens/logo.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-main #apresentacao #sobre-nos {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2em;
-}
-main #apresentacao #sobre-nos #texto-sobre-nos {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  width: 80%;
-}
-main #apresentacao #sobre-nos #texto-sobre-nos h1, main #apresentacao #sobre-nos #texto-sobre-nos p {
-  display: inline-block;
-}
-main #apresentacao #sobre-nos #texto-sobre-nos p {
-  width: 100%;
-  text-align: justify;
-}
-main #apresentacao .saiba-mais {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 10em;
-  height: 3.7em;
-  background-color: var(--laranja);
-  outline: none;
+main input, main textarea {
+  height: 1.6em;
+  margin-bottom: 1em;
   border: none;
-  border-radius: 1.8em;
-  padding: 1em;
-  transition: background-color 0.2s ease-in-out;
+  border-radius: 5px;
 }
-main #apresentacao .saiba-mais:hover, main #apresentacao .saiba-mais:active {
-  background-color: var(--laranja-interaction);
-  cursor: pointer;
+main textarea {
+  height: auto;
 }
-main #apresentacao .saiba-mais a {
-  text-decoration: none;
+main button {
+  height: 28px;
+  width: 60%;
+  border-radius: 20px;
+  background-color: #FF8F80;
   color: white;
-  font-size: 1.2em;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
 }
-main #historias-marcantes {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2em;
-  width: 100%;
-  padding: 2em;
+main button:hover {
+  background-color: aliceblue;
+  color: #FF8F80;
 }
-main #historias-marcantes .swiper2 {
-  width: 100%;
+main #cachorroFrente {
+  text-align: center;
 }
-main #historias-marcantes .swiper2 .swiper-pagination {
-  text-align: right;
-  top: 10px;
-  bottom: auto;
+main #cachorroFrente #cachorroCad {
+  margin-bottom: 20px;
 }
-main #historias-marcantes #historia-animal {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1em;
-  padding: 0;
+main #cachorroFrente #cachorroFundo {
+  display: inline-block; /* Alinha o conteúdo ao centro */
+  text-align: left; /* Mantém o texto alinhado à esquerda */
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
 }
-main #historias-marcantes #historia-animal #resumo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1em;
+main #cachorroFrente #cachorroFundo form #lista {
+  list-style-type: disc; /* Exibe bolinhas */
+  padding-left: 40px; /* Espaço para a indentação das bolinhas */
 }
-main #historias-marcantes #historia-animal #resumo p {
-  text-align: justify;
+main #cachorroFrente #cachorroFundo form #lista li {
+  margin-bottom: 10px;
 }
-
-header nav .nav-mobile .menu-hamburguer::before {
-  background-color: white;
-  box-shadow: 0 0.5em 0 white;
-}
-header nav .nav-mobile .menu-hamburguer::after {
-  background-color: white;
-}
-header nav .nav-mobile .menu-ativo::before {
-  box-shadow: 0 0 0 white;
-}
-header nav .nav-mobile .menu-ativo::after {
-  box-shadow: 0 0 0 white;
-}
-
-header.scrolled nav .nav-mobile .menu-hamburguer::before {
-  background-color: var(--ciano);
-  box-shadow: 0 0.5em 0 var(--ciano);
-}
-header.scrolled nav .nav-mobile .menu-hamburguer::after {
-  background-color: var(--ciano);
-}
-
-/* desktops e laptops*/
-@media screen and (min-width: 1025px) {
-  .swiper2 {
-    height: 600px;
-  }
-  /* .swiper-button-prev, .swiper-button-next {
-      display: block;
-  } */
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  main #apresentacao {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 2em;
-    padding: 4em 0;
-  }
-  main #apresentacao .logo_fundo {
-    width: 30em;
-    height: 20em;
-  }
-  main #apresentacao #sobre-nos {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 2em;
-  }
-  main #apresentacao #sobre-nos #texto-sobre-nos {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-  }
-  main #apresentacao #sobre-nos #texto-sobre-nos h1, main #apresentacao #sobre-nos #texto-sobre-nos p {
-    display: inline-block;
-  }
-  main #apresentacao #sobre-nos #texto-sobre-nos p {
-    width: 40em;
-    text-align: justify;
-  }
-  main #apresentacao .saiba-mais {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 10em;
-    height: 3.7em;
-    background-color: var(--laranja);
-    outline: none;
-    border: none;
-    border-radius: 1.8em;
-    padding: 1em;
-    transition: background-color 0.2s ease-in-out;
-  }
-  main #apresentacao .saiba-mais:active {
-    background-color: var(--laranja-interaction);
-    cursor: pointer;
-  }
-  main #apresentacao .saiba-mais span {
-    color: white;
-    font-size: 1.2em;
-  }
-  main #historias-marcantes {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-  }
-  main #historias-marcantes .swiper2 {
-    width: 50%;
-  }
-  main #historias-marcantes #historia-animal {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2em;
-    padding: 0 2em;
-  }
-}/*# sourceMappingURL=main.css.map */
+main #cachorroFrente #cachorroFundo form .btnExcluir {
+  text-align: right; /* Alinha o botão à direita */
+  margin-top: 10px;
+}/*# sourceMappingURL=cachorro_sistema.css.map */

@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import 'base';
+
+main {
+    @include flex-properties($direction: column, $gap: 1em);
+    background-color: #04C7EA;
+    color:aliceblue;
+
+    input, textarea {
+        height: 1.6em;
+        margin-bottom: 1em; 
+        border: none;
+        border-radius: 5px;
+    }
+
+    textarea {
+        height: auto; 
+    }
+
+    button{
+        height: 28px;
+        width: 60%;
+        border-radius: 20px;
+        background-color: #FF8F80;
+        color: white;
+        cursor: pointer;
+        border: none;
+        font-weight: bold;
+
+        &:hover{
+            background-color: aliceblue;
+            color: #FF8F80;
+        }
+    }
+
+    #cachorroFrente {
+        text-align: center;
+
+        #cachorroCad {
+            margin-bottom: 20px;
+        }
+        
+        #cachorroFundo {
+            display: inline-block; /* Alinha o conteúdo ao centro */
+            text-align: left; /* Mantém o texto alinhado à esquerda */
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+
+            form {
+                #lista {
+                    list-style-type: disc; /* Exibe bolinhas */
+                    padding-left: 40px; /* Espaço para a indentação das bolinhas */
+
+                    li {
+                        margin-bottom: 10px;
+                    }
+                }
+                
+                .btnExcluir {
+                    text-align: right; /* Alinha o botão à direita */
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}

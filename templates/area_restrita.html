@@ -17,6 +17,13 @@
     </head>
 
     <body>
+        {% set mensagem = get_flashed_messages()%}
+        {% if mensagem %}
+        <div class="mensagem_flash">
+            {{mensagem[0]}}
+        </div>
+        {% endif %}
+
         <header class="scrolled">
             <a id="ancora-logo-topo" href="/">
                 <div class="logo_fundo">
@@ -61,15 +68,15 @@
                     <p>Entre em sua conta</p>
                 </div>
 
-                <form>
+                <form action="entrar_usuario" method="post" id="login_sistema">
                     <div id="inputs">                              
                         <div class="input">
-                            <input type="text" name="nome_usuario" id="nome_usuario" maxlength=50 placeholder = "Nome de usuário" required>
+                            <input type="text" name="email_usuario" id="nome_usuario" maxlength=50 placeholder = "Nome de usuário" required>
                             <ion-icon name="person-outline"></ion-icon>
                         </div>
                         
                         <div class="input">
-                            <input type="password" name="senha" id="senha" placeholder="Senha" required>
+                            <input type="password" name="senha_usuario" id="senha" placeholder="Senha" required>
                             <ion-icon name="key-outline"></ion-icon>
                         </div>
                                                                
