@@ -10,13 +10,26 @@
         <link rel="icon" href="/static/imagens/favicon.ico" type="image/x-icon">
 
         <!-- Remixicons -->
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin=""/> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin=""/>
 
         <!-- CSS -->
-        <link rel="stylesheet" href="static/styles/home_sistema.css">
+        <link rel="stylesheet" href="/static/styles/home_sistema.css">
     </head>
 
     <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><i class="ri-home-2-line"></i><a href="/home_sistema" onclick="delayRedirection(event, this)">Início</a></li>
+                    <li><i class="ri-team-line"></i></i><a href="" onclick="delayRedirection(event, this)">Usuários</a></li>
+                    <li><img src="/static/imagens/icon_dogs.png"><a href="/cachorro" onclick="delayRedirection(event, this)">Animais</a></li>
+                    <li><img src="/static/imagens/icon_despesas.png"><a href="/despesas" onclick="delayRedirection(event, this)">Despesas</a></li>
+                    <li><i class="ri-user-heart-line"></i><a href="" onclick="delayRedirection(event, this)">Padrinhos</a></li>
+                    <li><i class="ri-megaphone-line"></i></i><a href="" onclick="delayRedirection(event, this)">Assinantes</a></li>
+                </ul>
+            </nav>
+        </header>
+
         <main>
             <div class="titulo">
                 <h1>Olá! O que gostaria de acessar?</h1>

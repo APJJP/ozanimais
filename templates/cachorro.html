@@ -10,46 +10,75 @@
         <link rel="icon" href="/static/imagens/favicon.ico" type="image/x-icon">
 
         <!-- Remixicons -->
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin=""/> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin=""/>
 
         <!-- CSS -->
-        <link rel="stylesheet" href="static/styles/cachorro_sistema.css">
+        <link rel="stylesheet" href="/static/styles/cachorro_sistema.css">
     </head>
 
     <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><i class="ri-home-2-line"></i><a href="/home_sistema" onclick="delayRedirection(event, this)">Início</a></li>
+                    <li><i class="ri-team-line"></i></i><a href="" onclick="delayRedirection(event, this)">Usuários</a></li>
+                    <li><img src="/static/imagens/icon_dogs.png"><a href="#" onclick="delayRedirection(event, this)">Animais</a></li>
+                    <li><img src="/static/imagens/icon_despesas.png"><a href="/despesas" onclick="delayRedirection(event, this)">Despesas</a></li>
+                    <li><i class="ri-user-heart-line"></i><a href="" onclick="delayRedirection(event, this)">Padrinhos</a></li>
+                    <li><i class="ri-megaphone-line"></i></i><a href="" onclick="delayRedirection(event, this)">Assinantes</a></li>
+                </ul>
+            </nav>
+        </header>
+
         <main>
-            <h1>Adicionar Cachorro</h1>
+            <div id="menu-cachorro">
+                <h1>Selecione uma opção</h1>
 
-            {% set mensagem = get_flashed_messages()%}
-            {% if mensagem %}
-            <div class="mensagem_flash">
-                {{mensagem[0]}}
+                <div id="opcoes">
+                    <button id="exibir-cadastro-dog"><span>Cadastrar cachorro</span></button>
+                    <button id="exibir-dogs"><span>Exibir todos os cachorros</span></button>
+                </div>
             </div>
-            {% endif %}
 
-        
-            <form action="/cadastrar_cachorro" method="post">
-                <label for="nome_cachorro">Nome:</label>
-                <input type="text" name="nome_cachorro" id="nome_cachorro" placeholder="digite aqui">
-                <p></p>
-                <label for="sexo_cachorro">Sexo:</label>
-                <input type="text" name="sexo_cachorro" id="sexo_cachorro" placeholder="digite aqui">
-                <p></p>
-                <label for="raca_cachorro">Raça:</label>
-                <input type="text" name="raca_cachorro" id="raca_cachorro" placeholder="digite aqui">
-                <p></p>
-                <label for="descricao_cachorro">Descrição:</label><p></p>
-                <textarea rows = "10" cols = "30" placeholder="Digite aqui a descrição do cachorro!" id= "descricao_cachorro" name = "descricao_cachorro"></textarea>
-                <!-- <input type="text" name="descricao_cachorro" id="descricao_cachorro" placeholder="digite aqui"> -->
-                <p></p>
-                <button type="submit">Cadastrar</button>
-            </form>
+            <div id="cadastrar-cachorros" style="display: none;">
+                <h1>Cadastrar Cachorro</h1>
 
+                {% set mensagem = get_flashed_messages()%}
+                {% if mensagem %}
+                <div class="mensagem_flash">
+                    {{mensagem[0]}}
+                </div>
+                {% endif %}
 
-            <div id="cachorroFrente">
-                <h1 id="cachorroCad">Cachorros cadastrados</h1>
+                <form action="/cadastrar_cachorro" method="post" id="form-cadastrar-dog">
+                    <div class="div-input" id="input-nome">
+                        <label for="nome_cachorro">Nome:</label>
+                        <input type="text" name="nome_cachorro" id="nome_cachorro" placeholder="Digite o nome do cachorro">
+                    </div>
+                    
+                    <div class="div-input" id="input-sexo">
+                        <label for="sexo_cachorro">Sexo:</label>
+                        <input type="text" name="sexo_cachorro" id="sexo_cachorro" placeholder="Digite o sexo do cachorro">
+                    </div>
+                    
+                    <div class="div-input" id="input-raca">
+                        <label for="raca_cachorro">Raça:</label>
+                        <input type="text" name="raca_cachorro" id="raca_cachorro" placeholder="Digite a raça do cachorro">
+                    </div>
 
-                <div id="cachorro Fundo">
+                    <div class="div-input" id="input-descricao">
+                        <label for="descricao_cachorro">Descrição:</label>
+                        <textarea rows = "10" cols = "30" placeholder="Digite a descrição do cachorro" id= "descricao_cachorro" name = "descricao_cachorro"></textarea>
+                    </div>
+                    
+                    <button type="submit" id="btn-cadastrar-cachorro"><span>Cadastrar</span></button>
+                </form>
+            </div>
+
+            <div id="cachorro-frente" style="display: none;">
+                <h1 id="cachorro-cad">Cachorros cadastrados</h1>
+
+                <div id="cachorro-fundo">
                     {% if cachorros %}
                     {% for i in cachorros%}
 
@@ -85,7 +114,7 @@
         <script  nomodule  src ="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
         <!-- Script principal -->
-        <!-- <script src="/static/scripts/cachorro_sistema.js"></script> -->
+        <script src="/static/scripts/cachorro_sistema.js"></script>
     </body>
 
 

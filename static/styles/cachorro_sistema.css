@@ -33,597 +33,174 @@
   box-sizing: border-box;
 }
 
-main {
-  background-color: #F3F4F6;
-  min-height: 100vh;
-  padding-top: 4em;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Swiper */
-.swiper-slide img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.swiper-pagination-bullet {
-  width: 20px;
-  height: 20px;
-  border: 2px solid white;
-  opacity: 1;
-  background: transparent;
-}
-
-.swiper-pagination-bullet-active {
-  border: 2px solid white;
-  background: white;
-}
-
-/* Header e footer */
 header {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 100%;
-  padding: 0.5em 0;
-  background-color: transparent;
-  position: fixed;
-  top: 0;
-  z-index: 900;
-  box-shadow: none;
-  transition: background-color 0.3s ease-in-out;
-}
-header #ancora-logo-topo {
-  display: none;
+  width: 15em;
+  min-height: 100vh;
+  background-color: #04C7EA;
 }
 header nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: auto;
-  height: 2.5em;
+  width: 100%;
+  min-height: 100vh;
 }
-header nav .nav-mobile {
+header nav ul {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   gap: 2em;
-  width: 100%;
-  height: 100%;
-  padding: 0.5em;
-  /* font-size: 0.95em; */
+  list-style: none;
 }
-header nav .nav-mobile .menu-hamburguer {
+header nav ul li {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 2em;
-  height: 2em;
-  cursor: pointer;
-  position: relative;
-  z-index: 1000;
-  transition: 0.2s;
-}
-header nav .nav-mobile .menu-hamburguer::before {
-  content: "";
-  width: 2em;
-  height: 3px;
-  position: absolute;
-  transition: 0.2s;
-  transform: translateY(-0.5em);
-}
-header nav .nav-mobile .menu-hamburguer::after {
-  content: "";
-  width: 2em;
-  height: 3px;
-  position: absolute;
-  transition: 0.2s;
-  transform: translateY(0.5em);
-}
-header nav .nav-mobile .menu-ativo::before {
-  transform: translateY(0px) rotate(45deg);
-}
-header nav .nav-mobile .menu-ativo::after {
-  transform: translateY(0px) rotate(-45deg);
-}
-header nav .nav-mobile .menu-mobile {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  background-color: var(--ciano);
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 995;
-}
-header nav .nav-mobile .menu-mobile ul {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1em;
-  list-style: none;
-  font-size: 1.3em;
 }
-header nav .nav-mobile .menu-mobile a {
-  padding: 5px 0;
-  color: white;
-  text-decoration: none;
-  position: relative;
-  transition: width 0.3s ease-in-out;
-}
-header nav .nav-mobile .menu-mobile a::after {
-  width: 0;
-  height: 2px;
-  background-color: white;
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  transition: width 0.2s ease-in-out;
-}
-header nav .nav-mobile .menu-mobile a:hover::after {
-  width: 100%;
-}
-header nav .nav-mobile .logo {
-  width: 8em;
-  height: 1.3em;
-  background-image: url("/static/imagens/logo_alternativa.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-header nav .nav-mobile .doe-agora {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 6em;
-  height: 2em;
-  border-radius: 1.8em;
-  background-color: var(--laranja);
-  /* background-color: var(--ciano); */
-}
-header nav .nav-mobile .doe-agora span {
-  font-size: 0.8em;
-  color: white;
-}
-header nav .nav-mobile .hidden {
-  display: none;
-}
-header nav .nav-desktop {
-  display: none;
-}
-
-header.scrolled {
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 12px;
-}
-header.scrolled nav .nav-mobile .logo {
-  background-image: url("/static/imagens/logo3.png");
-}
-header.scrolled nav .nav-mobile .doe-agora a {
-  color: white;
-}
-
-footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2em;
-  width: 100%;
-  height: auto;
-  padding: 2em 0;
-  background-color: var(--teste7);
-  color: white;
-}
-footer h2, footer a, footer p, footer ion-icon {
-  color: white;
-}
-footer #footer-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 4em;
-}
-footer #footer-container #footer-ancoras {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 2em;
-}
-footer #footer-container #footer-ancoras .footer-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 0.5em;
-}
-footer #footer-container #footer-ancoras .footer-section ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 0.5em;
-  list-style: none;
-}
-footer #footer-container #footer-ancoras .footer-section ul li a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  transition: transform 0.3s ease-in-out;
-  position: relative;
-}
-footer #footer-container #footer-ancoras .footer-section ul li a:hover {
-  transform: translateX(0.5em);
-}
-footer #footer-container #footer-ancoras .footer-section ul li a::after {
-  width: 0;
-  height: 2px;
-  background-color: white;
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  transition: width 0.3s ease-in-out;
-}
-footer #footer-container #footer-ancoras .footer-section ul li a:hover::after {
-  width: 100%;
-}
-footer #footer-container #footer-ancoras .contato ul li a, footer #footer-container #footer-ancoras .redes-sociais ul li a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5em;
-}
-footer #footer-container #footer-ancoras .contato ul li a ion-icon, footer #footer-container #footer-ancoras .redes-sociais ul li a ion-icon {
+header nav ul li i {
   font-size: 1.5em;
 }
-footer #footer-container .logo_fundo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 16em;
-  height: 4em;
-  background-color: transparent;
+header nav ul li img {
+  width: 1.5em;
+  height: 1.5em;
 }
-footer #footer-container .logo_fundo .logo {
-  width: 100%;
-  height: 100%;
-  background-image: url("/static/imagens/logo_alternativa2.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-footer #footer-bottom {
-  text-align: center;
+header nav ul li a {
+  text-decoration: none;
 }
 
-/* newsletter */
-#h1-newsletter {
-  grid-area: h1;
-}
-
-form {
-  grid-area: form;
-}
-
-#newsletter {
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto;
-  grid-template-areas: "h1" "form";
-  gap: 2em;
-  height: auto;
-  padding: 3em 1em;
-  background-color: #007CAC;
-}
-#newsletter h1 {
-  display: inline-block;
-  width: 80%;
-  margin: auto;
-  color: white;
-}
-#newsletter form {
+/* desktop first */
+main {
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1em;
+  min-height: 100vh;
+  padding-top: 0;
+  background-color: white;
+  color: aliceblue;
 }
-#newsletter form #input-wrapper {
+main #menu-cachorro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+main #menu-cachorro #opcoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
+}
+main #menu-cachorro #opcoes button {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 0.5em;
-  position: relative;
-}
-#newsletter form input {
-  width: 20em;
-  height: 3.8em;
-  outline: none;
-  border: none;
-  border-radius: 0.5em;
-  padding: 1em;
-}
-#newsletter form input::-moz-placeholder {
-  font-size: 1.2em;
-}
-#newsletter form input::placeholder {
-  font-size: 1.2em;
-}
-#newsletter form #email {
-  border-top-left-radius: 0.5em;
-  border-bottom-left-radius: 0.5em;
-  border-top-right-radius: 1.9em;
-  border-bottom-right-radius: 1.9em;
-}
-#newsletter form .assinar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 8em;
-  height: 3.8em;
-  outline: none;
-  border: none;
-  border-radius: 1.8em;
-  padding: 0.8em;
   background-color: var(--laranja);
-  position: absolute;
-  top: 0;
-  right: 0;
+  border: none;
+  outline: none;
+  border-radius: 1.8em;
+  padding: 1em;
+  width: 20em;
+  height: 3.2em;
   transition: background-color 0.2s ease-in-out;
 }
-#newsletter form .assinar:hover {
+main #menu-cachorro #opcoes button:hover, main #menu-cachorro #opcoes button:active {
   background-color: var(--laranja-interaction);
   cursor: pointer;
 }
-#newsletter form .assinar span {
+main #menu-cachorro #opcoes button span {
   color: white;
-  font-size: 1em;
+  font-size: 1.2em;
 }
-#newsletter form #nome-completo, #newsletter form #email {
-  transition: outline 0.1s ease-in-out;
-}
-#newsletter form #nome-completo:focus, #newsletter form #email:focus {
-  outline: 3px solid var(--ciano);
-}
-
-/* celulares de tela pequena */
-@media screen and (max-width: 309px) {
-  header nav .nav-mobile .doe-agora {
-    display: none;
-  }
-}
-@media screen and (min-width: 310px) and (max-width: 370px) {
-  header {
-    font-size: 0.9em;
-  }
-}
-/* tablets */
-@media screen and (min-width: 600px) and (max-width: 1024px) {
-  header {
-    font-size: 1.4em;
-  }
-}
-/* desktops e laptops*/
-@media screen and (min-width: 1025px) {
-  header {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    background-color: transparent;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    box-shadow: none;
-  }
-  header #ancora-logo-topo {
-    display: block;
-  }
-  header #ancora-logo-topo .logo_fundo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 10em;
-    height: 3em;
-    background-color: transparent;
-  }
-  header #ancora-logo-topo .logo_fundo .logo {
-    width: 100%;
-    height: 2em;
-    background-image: url("/static/imagens/logo_alternativa.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  header nav {
-    width: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 2.5em;
-  }
-  header nav .nav-mobile {
-    display: none;
-  }
-  header nav .nav-desktop {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 100em;
-    width: 100%;
-    height: 100%;
-    padding: 0px 10px;
-    font-family: "Poppins", sans-serif;
-    font-size: 0.95em;
-  }
-  header nav .nav-desktop .como-ajudar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 12em;
-    height: 3em;
-    outline: none;
-    border: none;
-    border-radius: 1.8em;
-    /* padding: 0.8em; */
-    background-color: var(--ciano);
-    transition: background-color 0.2s ease-in-out;
-  }
-  header nav .nav-desktop .como-ajudar:hover, header nav .nav-desktop .como-ajudar:active {
-    background-color: var(--ciano-interaction);
-    cursor: pointer;
-  }
-  header nav .nav-desktop .como-ajudar a {
-    padding: 0;
-    color: white;
-    font-size: 1.3em;
-  }
-  header nav .nav-desktop ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3em;
-    list-style: none;
-    font-size: 1.3em;
-  }
-  header nav .nav-desktop a {
-    padding: 5px 0;
-    text-decoration: none;
-    color: white;
-    position: relative;
-    transition: width 0.3s ease-in-out;
-    /* &:hover {
-        color: #FE6651;
-    } */
-  }
-  header nav .nav-desktop a::after {
-    width: 0;
-    height: 2px;
-    background-color: white;
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    transition: width 0.2s ease-in-out;
-  }
-  header nav .nav-desktop a:hover::after {
-    width: 100%;
-  }
-  header nav .nav-desktop #btnComoAjudar:hover {
-    color: white;
-  }
-  header nav .nav-desktop #btnComoAjudar:hover::after {
-    width: 0; /* Define a largura como 0 para que nenhuma linha seja exibida */
-  }
-  header.scrolled {
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 12px;
-  }
-  header.scrolled #ancora-logo-topo .logo_fundo .logo {
-    background-image: url("/static/imagens/logo3.png");
-  }
-  header.scrolled nav .nav-desktop a {
-    color: var(--cinza-escuro);
-  }
-  header.scrolled nav .nav-desktop a::after {
-    background-color: var(--laranja);
-  }
-  header.scrolled nav .nav-desktop .como-ajudar a {
-    color: white;
-  }
-  header.scrolled nav .nav-mobile .logo {
-    background-image: url("/static/imagens/logo3.png");
-  }
-  header.scrolled nav .nav-mobile .doe-agora a {
-    color: white;
-  }
-  main #newsletter {
-    grid-template-columns: auto auto;
-    grid-template-rows: auto;
-    grid-template-areas: "h1 form";
-    gap: 0;
-    width: 100%;
-    height: 400px;
-  }
-  main #newsletter h1 {
-    width: 15em;
-  }
-  main #newsletter form input {
-    width: 40em;
-    height: 3.8em;
-  }
-  main #newsletter form input::-moz-placeholder {
-    font-size: 1.2em;
-  }
-  main #newsletter form input::placeholder {
-    font-size: 1.2em;
-  }
-  footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2em;
-  }
-  footer #footer-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 3em;
-  }
-  footer #footer-container #footer-ancoras {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 5em;
-  }
-}
-.no-scroll {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-}
-
-main {
+main #cadastrar-cachorros {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1em;
-  background-color: #04C7EA;
-  color: aliceblue;
+  width: 50%;
 }
-main input, main textarea {
-  height: 1.6em;
-  margin-bottom: 1em;
+main #cadastrar-cachorros #form-cadastrar-dog {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  width: 100%;
+}
+main #cadastrar-cachorros #form-cadastrar-dog .div-input {
+  /* @include flex-properties($gap: 2em); */
+  display: grid;
+  grid-template-columns: 6em auto;
+  grid-template-rows: auto;
+  gap: 2em;
+  width: 100%;
+}
+main #cadastrar-cachorros #form-cadastrar-dog .div-input label {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+main #cadastrar-cachorros #form-cadastrar-dog .div-input input, main #cadastrar-cachorros #form-cadastrar-dog .div-input textarea {
+  padding: 1em;
+  outline: none;
+  border: 1px solid rgb(215, 209, 209);
+  border-radius: 0.5em;
+  transition: border 0.1s ease-in-out;
+}
+main #cadastrar-cachorros #form-cadastrar-dog .div-input input::-moz-placeholder, main #cadastrar-cachorros #form-cadastrar-dog .div-input textarea::-moz-placeholder {
+  font-size: 1.2em;
+  color: var(--placeholder);
+}
+main #cadastrar-cachorros #form-cadastrar-dog .div-input input::placeholder, main #cadastrar-cachorros #form-cadastrar-dog .div-input textarea::placeholder {
+  font-size: 1.2em;
+  color: var(--placeholder);
+}
+main #cadastrar-cachorros #form-cadastrar-dog .div-input input:focus, main #cadastrar-cachorros #form-cadastrar-dog .div-input textarea:focus {
+  border: 2px solid var(--ciano);
+}
+main #cadastrar-cachorros #form-cadastrar-dog .div-input input {
+  height: 3em;
+}
+main #cadastrar-cachorros #form-cadastrar-dog .div-input textarea {
+  height: 15em;
+}
+main #cadastrar-cachorros #form-cadastrar-dog #btn-cadastrar-cachorro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--laranja);
   border: none;
-  border-radius: 5px;
+  outline: none;
+  border-radius: 1.8em;
+  padding: 0.8em;
+  width: 100%;
+  height: 3.2em;
+  transition: background-color 0.2s ease-in-out;
 }
-main textarea {
-  height: auto;
-}
-main button {
-  height: 28px;
-  width: 60%;
-  border-radius: 20px;
-  background-color: #FF8F80;
-  color: white;
+main #cadastrar-cachorros #form-cadastrar-dog #btn-cadastrar-cachorro:hover, main #cadastrar-cachorros #form-cadastrar-dog #btn-cadastrar-cachorro:active {
+  background-color: var(--laranja-interaction);
   cursor: pointer;
-  border: none;
-  font-weight: bold;
 }
-main button:hover {
-  background-color: aliceblue;
-  color: #FF8F80;
+main #cadastrar-cachorros #form-cadastrar-dog #btn-cadastrar-cachorro span {
+  color: white;
+  font-size: 1.2em;
 }
 main #cachorroFrente {
   text-align: center;

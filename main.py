@@ -184,7 +184,7 @@ def cadastrar_assinante():
 
 # funções do sistema 
 
-@app.route('/entrar_usuario', methods=['POST'])
+""" @app.route('/entrar_usuario', methods=['POST'])
 def entrar_usuario():
     email = request.form.get('email_usuario')
     senha = request.form.get('senha_usuario')
@@ -198,7 +198,24 @@ def entrar_usuario():
             return redirect('/area_restrita')
     else:
         flash('Nenhum usuário cadastrado')
-        return redirect('/area_restrita')
+        return redirect('/area_restrita') """
+
+@app.route('/entrar_usuario', methods=['POST'])
+def entrar_usuario():
+    email = request.json.get('email_usuario')
+    senha = request.json.get('senha_usuario')
+
+    usuarios = models.session.query(models.Administrador).all()
+    if usuarios:
+        for i in usuarios:
+            if i.email_administrador == email and i.senha_administrador == senha:
+                return jsonify({'autenticado': True})
+        flash('Email ou senha inválidos')
+        return jsonify({'autenticado': False})
+    else:
+        flash('Nenhum usuário cadastrado')
+        return jsonify({'autenticado': False})
+
 
 
 @app.route('/cadastrar_cachorro',methods=['POST'])
@@ -222,6 +239,7 @@ def cadastrar_cachorro():
    except ValueError as v:
       flash(str(v))
       return redirect('/cachorro')
+
    
 
 @app.route('/excluir_cachorro', methods=['POST'])
