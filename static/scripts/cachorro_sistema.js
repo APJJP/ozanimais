@@ -143,6 +143,27 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 cachorroFundo.innerHTML = '<p>Ainda não há cachorros cadastrados.</p>'
             }
+
+            // Conta o número de elementos filhos (formulários de despesa)
+            const numDespesas = cachorroFundo.children.length
+
+            let numColunas = 1
+
+            if (window.innerWidth >= 600 && window.innerWidth <= 1024) {
+                if (numDespesas >= 2) {
+                    numColunas = 2
+                }
+                cachorroFundo.style.gridTemplateColumns = `repeat(${numColunas}, 1fr)`
+            }
+            else if (window.innerWidth > 1024) {
+                if (numDespesas >= 2) {
+                    numColunas = 2
+                }
+                if (numDespesas >= 3) {
+                    numColunas = 3
+                }
+                cachorroFundo.style.gridTemplateColumns = `repeat(${numColunas}, 1fr)`
+            }
         })
         .catch(error => console.error('Erro:', error))
     }

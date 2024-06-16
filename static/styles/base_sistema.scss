@@ -42,42 +42,101 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     @include flex-properties();
+    overflow: hidden;
 }
 
 header {
-    @include flex-properties($direction: column);
-    width: 15em;
-    min-height: 100vh;
+    @include flex-properties($direction: column, $justify: center);
+    width: 3em;
+    height: 100vh;
     background-color: #04C7EA;
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 995;
+
+    .menu-hamburguer {
+        @include flex-properties();
+        width: 2em;
+        height: 2em;
+        margin-top: 1em;
+        cursor: pointer;
+        position: relative;
+        z-index: 1000;
+        transition: 0.2s;   
+
+        &::before {
+            content: '';
+            width: 2em;
+            height: 3px;
+            background-color: white;
+            position: absolute;
+            transition: 0.2s;
+            transform: translateY(-0.5em);
+            box-shadow: 0 0.5em 0 white;
+        }
+
+        &::after {
+            content: '';
+            width: 2em;
+            height: 3px;
+            background-color: white;
+            position: absolute;
+            transition: 0.2s;
+            transform: translateY(0.5em);
+        }
+    }
+
+    .menu-ativo {
+        &::before {
+            background-color: white;
+            transform: translateY(0px) rotate(45deg);
+            box-shadow: 0 0 0 white;
+        }
+
+        &::after {
+            background-color: white;
+            transform: translateY(0px) rotate(-45deg);
+            box-shadow: 0 0 0 white;
+        }
+    }
 
     nav {
         @include flex-properties();
         width: 100%;
-        min-height: 100vh;
+        height: calc(100vh - 2em); // Ajuste para incluir a altura do menu hambúrguer 
 
         ul {
             @include flex-properties($direction: column, $align: flex-start, $gap: 2em);
             list-style: none;
 
             li {
-                @include flex-properties($gap: 1em);
-
-                i {
-                    font-size: 1.5em;
-                }
-
-                img {
-                    width: 1.5em;
-                    height: 1.5em;
-                }
+                @include flex-properties();
 
                 a {
+                    @include flex-properties($gap: 1em);
                     text-decoration: none;
+
+                    i {
+                        color: white;
+                        font-size: 1.5em;
+                    }
+    
+                    img {
+                        width: 1.5em;
+                        height: 1.5em;
+                    }
+
+                    span {
+                        display: none;
+                        color: white;
+                    }
                 }
             }
         }
@@ -87,7 +146,55 @@ header {
 main {
     flex: 1;
     @include flex-properties($direction: column, $gap: 1em);
-    min-height: 100vh;
-    padding: 2em 0 2em 15em;
+    height: 100vh;
+    padding: 2em;
+    margin-left: 3em;
     background-color: #F3F4F6;
+    overflow-y: auto;
+}
+
+/* desktops e laptops*/
+@media screen and (min-width: 1025px) {
+    header {
+        @include flex-properties($direction: column, $justify: center);
+        width: 15em;
+
+        .menu-hamburguer {
+            display: none;
+        }
+    
+        nav {
+            height: 100vh;
+
+            ul {
+                li { 
+                    a {   
+                        span {
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    main {
+        margin-left: 15em;
+    }
+}
+
+header.menu-aberto {
+    width: 15em;
+
+    nav {
+        ul {
+            li { 
+                a {   
+                    span {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
 }

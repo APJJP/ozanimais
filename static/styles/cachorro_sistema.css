@@ -32,10 +32,15 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 header {
@@ -43,19 +48,61 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 15em;
-  min-height: 100vh;
+  width: 3em;
+  height: 100vh;
   background-color: #04C7EA;
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 995;
+}
+header .menu-hamburguer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2em;
+  height: 2em;
+  margin-top: 1em;
+  cursor: pointer;
+  position: relative;
+  z-index: 1000;
+  transition: 0.2s;
+}
+header .menu-hamburguer::before {
+  content: "";
+  width: 2em;
+  height: 3px;
+  background-color: white;
+  position: absolute;
+  transition: 0.2s;
+  transform: translateY(-0.5em);
+  box-shadow: 0 0.5em 0 white;
+}
+header .menu-hamburguer::after {
+  content: "";
+  width: 2em;
+  height: 3px;
+  background-color: white;
+  position: absolute;
+  transition: 0.2s;
+  transform: translateY(0.5em);
+}
+header .menu-ativo::before {
+  background-color: white;
+  transform: translateY(0px) rotate(45deg);
+  box-shadow: 0 0 0 white;
+}
+header .menu-ativo::after {
+  background-color: white;
+  transform: translateY(0px) rotate(-45deg);
+  box-shadow: 0 0 0 white;
 }
 header nav {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 100vh;
+  height: calc(100vh - 2em);
 }
 header nav ul {
   display: flex;
@@ -69,17 +116,25 @@ header nav ul li {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1em;
 }
-header nav ul li i {
+header nav ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  text-decoration: none;
+}
+header nav ul li a i {
+  color: white;
   font-size: 1.5em;
 }
-header nav ul li img {
+header nav ul li a img {
   width: 1.5em;
   height: 1.5em;
 }
-header nav ul li a {
-  text-decoration: none;
+header nav ul li a span {
+  display: none;
+  color: white;
 }
 
 main {
@@ -89,12 +144,43 @@ main {
   justify-content: center;
   align-items: center;
   gap: 1em;
-  min-height: 100vh;
-  padding: 2em 0 2em 15em;
+  height: 100vh;
+  padding: 2em;
+  margin-left: 3em;
   background-color: #F3F4F6;
+  overflow-y: auto;
 }
 
-/* desktop first */
+/* desktops e laptops*/
+@media screen and (min-width: 1025px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 15em;
+  }
+  header .menu-hamburguer {
+    display: none;
+  }
+  header nav {
+    height: 100vh;
+  }
+  header nav ul li a span {
+    display: inline-block;
+  }
+  main {
+    margin-left: 15em;
+  }
+}
+header.menu-aberto {
+  width: 15em;
+}
+header.menu-aberto nav ul li a span {
+  display: inline-block;
+}
+
+/* mobile first */
 main #menu-cachorro {
   display: flex;
   flex-direction: column;
@@ -136,7 +222,8 @@ main #cadastrar-cachorros {
   justify-content: center;
   align-items: center;
   gap: 2em;
-  width: 50%;
+  width: 100%;
+  padding-top: 12em;
   position: relative;
 }
 main #cadastrar-cachorros #form-cadastrar-dog {
@@ -150,7 +237,7 @@ main #cadastrar-cachorros #form-cadastrar-dog {
 main #cadastrar-cachorros #form-cadastrar-dog .div-input {
   /* @include flex-properties($gap: 2em); */
   display: grid;
-  grid-template-columns: 6em auto;
+  grid-template-columns: 3em auto;
   grid-template-rows: auto;
   gap: 2em;
   width: 100%;
@@ -184,6 +271,16 @@ main #cadastrar-cachorros #form-cadastrar-dog .div-input input {
 main #cadastrar-cachorros #form-cadastrar-dog .div-input textarea {
   height: 15em;
 }
+main #cadastrar-cachorros #form-cadastrar-dog #input-descricao {
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  gap: 0.5em;
+}
+main #cadastrar-cachorros #form-cadastrar-dog #input-descricao label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
 main #cadastrar-cachorros #form-cadastrar-dog #btn-cadastrar-cachorro {
   display: flex;
   justify-content: center;
@@ -205,18 +302,25 @@ main #cadastrar-cachorros #form-cadastrar-dog #btn-cadastrar-cachorro span {
   color: white;
   font-size: 1.2em;
 }
+main #cadastrar-cachorros .btn1 {
+  top: 7em;
+  left: 0;
+}
 main #cachorro-frente {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2em;
+  padding-top: 4em;
+  overflow-y: auto;
   position: relative;
 }
 main #cachorro-frente #cachorro-fundo {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 2em;
+  overflow-y: auto;
 }
 main #cachorro-frente #cachorro-fundo #dados-cachorro {
   display: flex;
@@ -263,13 +367,15 @@ main #cachorro-frente #cachorro-fundo #dados-cachorro #excluir span {
   color: white;
   font-size: 1.2em;
 }
+main #cachorro-frente .btn2 {
+  top: 0;
+  left: 0;
+}
 main .btn-voltar {
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 0;
-  left: 0;
 }
 main .btn-voltar .icon-voltar {
   display: flex;
@@ -287,4 +393,32 @@ main .btn-voltar .icon-voltar:hover, main .btn-voltar .icon-voltar:active {
 }
 main .btn-voltar .icon-voltar i {
   font-size: 1.6em;
+}
+
+/* desktops e laptops*/
+@media screen and (min-width: 1025px) {
+  main #cadastrar-cachorros {
+    width: 50%;
+    padding-top: 0;
+  }
+  main #cadastrar-cachorros #form-cadastrar-dog .div-input, main #cadastrar-cachorros #form-cadastrar-dog #input-descricao {
+    grid-template-columns: 6em auto;
+  }
+  main #cadastrar-cachorros #form-cadastrar-dog .div-input label, main #cadastrar-cachorros #form-cadastrar-dog #input-descricao label {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  main #cadastrar-cachorros .btn1 {
+    top: 0;
+    left: 0;
+  }
+  main #cachorro-frente {
+    min-width: 50%;
+    padding-top: 0;
+    overflow-y: visible;
+  }
+  main #cachorro-frente #cachorro-fundo {
+    overflow-y: visible;
+  }
 }/*# sourceMappingURL=cachorro_sistema.css.map */

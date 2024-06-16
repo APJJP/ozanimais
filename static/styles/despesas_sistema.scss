@@ -2,7 +2,7 @@
 
 @import 'base_sistema';
 
-/* desktop first */
+/* mobile first */
 
 main {
     #menu-despesas {
@@ -13,13 +13,13 @@ main {
 
             button {
                 @include flex-properties();
-                background-color: var(--laranja);
-                border:none;
-                outline: none;
-                border-radius: 1.8em;
-                padding: 1em;
                 width: 20em;
                 height: 3.2em;
+                padding: 1em;
+                outline: none;
+                border: none;
+                border-radius: 1.8em;
+                background-color: var(--laranja);
                 transition: background-color 0.2s ease-in-out;
         
                 &:hover, &:active {
@@ -37,7 +37,8 @@ main {
     
     #cadastrar-despesa {
         @include flex-properties($direction: column, $gap: 2em);
-        width: 50%;
+        width: 100%;
+        padding-top: 12em;
         position: relative;
 
         #form-cadastrar-despesa {
@@ -45,9 +46,8 @@ main {
             width: 100%;
     
             .div-input {
-                /* @include flex-properties($gap: 2em); */
                 display: grid;
-                grid-template-columns: 6em auto;
+                grid-template-columns: 3em auto;
                 grid-template-rows: auto;
                 gap: 2em;
                 width: 100%;
@@ -81,6 +81,16 @@ main {
                     height: 15em; 
                 }
             }
+
+            #input-descricao {
+                grid-template-columns: auto;
+                grid-template-rows: auto auto;
+                gap: 0.5em;
+
+                label {
+                    @include flex-properties($justify: flex-start);
+                }
+            }
     
             #btn-cadastrar-despesa {
                 @include flex-properties();
@@ -88,7 +98,7 @@ main {
                 height: 3.2em;
                 padding: 0.8em;
                 outline: none;
-                border:none;             
+                border: none;             
                 border-radius: 1.8em;
                 background-color: var(--laranja);
                 transition: background-color 0.2s ease-in-out;
@@ -104,18 +114,25 @@ main {
                 }
             }
         }
+
+        .btn1 {
+            top: 7em;
+            left: 0;
+        }
     }
     
     #despesas-frente {
         @include flex-properties($direction: column, $gap: 2em);
+        padding-top: 4em;
+        overflow-y: auto;
         position: relative;
-        min-width: 50%;
         
         #despesas-fundo {
             display: grid;
             grid-template-columns: repeat(1, 1fr);
             gap: 2em;
-            width: 100%;
+            overflow-y: auto;
+            /* width: 100%; */
 
             #dados-despesa {
                 @include flex-properties($direction: column, $justify: flex-start, $gap: 1em);
@@ -127,7 +144,6 @@ main {
 
                 h3 {
                     width: 100%;
-                    /* display: inine-block; */
                     text-align: center;
                 }
 
@@ -164,13 +180,16 @@ main {
                 }
             }
         }
+
+        .btn2 {
+            top: 0;
+            left: 0;
+        }
     }
 
     .btn-voltar {
         @include flex-properties();
         position: absolute;
-        top: 0;
-        left: 0;
 
         .icon-voltar {
             @include flex-properties;
@@ -187,6 +206,41 @@ main {
 
             i {
                 font-size: 1.6em;
+            }
+        }
+    }
+}
+
+/* desktops e laptops*/
+@media screen and (min-width: 1025px) {
+    main {      
+        #cadastrar-despesa {
+            width: 50%;
+            padding-top: 0;
+    
+            #form-cadastrar-despesa {
+                .div-input, #input-descricao {
+                    grid-template-columns: 6em auto;
+        
+                    label {
+                        @include flex-properties($justify: flex-end);
+                    }
+                }
+            }
+
+            .btn1 {
+                top: 0;
+                left: 0;
+            }
+        }
+        
+        #despesas-frente {
+            min-width: 50%;
+            padding-top: 0;
+            overflow-y: visible;
+          
+            #despesas-fundo {
+                overflow-y: visible;
             }
         }
     }
