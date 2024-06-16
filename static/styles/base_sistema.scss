@@ -51,6 +51,9 @@ header {
     width: 15em;
     min-height: 100vh;
     background-color: #04C7EA;
+    position: fixed;
+    top: 0;
+    left: 0;
 
     nav {
         @include flex-properties();
@@ -79,4 +82,12 @@ header {
             }
         }
     }
+}
+
+main {
+    flex: 1;
+    @include flex-properties($direction: column, $gap: 1em);
+    min-height: 100vh;
+    padding: 2em 0 2em 15em;
+    background-color: #F3F4F6;
 }

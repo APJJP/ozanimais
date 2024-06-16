@@ -13,32 +13,33 @@ def validarCachorro(n,s,r,d):
         session.add(novo_cachorro)
         session.commit()
     except ValueError as v:
-        raise ValueError(v)
-  
-        
+        raise ValueError(v)       
 
 def excluirC(id):
     session.query(models.Cachorro).filter(models.Cachorro.id_cachorro == id).delete()
     session.commit()
 
 
-def validarDespesas(d,v,de):
+def validarDespesa(n,d,v,de):
 
     try:
-        models.Despesas.validarValor(v)
-        models.Despesas.validarDescricaoDespesas(de)
-        if d.lower() == 'null' or d == '':
-            d = None
-        else:
+        models.Despesa.validarNomeDespesa(n)
+        models.Despesa.validarValor(v)
+        models.Despesa.validarDescricaoDespesa(de)
+
+        if d.strip() and d.strip().lower() != "vazia":  # Verifica se a data não está vazia
             d = datetime.strptime(d, '%Y-%m-%d')
-        nova_despesa = models.Despesas(data_despesas=d,valor_despesas=v,descricao_despesas=de)
+        else:
+            d = None
+
+        nova_despesa = models.Despesa(nome_despesa=n,data_despesa=d,valor_despesa=v,descricao_despesa=de)
         session.add(nova_despesa)
         session.commit()
     except ValueError as v:
         raise ValueError(v)
     
-def excluirDespesas(id):
-    session.query(models.Despesas).filter(models.Despesas.id_despesas == id).delete()
+def excluirDespesa(id):
+    session.query(models.Despesa).filter(models.Despesa.id_despesa == id).delete()
     session.commit()
 
 
@@ -64,7 +65,6 @@ def validarPadrinho(n,s,t,e):
     except ValueError as v:
         raise ValueError(v)
     
-
 
 def validarAssinante(n, e):
     try:

@@ -5,13 +5,6 @@
 /* desktop first */
 
 main {
-    flex: 1;
-    @include flex-properties($direction: column, $gap: 1em);
-    min-height: 100vh;
-    padding-top: 0;
-    background-color: white;
-    color:aliceblue;
-
     #menu-despesas {
         @include flex-properties($direction: column, $gap: 2em);
 
@@ -42,11 +35,12 @@ main {
         }
     }
     
-    #cadastrar-despesas {
-        @include flex-properties($direction: column, $gap: 1em);
+    #cadastrar-despesa {
+        @include flex-properties($direction: column, $gap: 2em);
         width: 50%;
+        position: relative;
 
-        #form-cadastrar-despesas {
+        #form-cadastrar-despesa {
             @include flex-properties($direction: column, $gap: 2em);
             width: 100%;
     
@@ -90,13 +84,13 @@ main {
     
             #btn-cadastrar-despesa {
                 @include flex-properties();
-                background-color: var(--laranja);
-                border:none;
-                outline: none;
-                border-radius: 1.8em;
-                padding: 0.8em;
                 width: 100%;
                 height: 3.2em;
+                padding: 0.8em;
+                outline: none;
+                border:none;             
+                border-radius: 1.8em;
+                background-color: var(--laranja);
                 transition: background-color 0.2s ease-in-out;
         
                 &:hover, &:active {
@@ -112,4 +106,88 @@ main {
         }
     }
     
+    #despesas-frente {
+        @include flex-properties($direction: column, $gap: 2em);
+        position: relative;
+        min-width: 50%;
+        
+        #despesas-fundo {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2em;
+            width: 100%;
+
+            #dados-despesa {
+                @include flex-properties($direction: column, $justify: flex-start, $gap: 1em);
+                width: 16em;
+                padding: 2em;
+                border-radius: 1em;
+                background-color: white;
+                margin: auto;
+
+                h3 {
+                    width: 100%;
+                    /* display: inine-block; */
+                    text-align: center;
+                }
+
+                #lista {
+                    width: 100%;
+                    list-style: none;
+
+                    li {
+                        margin-bottom: 10px;
+                        word-wrap: break-word;
+                    }
+                }
+                
+                #excluir {
+                    @include flex-properties();
+                    width: 100%;
+                    height: 3.2em;
+                    padding: 1em;
+                    outline: none;
+                    border:none;
+                    border-radius: 1.8em;
+                    background-color: var(--laranja);
+                    transition: background-color 0.2s ease-in-out;
+            
+                    &:hover, &:active {
+                        background-color: var(--laranja-interaction);
+                        cursor: pointer;
+                    }
+            
+                    span {
+                        color: white;
+                        font-size: 1.2em;
+                    }
+                }
+            }
+        }
+    }
+
+    .btn-voltar {
+        @include flex-properties();
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        .icon-voltar {
+            @include flex-properties;
+            width: 3em;
+            height: 3em;
+            background-color: #ECECEC;
+            border-radius: 50%;
+            transition: background-color 0.2s ease-in-out;
+            
+            &:hover, &:active {
+                background-color: var(--cinza-claro);
+                cursor: pointer;
+            }
+
+            i {
+                font-size: 1.6em;
+            }
+        }
+    }
 }

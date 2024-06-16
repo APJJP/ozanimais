@@ -46,6 +46,9 @@ header {
   width: 15em;
   min-height: 100vh;
   background-color: #04C7EA;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 header nav {
   display: flex;
@@ -79,7 +82,6 @@ header nav ul li a {
   text-decoration: none;
 }
 
-/* desktop first */
 main {
   flex: 1;
   display: flex;
@@ -88,10 +90,11 @@ main {
   align-items: center;
   gap: 1em;
   min-height: 100vh;
-  padding-top: 0;
-  background-color: white;
-  color: aliceblue;
+  padding: 2em 0 2em 15em;
+  background-color: #F3F4F6;
 }
+
+/* desktop first */
 main #menu-despesas {
   display: flex;
   flex-direction: column;
@@ -127,15 +130,16 @@ main #menu-despesas #opcoes button span {
   color: white;
   font-size: 1.2em;
 }
-main #cadastrar-despesas {
+main #cadastrar-despesa {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1em;
+  gap: 2em;
   width: 50%;
+  position: relative;
 }
-main #cadastrar-despesas #form-cadastrar-despesas {
+main #cadastrar-despesa #form-cadastrar-despesa {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -143,7 +147,7 @@ main #cadastrar-despesas #form-cadastrar-despesas {
   gap: 2em;
   width: 100%;
 }
-main #cadastrar-despesas #form-cadastrar-despesas .div-input {
+main #cadastrar-despesa #form-cadastrar-despesa .div-input {
   /* @include flex-properties($gap: 2em); */
   display: grid;
   grid-template-columns: 6em auto;
@@ -151,53 +155,139 @@ main #cadastrar-despesas #form-cadastrar-despesas .div-input {
   gap: 2em;
   width: 100%;
 }
-main #cadastrar-despesas #form-cadastrar-despesas .div-input label {
+main #cadastrar-despesa #form-cadastrar-despesa .div-input label {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
-main #cadastrar-despesas #form-cadastrar-despesas .div-input input, main #cadastrar-despesas #form-cadastrar-despesas .div-input textarea {
+main #cadastrar-despesa #form-cadastrar-despesa .div-input input, main #cadastrar-despesa #form-cadastrar-despesa .div-input textarea {
   padding: 1em;
   outline: none;
   border: 1px solid rgb(215, 209, 209);
   border-radius: 0.5em;
   transition: border 0.1s ease-in-out;
 }
-main #cadastrar-despesas #form-cadastrar-despesas .div-input input::-moz-placeholder, main #cadastrar-despesas #form-cadastrar-despesas .div-input textarea::-moz-placeholder {
+main #cadastrar-despesa #form-cadastrar-despesa .div-input input::-moz-placeholder, main #cadastrar-despesa #form-cadastrar-despesa .div-input textarea::-moz-placeholder {
   font-size: 1.2em;
   color: var(--placeholder);
 }
-main #cadastrar-despesas #form-cadastrar-despesas .div-input input::placeholder, main #cadastrar-despesas #form-cadastrar-despesas .div-input textarea::placeholder {
+main #cadastrar-despesa #form-cadastrar-despesa .div-input input::placeholder, main #cadastrar-despesa #form-cadastrar-despesa .div-input textarea::placeholder {
   font-size: 1.2em;
   color: var(--placeholder);
 }
-main #cadastrar-despesas #form-cadastrar-despesas .div-input input:focus, main #cadastrar-despesas #form-cadastrar-despesas .div-input textarea:focus {
+main #cadastrar-despesa #form-cadastrar-despesa .div-input input:focus, main #cadastrar-despesa #form-cadastrar-despesa .div-input textarea:focus {
   border: 2px solid var(--ciano);
 }
-main #cadastrar-despesas #form-cadastrar-despesas .div-input input {
+main #cadastrar-despesa #form-cadastrar-despesa .div-input input {
   height: 3em;
 }
-main #cadastrar-despesas #form-cadastrar-despesas .div-input textarea {
+main #cadastrar-despesa #form-cadastrar-despesa .div-input textarea {
   height: 15em;
 }
-main #cadastrar-despesas #form-cadastrar-despesas #btn-cadastrar-despesa {
+main #cadastrar-despesa #form-cadastrar-despesa #btn-cadastrar-despesa {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--laranja);
-  border: none;
-  outline: none;
-  border-radius: 1.8em;
-  padding: 0.8em;
   width: 100%;
   height: 3.2em;
+  padding: 0.8em;
+  outline: none;
+  border: none;
+  border-radius: 1.8em;
+  background-color: var(--laranja);
   transition: background-color 0.2s ease-in-out;
 }
-main #cadastrar-despesas #form-cadastrar-despesas #btn-cadastrar-despesa:hover, main #cadastrar-despesas #form-cadastrar-despesas #btn-cadastrar-despesa:active {
+main #cadastrar-despesa #form-cadastrar-despesa #btn-cadastrar-despesa:hover, main #cadastrar-despesa #form-cadastrar-despesa #btn-cadastrar-despesa:active {
   background-color: var(--laranja-interaction);
   cursor: pointer;
 }
-main #cadastrar-despesas #form-cadastrar-despesas #btn-cadastrar-despesa span {
+main #cadastrar-despesa #form-cadastrar-despesa #btn-cadastrar-despesa span {
   color: white;
   font-size: 1.2em;
+}
+main #despesas-frente {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  position: relative;
+  min-width: 50%;
+}
+main #despesas-frente #despesas-fundo {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2em;
+  width: 100%;
+}
+main #despesas-frente #despesas-fundo #dados-despesa {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1em;
+  width: 16em;
+  padding: 2em;
+  border-radius: 1em;
+  background-color: white;
+  margin: auto;
+}
+main #despesas-frente #despesas-fundo #dados-despesa h3 {
+  width: 100%;
+  /* display: inine-block; */
+  text-align: center;
+}
+main #despesas-frente #despesas-fundo #dados-despesa #lista {
+  width: 100%;
+  list-style: none;
+}
+main #despesas-frente #despesas-fundo #dados-despesa #lista li {
+  margin-bottom: 10px;
+  word-wrap: break-word;
+}
+main #despesas-frente #despesas-fundo #dados-despesa #excluir {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 3.2em;
+  padding: 1em;
+  outline: none;
+  border: none;
+  border-radius: 1.8em;
+  background-color: var(--laranja);
+  transition: background-color 0.2s ease-in-out;
+}
+main #despesas-frente #despesas-fundo #dados-despesa #excluir:hover, main #despesas-frente #despesas-fundo #dados-despesa #excluir:active {
+  background-color: var(--laranja-interaction);
+  cursor: pointer;
+}
+main #despesas-frente #despesas-fundo #dados-despesa #excluir span {
+  color: white;
+  font-size: 1.2em;
+}
+main .btn-voltar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+main .btn-voltar .icon-voltar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3em;
+  height: 3em;
+  background-color: #ECECEC;
+  border-radius: 50%;
+  transition: background-color 0.2s ease-in-out;
+}
+main .btn-voltar .icon-voltar:hover, main .btn-voltar .icon-voltar:active {
+  background-color: var(--cinza-claro);
+  cursor: pointer;
+}
+main .btn-voltar .icon-voltar i {
+  font-size: 1.6em;
 }/*# sourceMappingURL=despesas_sistema.css.map */

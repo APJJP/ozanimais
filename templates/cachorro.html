@@ -22,7 +22,7 @@
                 <ul>
                     <li><i class="ri-home-2-line"></i><a href="/home_sistema" onclick="delayRedirection(event, this)">Início</a></li>
                     <li><i class="ri-team-line"></i></i><a href="" onclick="delayRedirection(event, this)">Usuários</a></li>
-                    <li><img src="/static/imagens/icon_dogs.png"><a href="#" onclick="delayRedirection(event, this)">Animais</a></li>
+                    <li><img src="/static/imagens/icon_dogs.png"><a href="#" onclick="delayRedirection(event, this); resetarLayout();">Animais</a></li>
                     <li><img src="/static/imagens/icon_despesas.png"><a href="/despesas" onclick="delayRedirection(event, this)">Despesas</a></li>
                     <li><i class="ri-user-heart-line"></i><a href="" onclick="delayRedirection(event, this)">Padrinhos</a></li>
                     <li><i class="ri-megaphone-line"></i></i><a href="" onclick="delayRedirection(event, this)">Assinantes</a></li>
@@ -41,14 +41,20 @@
             </div>
 
             <div id="cadastrar-cachorros" style="display: none;">
+                <div class="btn-voltar" onclick="resetarLayout()">
+                    <div class="icon-voltar">
+                        <i class="ri-arrow-left-s-line"></i>
+                    </div>
+                </div>
+
                 <h1>Cadastrar Cachorro</h1>
 
-                {% set mensagem = get_flashed_messages()%}
+                <!-- {% set mensagem = get_flashed_messages()%}
                 {% if mensagem %}
                 <div class="mensagem_flash">
                     {{mensagem[0]}}
                 </div>
-                {% endif %}
+                {% endif %} -->
 
                 <form action="/cadastrar_cachorro" method="post" id="form-cadastrar-dog">
                     <div class="div-input" id="input-nome">
@@ -76,35 +82,37 @@
             </div>
 
             <div id="cachorro-frente" style="display: none;">
+                <div class="btn-voltar" onclick="resetarLayout()">
+                    <div class="icon-voltar">
+                        <i class="ri-arrow-left-s-line"></i>
+                    </div>
+                </div>
+
                 <h1 id="cachorro-cad">Cachorros cadastrados</h1>
 
                 <div id="cachorro-fundo">
-                    {% if cachorros %}
-                    {% for i in cachorros%}
+                    <!-- {% if cachorros %}
+                        {% for i in cachorros%}
 
-                    <form action="/excluir_cachorro" method="post">
-                        <ul id="lista">
-                            <input type="hidden" name="idCachorro" value="{{i.id_cachorro}}">
-                            <input type="hidden" name="nome" value="{{i.nome_cachorro}}">
-                            <li>Nome: {{i.nome_cachorro}}</li>
-                            <li>Sexo: {{i.sexo_cachorro}}</li>
-                            <li>Raça: {{i.raca_cachorro}}</li>
-                            <li>Descrição: {{i.descricao_cachorro}}</li>
-                        </ul>
+                            <form action="/excluir_cachorro" method="post" id="dados-cachorro">
+                                <h3>{{ i.nome_cachorro }}</h3>
+                                
+                                <ul id="lista">
+                                    <input type="hidden" name="idCachorro" value="{{i.id_cachorro}}">
+                                    <input type="hidden" name="nome" value="{{i.nome_cachorro}}">
+                                    <li><strong>Sexo:</strong> {{i.sexo_cachorro}}</li>
+                                    <li><strong>Raça:</strong> {{i.raca_cachorro}}</li>
+                                    <li><strong>Descrição</strong>: {{i.descricao_cachorro}}</li>
+                                </ul>
 
-                        <div id="btnExcluir">
-                            <button type="submit" id="excluir">EXCLUIR</button>
-                        </div>
-                    </form>
+                                <button type="submit" id="excluir"><span>Excluir</span></button>
+                            </form>
 
-                    <hr id="linha"></hr>
-
-
-                    {% endfor %}
+                        {% endfor %}
 
                     {% else %}
-                    <h1>não existe cachorros cadastrados</h1>
-                    {% endif %}
+                        <p>Ainda não há cachorros cadastrados.</p>
+                    {% endif %} -->
                 </div>
             </div>
         </main>

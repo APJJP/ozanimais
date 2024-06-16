@@ -30,9 +30,13 @@ def nossos_animais():
 def como_ajudar():
     return render_template('como_ajudar.html')
 
+logado = False
 
 @app.route('/area_restrita')
 def area_restrita():
+   global logado
+   logado = False
+
    """  return render_template('area_restrita.html') """
    usuarios = models.session.query(models.Administrador).all()
    return render_template('area_restrita.html', usuarios = usuarios)
@@ -62,22 +66,29 @@ def adm():
    return render_template('sistema.html', usuarios = usuarios)
  """
 
-
 @app.route('/home_sistema')
 def home_sistema():
-   return render_template('home_sistema.html')
-
+    if logado == True:
+        return render_template('home_sistema.html')
+    if logado == False:
+        return render_template('area_restrita.html')
 
 @app.route('/despesas')
 def despesas():
-   despesas = models.session.query(models.Despesas).all()
-   return render_template('despesas.html', despesas = despesas)
+    if logado == True:
+        despesa = models.session.query(models.Despesa).order_by(models.Despesa.nome_despesa).all()
+        return render_template('despesas.html', despesa = despesa)
+    if logado == False:
+        return render_template('area_restrita.html')
 
 
 @app.route('/cachorro')
 def cachorro():
-   cachorros = models.session.query(models.Cachorro).all()
-   return render_template('cachorro.html', cachorros = cachorros)
+    if logado == True:
+        cachorros = models.session.query(models.Cachorro).order_by(models.Cachorro.nome_cachorro).all()
+        return render_template('cachorro.html', cachorros = cachorros)
+    if logado == False:
+        return render_template('area_restrita.html')
 
 
 
@@ -202,6 +213,8 @@ def entrar_usuario():
 
 @app.route('/entrar_usuario', methods=['POST'])
 def entrar_usuario():
+    global logado
+
     email = request.json.get('email_usuario')
     senha = request.json.get('senha_usuario')
 
@@ -209,6 +222,7 @@ def entrar_usuario():
     if usuarios:
         for i in usuarios:
             if i.email_administrador == email and i.senha_administrador == senha:
+                logado = True
                 return jsonify({'autenticado': True})
         flash('Email ou senha inválidos')
         return jsonify({'autenticado': False})
@@ -217,8 +231,39 @@ def entrar_usuario():
         return jsonify({'autenticado': False})
 
 
+@app.route('/cachorros_json')
+def cachorros_json():
+    cachorros = models.session.query(models.Cachorro).order_by(models.Cachorro.nome_cachorro).all()
+    cachorros_data = [
+        {
+            'id_cachorro': cachorro.id_cachorro,
+            'nome_cachorro': cachorro.nome_cachorro,
+            'sexo_cachorro': cachorro.sexo_cachorro,
+            'raca_cachorro': cachorro.raca_cachorro,
+            'descricao_cachorro': cachorro.descricao_cachorro
+        } for cachorro in cachorros
+    ]
+    return jsonify(cachorros_data)
 
-@app.route('/cadastrar_cachorro',methods=['POST'])
+
+@app.route('/despesas_json')
+def despesas_json():
+    despesas = models.session.query(models.Despesa).order_by(models.Despesa.nome_despesa).all()
+    despesas_data = [
+        {
+            'id_despesa': despesa.id_despesa,
+            'nome_despesa': despesa.nome_despesa,
+            'data_despesa': despesa.data_despesa,
+            'valor_despesa': despesa.valor_despesa,
+            'descricao_despesa': despesa.descricao_despesa
+        } for despesa in despesas
+    ]
+    return jsonify(despesas_data)
+
+
+
+
+""" @app.route('/cadastrar_cachorro',methods=['POST'])
 def cadastrar_cachorro():
    nome = request.form.get('nome_cachorro')
    sexo = request.form.get('sexo_cachorro')
@@ -238,11 +283,31 @@ def cadastrar_cachorro():
       return redirect('/cachorro')
    except ValueError as v:
       flash(str(v))
-      return redirect('/cachorro')
+      return redirect('/cachorro') """
+
+@app.route('/cadastrar_cachorro', methods=['POST'])
+def cadastrar_cachorro():
+    nome = request.form.get('nome_cachorro')
+    sexo = request.form.get('sexo_cachorro')
+    raca = request.form.get('raca_cachorro')
+    descricao = request.form.get('descricao_cachorro')
+
+    if raca == '':
+        raca = 'vazia'
+    if descricao == '':
+        descricao = 'vazia'
+
+    try:
+        validacao.validarCachorro(nome, sexo, raca, descricao)
+        # Sucesso
+        return jsonify({'success': True, 'message': 'Cachorro cadastrado com sucesso'})
+    except ValueError as v:
+        # Erro de validação
+        return jsonify({'success': False, 'message': str(v)})
 
    
 
-@app.route('/excluir_cachorro', methods=['POST'])
+""" @app.route('/excluir_cachorro', methods=['POST'])
 def excluir_cachorro():
    nome = request.form.get('nome')
    id = request.form.get('idCachorro')
@@ -254,39 +319,82 @@ def excluir_cachorro():
    except:
       flash(f'erro ao excluir cachorro')
       
-   return redirect('/cachorro')
+   return redirect('/cachorro') """
+
+@app.route('/excluir_cachorro', methods=['POST'])
+def excluir_cachorro():
+    nome = request.form.get('nome')
+    id = request.form.get('idCachorro')
+
+    try:
+        validacao.excluirC(id)
+        return jsonify({'success': True, 'message': f'Cachorro "{nome}" excluído com sucesso'})
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)})
 
 
-@app.route('/cadastrar_despesas', methods=['POST'])
-def cadastrar_despesas():
-   data = request.form.get('data_despesas')
-   valor = request.form.get('valor_despesas')
-   descricao = request.form.get('descricao_despesas')
+
+""" @app.route('/cadastrar_despesa', methods=['POST'])
+def cadastrar_despesa():
+    nome = request.form.get('nome_despesa')
+    data = request.form.get('data_despesa')
+    valor = request.form.get('valor_despesa')
+    descricao = request.form.get('descricao_despesa')
+
+    if data == '':
+        data = 'vazia'
+
+    try:
+        validacao.validarDespesa(nome,data,valor,descricao)
+        flash('Despesa cadastrada!')
+        return redirect('/despesa')
+    except ValueError as v:
+        flash(str(v))
+        return redirect('/despesa') """
+
+@app.route('/cadastrar_despesa', methods=['POST'])
+def cadastrar_despesa():
+    nome = request.form.get('nome_despesa')
+    data = request.form.get('data_despesa')
+    valor = request.form.get('valor_despesa')
+    descricao = request.form.get('descricao_despesa')
+
+    if data == '':
+        data = 'vazia'
+
+    try:
+        validacao.validarDespesa(nome,data,valor,descricao)
+        # Sucesso
+        return jsonify({'success': True, 'message': 'Despesa cadastrada com sucesso'})
+    except ValueError as v:
+        # Erro de validação
+        return jsonify({'success': False, 'message': str(v)})
    
-   if data == '':
-      data = 'vazia'
+
+""" @app.route('/excluir_despesa',methods=['POST'])
+def excluir_despesa():
+   id = request.form.get('idDespesa')
 
    try:
-      validacao.validarDespesas(data,valor,descricao)
-      flash('Despesa cadastrada!')
-      return redirect('/despesas')
-   except ValueError as v:
-      flash(str(v))
-      return redirect('/despesas')
-   
-
-@app.route('/excluir_despesas',methods=['POST'])
-def excluir_despesas():
-   id = request.form.get('idDespesas')
-
-   try:
-      validacao.excluirDespesas(id)
+      validacao.excluirDespesa(id)
       flash(f'Despesa excluida com sucesso')
-      return redirect('/despesas')
+      return redirect('/despesa')
    except:
-      flash(f'erro ao excluir despesas')
+      flash(f'erro ao excluir despesa')
       
-   return redirect('/despesas')
+   return redirect('/despesa') """
+
+
+@app.route('/excluir_despesa',methods=['POST'])
+def excluir_despesa():
+   nome = request.form.get('nome')
+   id = request.form.get('idDespesa')
+
+   try:
+        validacao.excluirDespesa(id)
+        return jsonify({'success': True, 'message': f'Despesa "{nome}" excluída com sucesso'})
+   except  Exception as e:
+        return jsonify({'success': False, 'message': str(e)})
 
 
 @app.route('/cadastrar_adm', methods=['POST'])

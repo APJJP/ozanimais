@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Despesas</title>
+        <title>Despesas - Ozanimais</title>
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="/static/imagens/favicon.ico" type="image/x-icon">
@@ -16,14 +16,14 @@
         <link rel="stylesheet" href="static/styles/despesas_sistema.css">
     </head>
 
-    <body class="body-cachorro">
+    <body class="body-despesa">
         <header>
             <nav>
                 <ul>
                     <li><i class="ri-home-2-line"></i><a href="/home_sistema" onclick="delayRedirection(event, this)">Início</a></li>
                     <li><i class="ri-team-line"></i></i><a href="" onclick="delayRedirection(event, this)">Usuários</a></li>
                     <li><img src="/static/imagens/icon_dogs.png"><a href="/cachorro" onclick="delayRedirection(event, this)">Animais</a></li>
-                    <li><img src="/static/imagens/icon_despesas.png"><a href="#" onclick="delayRedirection(event, this)">Despesas</a></li>
+                    <li><img src="/static/imagens/icon_despesas.png"><a href="#" onclick="delayRedirection(event, this); resetarLayout();">Despesas</a></li>
                     <li><i class="ri-user-heart-line"></i><a href="" onclick="delayRedirection(event, this)">Padrinhos</a></li>
                     <li><i class="ri-megaphone-line"></i></i><a href="" onclick="delayRedirection(event, this)">Assinantes</a></li>
                 </ul>
@@ -40,30 +40,41 @@
                 </div>
             </div>
 
-            <div id="cadastrar-despesas" style="display: none;">
-                <h1>Despesas</h1>
+            <div id="cadastrar-despesa" style="display: none;">
+                <div class="btn-voltar" onclick="resetarLayout()">
+                    <div class="icon-voltar">
+                        <i class="ri-arrow-left-s-line"></i>
+                    </div>
+                </div>
 
-                {% set mensagem = get_flashed_messages()%}
+                <h1>Cadastrar despesa</h1>
+
+                <!-- {% set mensagem = get_flashed_messages()%}
                 {% if mensagem %}
                 <div class="mensagem_flash">
                     {{mensagem[0]}}
                 </div>
-                {% endif %}
+                {% endif %} -->
 
-                <form action ='/cadastrar_despesas' method='post' id='form-cadastrar-despesas'>
+                <form action ='/cadastrar_despesa' method='post' id='form-cadastrar-despesa'>
+                    <div class="div-input" id="input-nome">
+                        <label for="nome_despesa">Nome:</label>
+                        <input type="text" name="nome_despesa" id="nome_despesa" placeholder="Digite o nome da despesa">
+                    </div>
+
                     <div class="div-input" id="input-data">
-                        <label for="data_despesas">Data: </label>
-                        <input type="date" name="data_despesas" id="data_despesas" placeholder="Digite aqui a data">
+                        <label for="data_despesa">Data: </label>
+                        <input type="date" name="data_despesa" id="data_despesa" placeholder="Digite aqui a data">
                     </div>
 
                     <div class="div-input" id="input-valor">
-                        <label for="valor_despesas">Valor: </label>
-                        <input type="number" name = "valor_despesas" id="valor_despesas" placeholder="Digite o valor">
+                        <label for="valor_despesa">Valor: </label>
+                        <input type="number" name = "valor_despesa" id="valor_despesa" placeholder="Digite o valor">
                     </div>
 
                     <div class="div-input" id="input-descricao">
-                        <label for="descricao_despesas">Descrição:</label>
-                        <textarea rows = "10" cols = "30" placeholder="Digite aqui a descrição da despesas!" id= "descricao_despesas" name = "descricao_despesas"></textarea>
+                        <label for="descricao_despesa">Descrição:</label>
+                        <textarea rows = "10" cols = "30" placeholder="Digite a descrição da despesa" id= "descricao_despesa" name = "descricao_despesa"></textarea>
                     </div>
                     
                     <button type="submit" id="btn-cadastrar-despesa"><span>Cadastrar</span></button>
@@ -71,33 +82,38 @@
             </div>
 
             <div id="despesas-frente" style="display: none;">
+                <div class="btn-voltar" onclick="resetarLayout()">
+                    <div class="icon-voltar">
+                        <i class="ri-arrow-left-s-line"></i>
+                    </div>
+                </div>
+
                 <h1 id="despesas-cad">Despesas cadastradas</h1>
+
                 <div id="despesas-fundo">
-                    {% if despesas %}
-                    {% for i in despesas%}
+                    <!-- {% if despesa %}
+                        {% for i in despesa%}
+                        
+                        <form action="/excluir_despesa" method="post" id="dados-despesa">
+                            <h3>{{ i.nome_despesa }}</h3>
 
-                    <form action="/excluir_despesas" method="post">
-                        <ul id="lista">
-                            <input type="hidden" name="idDespesas" value="{{i.id_despesas}}">
-                            <input type="hidden" name="descricao_despesas" value="{{i.descricao_despesas}}">
-                            <li>Data: {{i.data_despesas}}</li>
-                            <li>Valor: {{i.valor_despesas}}</li>
-                            <li>Descrição: {{i.descricao_despesas}}</li>
-                        </ul>
-                        <div id="btnExcluir">
-                            <button type="submit" id="excluir">EXCLUIR</button>
-                        </div>
-                    </form>
+                            <ul id="lista">
+                                <input type="hidden" name="idDespesa" value="{{i.id_despesa}}">
+                                <input type="hidden" name="descricao_despesa" value="{{i.descricao_despesa}}">
+                                <li>Data: {{i.data_despesa}}</li>
+                                <li>Valor: {{i.valor_despesa}}</li>
+                                <li>Descrição: {{i.descricao_despesa}}</li>
+                            </ul>
+                            <div id="btnExcluir">
+                                <button type="submit" id="excluir"><span>Excluir</span></button>
+                            </div>
+                        </form>
 
-                    <hr id="linha"></hr>
+                        {% endfor %}
 
-                    {% endfor %}
                     {% else %}
-
-                    <h1>não existem despesas cadastradas</h1>
-
-                    {% endif %}
-
+                        <p>Ainda não há despesas cadastradas.</p>
+                    {% endif %} -->
                 </div>
             </div>
         </main>

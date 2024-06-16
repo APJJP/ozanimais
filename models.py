@@ -6,6 +6,7 @@ from sqlalchemy.orm import declarative_base
 
 engine = create_engine('postgresql://postgres:jlindgren@localhost:5432/ozanimais')
 #engine = create_engine('postgresql://postgres:87232a23@localhost:5432/ozanimais')
+#engine = create_engine('postgresql://postgres:87232a23@localhost:5432/oz')
 
 
 Base = declarative_base()
@@ -18,7 +19,7 @@ session = Session()
 class Administrador(Base):
    __tablename__ = 'administrador'
    id_administrador = Column(Integer,primary_key=True,autoincrement=True)
-   email_administrador = Column(String(30),nullable=False)    
+   email_administrador = Column(String(255),nullable=False)   
    senha_administrador = Column(String(15),nullable=False)
 
    def validarEmail(email):
@@ -49,7 +50,6 @@ class Administrador(Base):
        
    def __str__(self):
      return f'nome: {self.nome_administrador}, senha: {self.senha_administrador}'
-
 
 
 class Cachorro(Base):
@@ -110,17 +110,27 @@ class Cachorro(Base):
      return f'nome: {self.nome_cachorro}, sexo: {self.sexo_cachorro}, raça: {self.raca_cachorro}, Descrição {self.descricao_cachorro}'
 
 
+class Despesa(Base):
+   __tablename__ = 'despesa'
+   id_despesa = Column(Integer,primary_key=True,autoincrement=True)
+   nome_despesa = Column(String(60),nullable=False)
+   data_despesa = Column(Date)
+   valor_despesa = Column(Integer,nullable=False)
+   descricao_despesa = Column(String(255),nullable=False)
 
 
+   def validarNomeDespesa(nome_despesa):
+      if nome_despesa == '':
+         raise ValueError('O Campo "nome" não pode ser nulo!')
+       
+      tamanho = len(nome_despesa)
 
-class Despesas(Base):
-   __tablename__ = 'despesas'
-   id_despesas = Column(Integer,primary_key=True,autoincrement=True)
-   data_despesas = Column(Date)
-   valor_despesas = Column(Integer,nullable=False)
-   descricao_despesas = Column(String(255),nullable=False)
-
-
+      if tamanho < 2 or tamanho > 60:
+         raise ValueError('O tamanho do nome tem que ter entre 2 e 60 caracteres!')
+       
+      for i in nome_despesa:
+         if not i.isalpha() and not i.isspace():
+            raise ValueError('O campo nome deve conter apenas caracteres válidos!')
 
    def validarValor(valor):
       if valor == '':
@@ -130,24 +140,25 @@ class Despesas(Base):
           if not i.isdigit():
              raise ValueError('No campo valor só pode ser digitado numeros!')
 
-   def validarDescricaoDespesas(descricao_despesas):
+   def validarDescricaoDespesa(descricao_despesa):
               
-       tamanho = len(descricao_despesas)
+       tamanho = len(descricao_despesa)
 
-       if descricao_despesas == '':
-          raise ValueError('A descrição de despesas não pode ser nula!')
+       if descricao_despesa == '':
+          raise ValueError('A descrição de despesa não pode ser nula!')
 
        if tamanho < 0 or tamanho > 255:
           raise ValueError('O tamanho da descrição tem que ter entre 0 a 255 character!')
    
    def __str__(self):
-     return f'Valor: {self.valor_despesas}, Descrição: {self.descricao_despesas}'
-   
+     return f'Valor: {self.valor_despesa}, Descrição: {self.descricao_despesa}'
+
+
 class Assinante(Base):
    __tablename__ = 'assinante'
    id_assinante = Column(Integer,primary_key=True,autoincrement=True)
-   nome_assinante = Column(String(60),nullable=False)
-   email_assinante = Column(String(40),nullable=False)
+   nome_assinante = Column(String(120),nullable=False)
+   email_assinante = Column(String(255),nullable=False)
 
 
 
@@ -158,8 +169,8 @@ class Assinante(Base):
        
       tamanho = len(nomeAssinante)
 
-      if tamanho < 2 or tamanho > 60:
-         raise ValueError('O tamanho do nome tem que ter entre 2 a 60  caracteres!')
+      if tamanho < 2 or tamanho > 120:
+         raise ValueError('O tamanho do nome tem que ter entre 2 a 120 caracteres!')
        
       for i in nomeAssinante:
          if not i.isalpha() and not i.isspace():
@@ -184,14 +195,13 @@ class Assinante(Base):
         raise ValueError('O campo email deve conter um "@" e pelo menos um "."!')
 
 
-
 class Padrinho(Base):
    __tablename__ = 'padrinho'
    id_padrinho = Column(Integer,primary_key=True,autoincrement=True)
    nome_padrinho = Column(String(60))
    sobrenome_padrinho = Column(String(60))
    telefone_padrinho = Column(String(20))
-   email_padrinho = Column(String(40))
+   email_padrinho = Column(String(255))
 
 
    def validarNomePadrinho(nomePadrinho):
