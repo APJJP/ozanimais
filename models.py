@@ -2,7 +2,21 @@ from sqlalchemy import create_engine,Column,Integer,String,Date
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import declarative_base
 
-engine = create_engine('postgresql://postgres:jlindgren@localhost:5432/ozanimais')
+
+
+
+DB_HOST = 'roundhouse.proxy.rlwy.net'
+DB_PORT = 54802
+DB_USER = 'postgres'
+DB_PASSWORD = 'XoFMwvldJEufzGvcLKlNaklwElPvTkGs'
+DB_NAME = 'railway'
+
+db_url = f'postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
+
+# Crie o engine usando a URL de conexão
+engine = create_engine(db_url)
+
+#engine = create_engine('postgresql://postgres:jlindgren@localhost:5432/ozanimais')
 #engine = create_engine('postgresql://postgres:87232a23@localhost:5432/ozanimais')
 #engine = create_engine('postgresql://postgres:87232a23@localhost:5432/oz')
 
@@ -15,6 +29,7 @@ session = Session()
 class Administrador(Base):
    __tablename__ = 'administrador'
    id_administrador = Column(Integer,primary_key=True,autoincrement=True)
+   nome_administrador = Column(String(60),nullable=False)
    email_administrador = Column(String(255),nullable=False)   
    senha_administrador = Column(String(15),nullable=False)
 
