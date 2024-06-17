@@ -44,15 +44,20 @@ def excluirDespesa(id):
     session.commit()
 
 
-def cadastrarUsuario(e,s):
+def validarUsuario(n,e,s):
     try:
+        models.Administrador.validarNome(n)
         models.Administrador.validarEmail(e)
         models.Administrador.validarSenha(s)
-        novo_adm = models.Administrador(email_administrador=e,senha_administrador=s)
+        novo_adm = models.Administrador(nome_administrador=n, email_administrador=e,senha_administrador=s)
         session.add(novo_adm)
         session.commit()
     except ValueError as v:
         raise ValueError(v)
+
+def excluirUsuario(id):
+    session.query(models.Administrador).filter(models.Administrador.id_administrador == id).delete()
+    session.commit()
 
 
 def validarPadrinho(n,s,t,e):

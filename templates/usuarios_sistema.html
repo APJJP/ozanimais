@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Padrinhos - Ozanimais</title>
+        <title>Usuários - Ozanimais</title>
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="/static/imagens/favicon.ico" type="image/x-icon">
@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin=""/>
 
         <!-- CSS -->
-        <link rel="stylesheet" href="/static/styles/padrinhos_sistema.css">
+        <link rel="stylesheet" href="/static/styles/usuarios_sistema.css">
     </head>
 
     <body>
@@ -31,7 +31,7 @@
                     </li>
 
                     <li>
-                        <a href="/usuarios" onclick="delayRedirection(event, this)">
+                        <a href="#" onclick="delayRedirection(event, this);resetarLayout();">
                             <i class="ri-team-line"></i>
                             <span>Usuários</span>
                         </a>
@@ -52,7 +52,7 @@
                     </li>
 
                     <li>
-                        <a href="#" onclick="delayRedirection(event, this); resetarLayout();">
+                        <a href="/padrinhos" onclick="delayRedirection(event, this);">
                             <i class="ri-user-heart-line"></i>
                             <span>Padrinhos</span>
                         </a>
@@ -69,59 +69,54 @@
         </header>
 
         <main>
-            <div id="menu-padrinho">
+            <div id="menu-usuario">
                 <h1>Selecione uma opção</h1>
 
                 <div id="opcoes">
-                    <button id="exibir-cadastro-padrinho"><span>Cadastrar padrinho</span></button>
-                    <button id="exibir-padrinhos"><span>Exibir todos os padrinhos</span></button>
+                    <button id="exibir-cadastro-usuario"><span>Cadastrar usuário</span></button>
+                    <button id="exibir-usuarios"><span>Exibir todos os usuários</span></button>
                 </div>
             </div>
 
-            <div id="cadastrar-padrinho" style="display: none;">
+            <div id="cadastrar-usuario" style="display: none;">
                 <div class="btn-voltar btn1" onclick="resetarLayout()">
                     <div class="icon-voltar">
                         <i class="ri-arrow-left-s-line"></i>
                     </div>
                 </div>
 
-                <h1>Cadastrar Padrinho</h1>
+                <h1>Cadastrar Usuário</h1>
 
-                <form action="/cadastrar_padrinho_restrito" method="post" id="form-cadastrar-padrinho">
+                <form action="/cadastrar_usuario" method="post" id="form-cadastrar-usuario">
                     <div class="div-input" id="input-nome">
-                        <label for="nome_padrinho">Nome:</label>
-                        <input type="text" name="nome_padrinho" id="nome_padrinho" placeholder="Digite o nome do padrinho">
-                    </div>
-                    
-                    <div class="div-input" id="input-sobrenome">
-                        <label for="sobrenome_padrinho">Sobrenome:</label>
-                        <input type="text" name="sobrenome_padrinho" id="sobrenome_padrinho" placeholder="Digite o sobrenome do padrinho">
-                    </div>
-                    
-                    <div class="div-input" id="input-telefone">
-                        <label for="telefone_padrinho">Telefone:</label>
-                        <input type="text" name="telefone_padrinho" id="telefone_padrinho" placeholder="Digite o telefone do padrinho">
+                        <label for="nome_usuario">Nome:</label>
+                        <input type="text" name="nome_usuario" id="nome_usuario" placeholder="Digite o nome do usuário">
                     </div>
 
                     <div class="div-input" id="input-email">
-                        <label for="email_padrinho">Email:</label>
-                        <input type="text" name="email_padrinho" id="email_padrinho" placeholder="Digite o email do padrinho">
+                        <label for="email_usuario">Email:</label>
+                        <input type="text" name="email_usuario" id="email_usuario" placeholder="Digite o email do usuário">
+                    </div>
+
+                    <div class="div-input" id="input-senha">
+                        <label for="senha_usuario">Senha:</label>
+                        <input type="password" name="senha_usuario" id="senha_usuario" placeholder="Digite a senha do usuário">
                     </div>
                     
-                    <button type="submit" id="btn-cadastrar-padrinho"><span>Cadastrar</span></button>
+                    <button type="submit" id="btn-cadastrar-usuario"><span>Cadastrar</span></button>
                 </form>
             </div>
 
-            <div id="padrinhos-frente" style="display: none;">
+            <div id="usuarios-frente" style="display: none;">
                 <div class="btn-voltar btn2" onclick="resetarLayout()">
                     <div class="icon-voltar">
                         <i class="ri-arrow-left-s-line"></i>
                     </div>
                 </div>
 
-                <h1 id="padrinhos-cad">Padrinhos cadastrados</h1>
-
-                <div id="padrinhos-fundo">
+                <h1 id="usuarios-cad">Usuários cadastrados</h1>
+                
+                <div id="usuarios-fundo">
                 </div>
             </div>
         </main>
@@ -139,7 +134,7 @@
         <script src="/static/scripts/menu_sistema.js"></script>
         
         <!-- Script principal -->
-        <script src="/static/scripts/padrinhos_sistema.js"></script>
+        <script src="/static/scripts/usuarios_sistema.js"></script>
     </body>
 
 

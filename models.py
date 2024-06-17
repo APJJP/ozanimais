@@ -4,7 +4,6 @@ from sqlalchemy.orm import declarative_base
 
 
 
-
 DB_HOST = 'roundhouse.proxy.rlwy.net'
 DB_PORT = 54802
 DB_USER = 'postgres'
@@ -32,6 +31,19 @@ class Administrador(Base):
    nome_administrador = Column(String(60),nullable=False)
    email_administrador = Column(String(255),nullable=False)   
    senha_administrador = Column(String(15),nullable=False)
+
+   def validarNome(nome_administrador):
+      if nome_administrador == '':
+         raise ValueError('O Campo "nome" não pode ser nulo!')
+       
+      tamanho = len(nome_administrador)
+
+      if tamanho < 2 or tamanho > 60:
+         raise ValueError('O tamanho do nome tem que ter entre 2 e 60 caracteres!')
+       
+      for i in nome_administrador:
+         if not i.isalpha() and not i.isspace():
+            raise ValueError('O campo nome deve conter apenas caracteres válidos!')
 
    def validarEmail(email):
       if email == '':

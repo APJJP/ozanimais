@@ -98,6 +98,15 @@ def padrinhos():
         return render_template('padrinhos_sistema.html', padrinhos = padrinhos)
     if logado == False:
         return render_template('area_restrita.html')
+    
+
+@app.route('/usuarios')
+def usuarios():
+    if logado == True:
+        usuarios = models.session.query(models.Administrador).order_by(models.Administrador.nome_administrador).all()
+        return render_template('usuarios_sistema.html', usuarios = usuarios)
+    if logado == False:
+        return render_template('area_restrita.html')
 
 
 
@@ -202,22 +211,6 @@ def cadastrar_assinante():
 
 
 # funções do sistema 
-
-""" @app.route('/entrar_usuario', methods=['POST'])
-def entrar_usuario():
-    email = request.form.get('email_usuario')
-    senha = request.form.get('senha_usuario')
-
-    usuarios = models.session.query(models.Administrador).all()
-    if usuarios:
-        for i in usuarios:
-            if i.email_administrador == email and i.senha_administrador == senha:
-                return redirect('/home_sistema')
-            flash('email ou senha inválidos')
-            return redirect('/area_restrita')
-    else:
-        flash('Nenhum usuário cadastrado')
-        return redirect('/area_restrita') """
 
 @app.route('/entrar_usuario', methods=['POST'])
 def entrar_usuario():
@@ -397,6 +390,46 @@ def cadastrar_adm():
       else:
          flash('Nenhum usuário cadastrado')
          return redirect('/')
+
+
+@app.route('/cadastrar_usuario', methods=['POST'])
+def cadastrar_usuario():
+    nome = request.form.get('nome_administrador')
+    email = request.form.get('email_administrador')
+    senha = request.json.get('senha_administrador')
+
+    try:
+        validacao.validarUsuario(nome, email, senha)
+        return jsonify({'success': True, 'message': 'Administrador cadastrado com sucesso'})
+    except ValueError as v:
+        return jsonify({'success': False, 'message': str(v)})
+
+@app.route('/usuarios_json')
+def usuarios_json():
+    administradores = models.session.query(models.Administrador).order_by(models.Administrador.nome_administrador).all()
+    administradores_data = [
+        {
+            'id_administrador': administrador.id_administrador,
+            'nome_administrador': administrador.nome_administrador,
+            'email_administrador': administrador.email_administrador,
+            'senha_administrador': administrador.senha_administrador,
+        } for administrador in administradores
+    ]
+    return jsonify(administradores_data)
+
+@app.route('/excluir_usuario', methods=['POST'])
+def excluir_usuario():
+    nome = request.form.get('nome')
+    id = request.form.get('idUsuario')
+
+    """ if nome == 'Ozana':
+        return jsonify({'success': False, 'message': 'Não é permitido excluir este usuário'}) """
+
+    try:
+        validacao.excluirUsuario(id)
+        return jsonify({'success': True, 'message': f'Usuário "{nome}" excluído com sucesso'})
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)})
 
 
 

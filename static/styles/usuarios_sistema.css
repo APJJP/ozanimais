@@ -1,0 +1,435 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --swiper-theme-color: white;
+  /* --swiper-theme-color: var(--laranja); */
+  /* --swiper-navigation-size: 24px; */
+  --ciano: rgb(0,204,230);
+  --ciano-interaction: rgb(0, 192, 218);
+  --azul-claro: rgb(197, 241, 247);
+  --ciano-escuro: rgb(0, 150, 170);
+  --teste2: #CBEFF2;
+  --teste3: #70BBC4;
+  --teste4: rgb(13, 69, 80);
+  --teste5: rgb(25, 126, 146);
+  --teste6: rgb(24, 93, 107);
+  --teste7: #02a1b3;
+  --teste8: #9bdce4;
+  --laranja: rgb(253,102,81);
+  --laranja-interaction: #ff472f;
+  --cinza-claro: #CBCBCB;
+  --cinza-claro2: rgb(215, 209, 209);
+  --cinza: #7A777E;
+  --cinza-escuro: #1E1E1E;
+  --placeholder: rgb(141, 138, 138);
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  color: var(--cinza-escuro);
+  margin: 0px;
+  padding: 0px;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 3em;
+  height: 100vh;
+  background-color: #04C7EA;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 995;
+}
+header .menu-hamburguer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2em;
+  height: 2em;
+  margin-top: 1em;
+  cursor: pointer;
+  position: relative;
+  z-index: 1000;
+  transition: 0.2s;
+}
+header .menu-hamburguer::before {
+  content: "";
+  width: 2em;
+  height: 3px;
+  background-color: white;
+  position: absolute;
+  transition: 0.2s;
+  transform: translateY(-0.5em);
+  box-shadow: 0 0.5em 0 white;
+}
+header .menu-hamburguer::after {
+  content: "";
+  width: 2em;
+  height: 3px;
+  background-color: white;
+  position: absolute;
+  transition: 0.2s;
+  transform: translateY(0.5em);
+}
+header .menu-ativo::before {
+  background-color: white;
+  transform: translateY(0px) rotate(45deg);
+  box-shadow: 0 0 0 white;
+}
+header .menu-ativo::after {
+  background-color: white;
+  transform: translateY(0px) rotate(-45deg);
+  box-shadow: 0 0 0 white;
+}
+header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 2em);
+}
+header nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2em;
+  list-style: none;
+}
+header nav ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header nav ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  text-decoration: none;
+}
+header nav ul li a i {
+  color: white;
+  font-size: 1.5em;
+}
+header nav ul li a img {
+  width: 1.5em;
+  height: 1.5em;
+}
+header nav ul li a span {
+  display: none;
+  color: white;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  height: 100vh;
+  padding: 2em;
+  margin-left: 3em;
+  background-color: #F3F4F6;
+  overflow-y: auto;
+}
+
+/* desktops e laptops*/
+@media screen and (min-width: 1025px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 15em;
+  }
+  header .menu-hamburguer {
+    display: none;
+  }
+  header nav {
+    height: 100vh;
+  }
+  header nav ul li a span {
+    display: inline-block;
+  }
+  main {
+    margin-left: 15em;
+  }
+}
+header.menu-aberto {
+  width: 15em;
+}
+header.menu-aberto nav ul li a span {
+  display: inline-block;
+}
+
+/* mobile first */
+main #menu-usuario {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+main #menu-usuario #opcoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
+}
+main #menu-usuario #opcoes button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20em;
+  height: 3.2em;
+  padding: 1em;
+  outline: none;
+  border: none;
+  border-radius: 1.8em;
+  background-color: var(--laranja);
+  transition: background-color 0.2s ease-in-out;
+}
+main #menu-usuario #opcoes button:hover, main #menu-usuario #opcoes button:active {
+  background-color: var(--laranja-interaction);
+  cursor: pointer;
+}
+main #menu-usuario #opcoes button span {
+  color: white;
+  font-size: 1.2em;
+}
+main #cadastrar-usuario {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  width: 100%;
+  padding-top: 12em;
+  position: relative;
+}
+main #cadastrar-usuario #form-cadastrar-usuario {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  width: 100%;
+}
+main #cadastrar-usuario #form-cadastrar-usuario .div-input {
+  display: grid;
+  grid-template-columns: 3em auto;
+  grid-template-rows: auto;
+  gap: 2em;
+  width: 100%;
+}
+main #cadastrar-usuario #form-cadastrar-usuario .div-input label {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+main #cadastrar-usuario #form-cadastrar-usuario .div-input input, main #cadastrar-usuario #form-cadastrar-usuario .div-input textarea {
+  padding: 1em;
+  outline: none;
+  border: 1px solid rgb(215, 209, 209);
+  border-radius: 0.5em;
+  transition: border 0.1s ease-in-out;
+}
+main #cadastrar-usuario #form-cadastrar-usuario .div-input input::-moz-placeholder, main #cadastrar-usuario #form-cadastrar-usuario .div-input textarea::-moz-placeholder {
+  font-size: 1.2em;
+  color: var(--placeholder);
+}
+main #cadastrar-usuario #form-cadastrar-usuario .div-input input::placeholder, main #cadastrar-usuario #form-cadastrar-usuario .div-input textarea::placeholder {
+  font-size: 1.2em;
+  color: var(--placeholder);
+}
+main #cadastrar-usuario #form-cadastrar-usuario .div-input input:focus, main #cadastrar-usuario #form-cadastrar-usuario .div-input textarea:focus {
+  border: 2px solid var(--ciano);
+}
+main #cadastrar-usuario #form-cadastrar-usuario .div-input input {
+  height: 3em;
+}
+main #cadastrar-usuario #form-cadastrar-usuario .div-input textarea {
+  height: 15em;
+}
+main #cadastrar-usuario #form-cadastrar-usuario #btn-cadastrar-usuario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 3.2em;
+  padding: 0.8em;
+  outline: none;
+  border: none;
+  border-radius: 1.8em;
+  background-color: var(--laranja);
+  transition: background-color 0.2s ease-in-out;
+}
+main #cadastrar-usuario #form-cadastrar-usuario #btn-cadastrar-usuario:hover, main #cadastrar-usuario #form-cadastrar-usuario #btn-cadastrar-usuario:active {
+  background-color: var(--laranja-interaction);
+  cursor: pointer;
+}
+main #cadastrar-usuario #form-cadastrar-usuario #btn-cadastrar-usuario span {
+  color: white;
+  font-size: 1.2em;
+}
+main #cadastrar-usuario .btn1 {
+  top: 7em;
+  left: 0;
+}
+main #usuarios-frente {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  padding-top: 4em;
+  overflow-y: auto;
+  position: relative;
+}
+main #usuarios-frente #usuarios-fundo {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2em;
+  overflow-y: auto;
+  /* width: 100%; */
+}
+main #usuarios-frente #usuarios-fundo #dados-usuario {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1em;
+  width: 16em;
+  padding: 2em;
+  border-radius: 1em;
+  background-color: white;
+  margin: auto;
+}
+main #usuarios-frente #usuarios-fundo #dados-usuario h3 {
+  width: 100%;
+  text-align: center;
+}
+main #usuarios-frente #usuarios-fundo #dados-usuario #lista {
+  width: 100%;
+  list-style: none;
+}
+main #usuarios-frente #usuarios-fundo #dados-usuario #lista li {
+  margin-bottom: 10px;
+  word-wrap: break-word;
+}
+main #usuarios-frente #usuarios-fundo #dados-usuario #excluir {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 3.2em;
+  padding: 1em;
+  outline: none;
+  border: none;
+  border-radius: 1.8em;
+  background-color: var(--laranja);
+  transition: background-color 0.2s ease-in-out;
+}
+main #usuarios-frente #usuarios-fundo #dados-usuario #excluir:hover, main #usuarios-frente #usuarios-fundo #dados-usuario #excluir:active {
+  background-color: var(--laranja-interaction);
+  cursor: pointer;
+}
+main #usuarios-frente #usuarios-fundo #dados-usuario #excluir span {
+  color: white;
+  font-size: 1.2em;
+}
+main #usuarios-frente .btn2 {
+  top: 0;
+  left: 0;
+}
+main .btn-voltar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+main .btn-voltar .icon-voltar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3em;
+  height: 3em;
+  background-color: #ECECEC;
+  border-radius: 50%;
+  transition: background-color 0.2s ease-in-out;
+}
+main .btn-voltar .icon-voltar:hover, main .btn-voltar .icon-voltar:active {
+  background-color: var(--cinza-claro);
+  cursor: pointer;
+}
+main .btn-voltar .icon-voltar i {
+  font-size: 1.6em;
+}
+
+/* tablets */
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+  header {
+    font-size: 1.2em;
+  }
+  main #cadastrar-usuario {
+    width: 70%;
+  }
+  main #cadastrar-usuario #form-cadastrar-usuario .div-input {
+    grid-template-columns: 6em auto;
+    gap: 2em;
+  }
+  main #cadastrar-usuario #form-cadastrar-usuario .div-input label {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  main #usuarios-frente {
+    width: 80%;
+  }
+}
+/* desktops e laptops*/
+@media screen and (min-width: 1025px) {
+  main #cadastrar-usuario {
+    width: 50%;
+    padding-top: 0;
+  }
+  main #cadastrar-usuario #form-cadastrar-usuario .div-input {
+    grid-template-columns: 6em auto;
+  }
+  main #cadastrar-usuario #form-cadastrar-usuario .div-input label {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  main #cadastrar-usuario .btn1 {
+    top: 0;
+    left: 0;
+  }
+  main #usuarios-frente {
+    min-width: 50%;
+    padding-top: 0;
+    overflow-y: visible;
+  }
+  main #usuarios-frente #usuarios-fundo {
+    overflow-y: visible;
+  }
+}/*# sourceMappingURL=usuarios_sistema.css.map */
