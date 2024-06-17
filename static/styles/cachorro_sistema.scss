@@ -211,6 +211,34 @@ main {
     }
 }
 
+
+/* tablets */
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+    header {
+        font-size: 1.2em;
+    }
+    main {
+        #cadastrar-cachorros {
+            width: 70%;
+
+            #form-cadastrar-dog {       
+                .div-input, #input-descricao {
+                    grid-template-columns: 6em auto;
+                    gap: 2em;
+        
+                    label {
+                        @include flex-properties($justify: flex-end);
+                    }
+                }
+            }
+        }
+        #cachorro-frente {
+            width: 80%;
+        }
+    }
+}
+
+
 /* desktops e laptops*/
 @media screen and (min-width: 1025px) {
     main {

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Despesas - Ozanimais</title>
+        <title>Padrinhos - Ozanimais</title>
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="/static/imagens/favicon.ico" type="image/x-icon">
@@ -13,14 +13,14 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin=""/>
 
         <!-- CSS -->
-        <link rel="stylesheet" href="static/styles/despesas_sistema.css">
+        <link rel="stylesheet" href="/static/styles/padrinhos_sistema.css">
     </head>
 
-    <body class="body-despesa">
+    <body>
         <header>
             <div class="menu-hamburguer">
             </div>
-            
+
             <nav>
                 <ul>
                     <li>
@@ -45,14 +45,14 @@
                     </li>
 
                     <li>
-                        <a href="#" onclick="delayRedirection(event, this); resetarLayout();">
+                        <a href="/despesas" onclick="delayRedirection(event, this)">
                             <img src="/static/imagens/icon-despesas-branco.png">
                             <span>Despesas</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="/padrinhos" onclick="delayRedirection(event, this)">
+                        <a href="#" onclick="delayRedirection(event, this); resetarLayout();">
                             <i class="ri-user-heart-line"></i>
                             <span>Padrinhos</span>
                         </a>
@@ -69,89 +69,59 @@
         </header>
 
         <main>
-            <div id="menu-despesas">
+            <div id="menu-padrinho">
                 <h1>Selecione uma opção</h1>
 
                 <div id="opcoes">
-                    <button id="exibir-cadastro-despesa"><span>Cadastrar despesa</span></button>
-                    <button id="exibir-despesas"><span>Exibir todas as despesas</span></button>
+                    <button id="exibir-cadastro-padrinho"><span>Cadastrar padrinho</span></button>
+                    <button id="exibir-padrinhos"><span>Exibir todos os padrinhos</span></button>
                 </div>
             </div>
 
-            <div id="cadastrar-despesa" style="display: none;">
+            <div id="cadastrar-padrinho" style="display: none;">
                 <div class="btn-voltar btn1" onclick="resetarLayout()">
                     <div class="icon-voltar">
                         <i class="ri-arrow-left-s-line"></i>
                     </div>
                 </div>
 
-                <h1>Cadastrar despesa</h1>
+                <h1>Cadastrar Padrinho</h1>
 
-                <!-- {% set mensagem = get_flashed_messages()%}
-                {% if mensagem %}
-                <div class="mensagem_flash">
-                    {{mensagem[0]}}
-                </div>
-                {% endif %} -->
-
-                <form action ='/cadastrar_despesa' method='post' id='form-cadastrar-despesa'>
+                <form action="/cadastrar_padrinho_restrito" method="post" id="form-cadastrar-padrinho">
                     <div class="div-input" id="input-nome">
-                        <label for="nome_despesa">Nome:</label>
-                        <input type="text" name="nome_despesa" id="nome_despesa" placeholder="Digite o nome da despesa">
-                    </div>
-
-                    <div class="div-input" id="input-data">
-                        <label for="data_despesa">Data: </label>
-                        <input type="date" name="data_despesa" id="data_despesa" placeholder="Digite aqui a data">
-                    </div>
-
-                    <div class="div-input" id="input-valor">
-                        <label for="valor_despesa">Valor: </label>
-                        <input type="number" name = "valor_despesa" id="valor_despesa" placeholder="Digite o valor">
-                    </div>
-
-                    <div class="div-input" id="input-descricao">
-                        <label for="descricao_despesa">Descrição:</label>
-                        <textarea rows = "10" cols = "30" placeholder="Digite a descrição da despesa" id= "descricao_despesa" name = "descricao_despesa"></textarea>
+                        <label for="nome_padrinho">Nome:</label>
+                        <input type="text" name="nome_padrinho" id="nome_padrinho" placeholder="Digite o nome do padrinho">
                     </div>
                     
-                    <button type="submit" id="btn-cadastrar-despesa"><span>Cadastrar</span></button>
+                    <div class="div-input" id="input-sobrenome">
+                        <label for="sobrenome_padrinho">Sobrenome:</label>
+                        <input type="text" name="sobrenome_padrinho" id="sobrenome_padrinho" placeholder="Digite o sobrenome do padrinho">
+                    </div>
+                    
+                    <div class="div-input" id="input-telefone">
+                        <label for="telefone_padrinho">Telefone:</label>
+                        <input type="text" name="telefone_padrinho" id="telefone_padrinho" placeholder="Digite o telefone do padrinho">
+                    </div>
+
+                    <div class="div-input" id="input-email">
+                        <label for="email_padrinho">Email:</label>
+                        <input type="text" name="email_padrinho" id="email_padrinho" placeholder="Digite o email do padrinho">
+                    </div>
+                    
+                    <button type="submit" id="btn-cadastrar-padrinho"><span>Cadastrar</span></button>
                 </form>
             </div>
 
-            <div id="despesas-frente" style="display: none;">
+            <div id="padrinhos-frente" style="display: none;">
                 <div class="btn-voltar btn2" onclick="resetarLayout()">
                     <div class="icon-voltar">
                         <i class="ri-arrow-left-s-line"></i>
                     </div>
                 </div>
 
-                <h1 id="despesas-cad">Despesas cadastradas</h1>
+                <h1 id="padrinhos-cad">Padrinhos cadastrados</h1>
 
-                <div id="despesas-fundo">
-                    <!-- {% if despesa %}
-                        {% for i in despesa%}
-                        
-                        <form action="/excluir_despesa" method="post" id="dados-despesa">
-                            <h3>{{ i.nome_despesa }}</h3>
-
-                            <ul id="lista">
-                                <input type="hidden" name="idDespesa" value="{{i.id_despesa}}">
-                                <input type="hidden" name="descricao_despesa" value="{{i.descricao_despesa}}">
-                                <li>Data: {{i.data_despesa}}</li>
-                                <li>Valor: {{i.valor_despesa}}</li>
-                                <li>Descrição: {{i.descricao_despesa}}</li>
-                            </ul>
-                            <div id="btnExcluir">
-                                <button type="submit" id="excluir"><span>Excluir</span></button>
-                            </div>
-                        </form>
-
-                        {% endfor %}
-
-                    {% else %}
-                        <p>Ainda não há despesas cadastradas.</p>
-                    {% endif %} -->
+                <div id="padrinhos-fundo">
                 </div>
             </div>
         </main>
@@ -160,11 +130,17 @@
         <script  type="module"  src ="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" ></script> 
         <script  nomodule  src ="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <!-- jQuery Mask Plugin -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+
         <!-- Script do menu -->
         <script src="/static/scripts/menu_sistema.js"></script>
-
+        
         <!-- Script principal -->
-        <script src="/static/scripts/despesas_sistema.js"></script> 
-         
+        <script src="/static/scripts/padrinhos_sistema.js"></script>
     </body>
+
+
 </html>

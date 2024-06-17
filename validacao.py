@@ -2,6 +2,7 @@ import models
 from models import session
 from datetime import datetime
 
+
 def validarCachorro(n,s,r,d):
 
     try:
@@ -52,7 +53,7 @@ def cadastrarUsuario(e,s):
         session.commit()
     except ValueError as v:
         raise ValueError(v)
-    
+
 
 def validarPadrinho(n,s,t,e):
     try:
@@ -64,7 +65,11 @@ def validarPadrinho(n,s,t,e):
         session.commit()
     except ValueError as v:
         raise ValueError(v)
-    
+
+def excluirPadrinho(id):
+    session.query(models.Padrinho).filter(models.Padrinho.id_padrinho == id).delete()
+    session.commit()
+
 
 def validarAssinante(n, e):
     try:

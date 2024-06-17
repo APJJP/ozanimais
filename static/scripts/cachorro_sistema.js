@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             let numColunas = 1
 
-            if (window.innerWidth >= 600 && window.innerWidth <= 1024) {
+            if (window.innerWidth >= 800 && window.innerWidth <= 1024) {
                 if (numDespesas >= 2) {
                     numColunas = 2
                 }

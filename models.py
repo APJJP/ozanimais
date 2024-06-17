@@ -2,17 +2,13 @@ from sqlalchemy import create_engine,Column,Integer,String,Date
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import declarative_base
 
-
-
 engine = create_engine('postgresql://postgres:jlindgren@localhost:5432/ozanimais')
 #engine = create_engine('postgresql://postgres:87232a23@localhost:5432/ozanimais')
 #engine = create_engine('postgresql://postgres:87232a23@localhost:5432/oz')
 
-
 Base = declarative_base()
 Session = sessionmaker(bind=engine)
 session = Session()
-
 
 
 
@@ -38,7 +34,6 @@ class Administrador(Base):
       if email.count('@') != 1 or email.count('.') < 1:
         raise ValueError('O campo email deve conter um "@" e pelo menos um "."!')         
           
-    
    def validarSenha(senha):
       if senha == '':
          raise ValueError('O campo "senha" não pode ser nula')
@@ -59,7 +54,6 @@ class Cachorro(Base):
    sexo_cachorro = Column(String(1), nullable=False)
    raca_cachorro = Column(String(20))
    descricao_cachorro = Column(String(255))
-
 
    def validarNomeCachorro(nome_cachorro):
       if nome_cachorro == '':
@@ -88,16 +82,11 @@ class Cachorro(Base):
       if sexo_cachorro not in 'MF':
          raise ValueError('Sexo deve ser apenas masculino ou feminino!')
   
-    
-
    def validarRacaCachorro(raca_cachorro):
                  
       for i in raca_cachorro:
          if not i.isalpha() and not i.isspace() and i != '-':
             raise ValueError('o nome da raça deve conter apenas characters válidos!')
-
-
-
 
    def validarDescricaoCachorro(descricao_cachorro):
               
@@ -117,7 +106,6 @@ class Despesa(Base):
    data_despesa = Column(Date)
    valor_despesa = Column(Integer,nullable=False)
    descricao_despesa = Column(String(255),nullable=False)
-
 
    def validarNomeDespesa(nome_despesa):
       if nome_despesa == '':
@@ -160,8 +148,6 @@ class Assinante(Base):
    nome_assinante = Column(String(120),nullable=False)
    email_assinante = Column(String(255),nullable=False)
 
-
-
    def validarNomeAssinante(nomeAssinante):
 
       if nomeAssinante == '':
@@ -176,8 +162,6 @@ class Assinante(Base):
          if not i.isalpha() and not i.isspace():
             raise ValueError('O campo nome deve conter apenas caracteres válidos!')
    
-
-
    def validarEmail(email_assinante):
       if email_assinante == '':
          raise ValueError('O Campo "email" não pode ser nulo!')
@@ -202,7 +186,6 @@ class Padrinho(Base):
    sobrenome_padrinho = Column(String(60))
    telefone_padrinho = Column(String(20))
    email_padrinho = Column(String(255))
-
 
    def validarNomePadrinho(nomePadrinho):
 
@@ -231,9 +214,7 @@ class Padrinho(Base):
        
       for i in sobrenomePadrinho:
          if not i.isalpha() and not i.isspace():
-            raise ValueError('O campo nome deve conter apenas caracteres válidos!')
-         
-      
+            raise ValueError('O campo nome deve conter apenas caracteres válidos!')     
          
    def validarEmail(email_padrinho):
       if email_padrinho == '':
@@ -254,6 +235,3 @@ class Padrinho(Base):
 
 
 Base.metadata.create_all(bind=engine)
-
-
-

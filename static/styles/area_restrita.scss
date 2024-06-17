@@ -163,6 +163,8 @@ header {
 /* tablets */
 @media screen and (min-width: 600px) and (max-width: 1024px) {
     main {
+        padding: 8em 0 3em 0;
+        
         #login {
             height: 30em;
             width: 70%;

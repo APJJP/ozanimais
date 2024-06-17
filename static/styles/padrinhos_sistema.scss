@@ -5,7 +5,7 @@
 /* mobile first */
 
 main {
-    #menu-despesas {
+    #menu-padrinho {
         @include flex-properties($direction: column, $gap: 2em);
 
         #opcoes {
@@ -35,13 +35,13 @@ main {
         }
     }
     
-    #cadastrar-despesa {
+    #cadastrar-padrinho {
         @include flex-properties($direction: column, $gap: 2em);
         width: 100%;
         padding-top: 12em;
         position: relative;
 
-        #form-cadastrar-despesa {
+        #form-cadastrar-padrinho {
             @include flex-properties($direction: column, $gap: 2em);
             width: 100%;
     
@@ -81,18 +81,8 @@ main {
                     height: 15em; 
                 }
             }
-
-            #input-descricao {
-                grid-template-columns: auto;
-                grid-template-rows: auto auto;
-                gap: 0.5em;
-
-                label {
-                    @include flex-properties($justify: flex-start);
-                }
-            }
     
-            #btn-cadastrar-despesa {
+            #btn-cadastrar-padrinho {
                 @include flex-properties();
                 width: 100%;
                 height: 3.2em;
@@ -121,20 +111,20 @@ main {
         }
     }
     
-    #despesas-frente {
+    #padrinhos-frente {
         @include flex-properties($direction: column, $gap: 2em);
         padding-top: 4em;
         overflow-y: auto;
         position: relative;
         
-        #despesas-fundo {
+        #padrinhos-fundo {
             display: grid;
             grid-template-columns: repeat(1, 1fr);
             gap: 2em;
             overflow-y: auto;
             /* width: 100%; */
 
-            #dados-despesa {
+            #dados-padrinho {
                 @include flex-properties($direction: column, $justify: flex-start, $gap: 1em);
                 width: 16em;
                 padding: 2em;
@@ -219,11 +209,11 @@ main {
     }
     
     main {
-        #cadastrar-despesa {
+        #cadastrar-padrinho {
             width: 70%;
 
-            #form-cadastrar-despesa {       
-                .div-input, #input-descricao {
+            #form-cadastrar-padrinho {       
+                .div-input {
                     grid-template-columns: 6em auto;
                     gap: 2em;
         
@@ -234,7 +224,7 @@ main {
             }
         }
 
-        #despesas-frente {
+        #padrinhos-frente {
             width: 80%;
         }
     }
@@ -244,12 +234,12 @@ main {
 /* desktops e laptops*/
 @media screen and (min-width: 1025px) {
     main {      
-        #cadastrar-despesa {
+        #cadastrar-padrinho {
             width: 50%;
             padding-top: 0;
     
-            #form-cadastrar-despesa {
-                .div-input, #input-descricao {
+            #form-cadastrar-padrinho {
+                .div-input {
                     grid-template-columns: 6em auto;
         
                     label {
@@ -264,12 +254,12 @@ main {
             }
         }
         
-        #despesas-frente {
+        #padrinhos-frente {
             min-width: 50%;
             padding-top: 0;
             overflow-y: visible;
           
-            #despesas-fundo {
+            #padrinhos-fundo {
                 overflow-y: visible;
             }
         }

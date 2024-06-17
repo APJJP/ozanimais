@@ -181,21 +181,21 @@ header.menu-aberto nav ul li a span {
 }
 
 /* mobile first */
-main #menu-despesas {
+main #menu-padrinho {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2em;
 }
-main #menu-despesas #opcoes {
+main #menu-padrinho #opcoes {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1.5em;
 }
-main #menu-despesas #opcoes button {
+main #menu-padrinho #opcoes button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -208,15 +208,15 @@ main #menu-despesas #opcoes button {
   background-color: var(--laranja);
   transition: background-color 0.2s ease-in-out;
 }
-main #menu-despesas #opcoes button:hover, main #menu-despesas #opcoes button:active {
+main #menu-padrinho #opcoes button:hover, main #menu-padrinho #opcoes button:active {
   background-color: var(--laranja-interaction);
   cursor: pointer;
 }
-main #menu-despesas #opcoes button span {
+main #menu-padrinho #opcoes button span {
   color: white;
   font-size: 1.2em;
 }
-main #cadastrar-despesa {
+main #cadastrar-padrinho {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -226,7 +226,7 @@ main #cadastrar-despesa {
   padding-top: 12em;
   position: relative;
 }
-main #cadastrar-despesa #form-cadastrar-despesa {
+main #cadastrar-padrinho #form-cadastrar-padrinho {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -234,53 +234,43 @@ main #cadastrar-despesa #form-cadastrar-despesa {
   gap: 2em;
   width: 100%;
 }
-main #cadastrar-despesa #form-cadastrar-despesa .div-input {
+main #cadastrar-padrinho #form-cadastrar-padrinho .div-input {
   display: grid;
   grid-template-columns: 3em auto;
   grid-template-rows: auto;
   gap: 2em;
   width: 100%;
 }
-main #cadastrar-despesa #form-cadastrar-despesa .div-input label {
+main #cadastrar-padrinho #form-cadastrar-padrinho .div-input label {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
-main #cadastrar-despesa #form-cadastrar-despesa .div-input input, main #cadastrar-despesa #form-cadastrar-despesa .div-input textarea {
+main #cadastrar-padrinho #form-cadastrar-padrinho .div-input input, main #cadastrar-padrinho #form-cadastrar-padrinho .div-input textarea {
   padding: 1em;
   outline: none;
   border: 1px solid rgb(215, 209, 209);
   border-radius: 0.5em;
   transition: border 0.1s ease-in-out;
 }
-main #cadastrar-despesa #form-cadastrar-despesa .div-input input::-moz-placeholder, main #cadastrar-despesa #form-cadastrar-despesa .div-input textarea::-moz-placeholder {
+main #cadastrar-padrinho #form-cadastrar-padrinho .div-input input::-moz-placeholder, main #cadastrar-padrinho #form-cadastrar-padrinho .div-input textarea::-moz-placeholder {
   font-size: 1.2em;
   color: var(--placeholder);
 }
-main #cadastrar-despesa #form-cadastrar-despesa .div-input input::placeholder, main #cadastrar-despesa #form-cadastrar-despesa .div-input textarea::placeholder {
+main #cadastrar-padrinho #form-cadastrar-padrinho .div-input input::placeholder, main #cadastrar-padrinho #form-cadastrar-padrinho .div-input textarea::placeholder {
   font-size: 1.2em;
   color: var(--placeholder);
 }
-main #cadastrar-despesa #form-cadastrar-despesa .div-input input:focus, main #cadastrar-despesa #form-cadastrar-despesa .div-input textarea:focus {
+main #cadastrar-padrinho #form-cadastrar-padrinho .div-input input:focus, main #cadastrar-padrinho #form-cadastrar-padrinho .div-input textarea:focus {
   border: 2px solid var(--ciano);
 }
-main #cadastrar-despesa #form-cadastrar-despesa .div-input input {
+main #cadastrar-padrinho #form-cadastrar-padrinho .div-input input {
   height: 3em;
 }
-main #cadastrar-despesa #form-cadastrar-despesa .div-input textarea {
+main #cadastrar-padrinho #form-cadastrar-padrinho .div-input textarea {
   height: 15em;
 }
-main #cadastrar-despesa #form-cadastrar-despesa #input-descricao {
-  grid-template-columns: auto;
-  grid-template-rows: auto auto;
-  gap: 0.5em;
-}
-main #cadastrar-despesa #form-cadastrar-despesa #input-descricao label {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-main #cadastrar-despesa #form-cadastrar-despesa #btn-cadastrar-despesa {
+main #cadastrar-padrinho #form-cadastrar-padrinho #btn-cadastrar-padrinho {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -293,19 +283,19 @@ main #cadastrar-despesa #form-cadastrar-despesa #btn-cadastrar-despesa {
   background-color: var(--laranja);
   transition: background-color 0.2s ease-in-out;
 }
-main #cadastrar-despesa #form-cadastrar-despesa #btn-cadastrar-despesa:hover, main #cadastrar-despesa #form-cadastrar-despesa #btn-cadastrar-despesa:active {
+main #cadastrar-padrinho #form-cadastrar-padrinho #btn-cadastrar-padrinho:hover, main #cadastrar-padrinho #form-cadastrar-padrinho #btn-cadastrar-padrinho:active {
   background-color: var(--laranja-interaction);
   cursor: pointer;
 }
-main #cadastrar-despesa #form-cadastrar-despesa #btn-cadastrar-despesa span {
+main #cadastrar-padrinho #form-cadastrar-padrinho #btn-cadastrar-padrinho span {
   color: white;
   font-size: 1.2em;
 }
-main #cadastrar-despesa .btn1 {
+main #cadastrar-padrinho .btn1 {
   top: 7em;
   left: 0;
 }
-main #despesas-frente {
+main #padrinhos-frente {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -315,14 +305,14 @@ main #despesas-frente {
   overflow-y: auto;
   position: relative;
 }
-main #despesas-frente #despesas-fundo {
+main #padrinhos-frente #padrinhos-fundo {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 2em;
   overflow-y: auto;
   /* width: 100%; */
 }
-main #despesas-frente #despesas-fundo #dados-despesa {
+main #padrinhos-frente #padrinhos-fundo #dados-padrinho {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -334,19 +324,19 @@ main #despesas-frente #despesas-fundo #dados-despesa {
   background-color: white;
   margin: auto;
 }
-main #despesas-frente #despesas-fundo #dados-despesa h3 {
+main #padrinhos-frente #padrinhos-fundo #dados-padrinho h3 {
   width: 100%;
   text-align: center;
 }
-main #despesas-frente #despesas-fundo #dados-despesa #lista {
+main #padrinhos-frente #padrinhos-fundo #dados-padrinho #lista {
   width: 100%;
   list-style: none;
 }
-main #despesas-frente #despesas-fundo #dados-despesa #lista li {
+main #padrinhos-frente #padrinhos-fundo #dados-padrinho #lista li {
   margin-bottom: 10px;
   word-wrap: break-word;
 }
-main #despesas-frente #despesas-fundo #dados-despesa #excluir {
+main #padrinhos-frente #padrinhos-fundo #dados-padrinho #excluir {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -359,15 +349,15 @@ main #despesas-frente #despesas-fundo #dados-despesa #excluir {
   background-color: var(--laranja);
   transition: background-color 0.2s ease-in-out;
 }
-main #despesas-frente #despesas-fundo #dados-despesa #excluir:hover, main #despesas-frente #despesas-fundo #dados-despesa #excluir:active {
+main #padrinhos-frente #padrinhos-fundo #dados-padrinho #excluir:hover, main #padrinhos-frente #padrinhos-fundo #dados-padrinho #excluir:active {
   background-color: var(--laranja-interaction);
   cursor: pointer;
 }
-main #despesas-frente #despesas-fundo #dados-despesa #excluir span {
+main #padrinhos-frente #padrinhos-fundo #dados-padrinho #excluir span {
   color: white;
   font-size: 1.2em;
 }
-main #despesas-frente .btn2 {
+main #padrinhos-frente .btn2 {
   top: 0;
   left: 0;
 }
@@ -400,46 +390,46 @@ main .btn-voltar .icon-voltar i {
   header {
     font-size: 1.2em;
   }
-  main #cadastrar-despesa {
+  main #cadastrar-padrinho {
     width: 70%;
   }
-  main #cadastrar-despesa #form-cadastrar-despesa .div-input, main #cadastrar-despesa #form-cadastrar-despesa #input-descricao {
+  main #cadastrar-padrinho #form-cadastrar-padrinho .div-input {
     grid-template-columns: 6em auto;
     gap: 2em;
   }
-  main #cadastrar-despesa #form-cadastrar-despesa .div-input label, main #cadastrar-despesa #form-cadastrar-despesa #input-descricao label {
+  main #cadastrar-padrinho #form-cadastrar-padrinho .div-input label {
     display: flex;
     justify-content: flex-end;
     align-items: center;
   }
-  main #despesas-frente {
+  main #padrinhos-frente {
     width: 80%;
   }
 }
 /* desktops e laptops*/
 @media screen and (min-width: 1025px) {
-  main #cadastrar-despesa {
+  main #cadastrar-padrinho {
     width: 50%;
     padding-top: 0;
   }
-  main #cadastrar-despesa #form-cadastrar-despesa .div-input, main #cadastrar-despesa #form-cadastrar-despesa #input-descricao {
+  main #cadastrar-padrinho #form-cadastrar-padrinho .div-input {
     grid-template-columns: 6em auto;
   }
-  main #cadastrar-despesa #form-cadastrar-despesa .div-input label, main #cadastrar-despesa #form-cadastrar-despesa #input-descricao label {
+  main #cadastrar-padrinho #form-cadastrar-padrinho .div-input label {
     display: flex;
     justify-content: flex-end;
     align-items: center;
   }
-  main #cadastrar-despesa .btn1 {
+  main #cadastrar-padrinho .btn1 {
     top: 0;
     left: 0;
   }
-  main #despesas-frente {
+  main #padrinhos-frente {
     min-width: 50%;
     padding-top: 0;
     overflow-y: visible;
   }
-  main #despesas-frente #despesas-fundo {
+  main #padrinhos-frente #padrinhos-fundo {
     overflow-y: visible;
   }
-}/*# sourceMappingURL=despesas_sistema.css.map */
+}/*# sourceMappingURL=padrinhos_sistema.css.map */

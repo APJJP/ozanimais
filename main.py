@@ -91,6 +91,14 @@ def cachorro():
         return render_template('area_restrita.html')
 
 
+@app.route('/padrinhos')
+def padrinhos():
+    if logado == True:
+        padrinhos = models.session.query(models.Padrinho).order_by(models.Padrinho.nome_padrinho).all()
+        return render_template('padrinhos_sistema.html', padrinhos = padrinhos)
+    if logado == False:
+        return render_template('area_restrita.html')
+
 
 
 # funções dos formulários do site
@@ -261,30 +269,6 @@ def despesas_json():
     return jsonify(despesas_data)
 
 
-
-
-""" @app.route('/cadastrar_cachorro',methods=['POST'])
-def cadastrar_cachorro():
-   nome = request.form.get('nome_cachorro')
-   sexo = request.form.get('sexo_cachorro')
-   raca = request.form.get('raca_cachorro')
-   descricao = request.form.get('descricao_cachorro')
-
-   if raca == '':
-      raca = 'vazia'
-
-   if descricao == '':
-      descricao = 'vazia'
-
-
-   try:
-      validacao.validarCachorro(nome,sexo,raca,descricao)
-      flash('cadastrado com sucesso')
-      return redirect('/cachorro')
-   except ValueError as v:
-      flash(str(v))
-      return redirect('/cachorro') """
-
 @app.route('/cadastrar_cachorro', methods=['POST'])
 def cadastrar_cachorro():
     nome = request.form.get('nome_cachorro')
@@ -305,22 +289,6 @@ def cadastrar_cachorro():
         # Erro de validação
         return jsonify({'success': False, 'message': str(v)})
 
-   
-
-""" @app.route('/excluir_cachorro', methods=['POST'])
-def excluir_cachorro():
-   nome = request.form.get('nome')
-   id = request.form.get('idCachorro')
-
-   try:
-      validacao.excluirC(id)
-      flash(f'Cachorro "{nome}" excluido com sucesso')
-      return redirect('/cachorro')
-   except:
-      flash(f'erro ao excluir cachorro')
-      
-   return redirect('/cachorro') """
-
 @app.route('/excluir_cachorro', methods=['POST'])
 def excluir_cachorro():
     nome = request.form.get('nome')
@@ -332,25 +300,6 @@ def excluir_cachorro():
     except Exception as e:
         return jsonify({'success': False, 'message': str(e)})
 
-
-
-""" @app.route('/cadastrar_despesa', methods=['POST'])
-def cadastrar_despesa():
-    nome = request.form.get('nome_despesa')
-    data = request.form.get('data_despesa')
-    valor = request.form.get('valor_despesa')
-    descricao = request.form.get('descricao_despesa')
-
-    if data == '':
-        data = 'vazia'
-
-    try:
-        validacao.validarDespesa(nome,data,valor,descricao)
-        flash('Despesa cadastrada!')
-        return redirect('/despesa')
-    except ValueError as v:
-        flash(str(v))
-        return redirect('/despesa') """
 
 @app.route('/cadastrar_despesa', methods=['POST'])
 def cadastrar_despesa():
@@ -369,21 +318,6 @@ def cadastrar_despesa():
     except ValueError as v:
         # Erro de validação
         return jsonify({'success': False, 'message': str(v)})
-   
-
-""" @app.route('/excluir_despesa',methods=['POST'])
-def excluir_despesa():
-   id = request.form.get('idDespesa')
-
-   try:
-      validacao.excluirDespesa(id)
-      flash(f'Despesa excluida com sucesso')
-      return redirect('/despesa')
-   except:
-      flash(f'erro ao excluir despesa')
-      
-   return redirect('/despesa') """
-
 
 @app.route('/excluir_despesa',methods=['POST'])
 def excluir_despesa():
@@ -395,6 +329,46 @@ def excluir_despesa():
         return jsonify({'success': True, 'message': f'Despesa "{nome}" excluída com sucesso'})
    except  Exception as e:
         return jsonify({'success': False, 'message': str(e)})
+
+
+@app.route('/cadastrar_padrinho_restrito', methods=['POST'])
+def cadastrar_padrinho_restrito():
+    nome = request.form.get('nome_padrinho')
+    sobrenome = request.form.get('sobrenome_padrinho')
+    telefone = request.form.get('telefone_padrinho')
+    email = request.form.get('email_padrinho')
+
+    try:
+        validacao.validarPadrinho(nome, sobrenome, telefone, email)
+        return jsonify({'success': True, 'message': 'Padrinho cadastrado com sucesso'})
+    except ValueError as v:
+        return jsonify({'success': False, 'message': str(v)})
+
+@app.route('/excluir_padrinho', methods=['POST'])
+def excluir_padrinho():
+    nome = request.form.get('nome')
+    id = request.form.get('idPadrinho')
+
+    try:
+        validacao.excluirPadrinho(id)
+        return jsonify({'success': True, 'message': f'Padrinho "{nome}" excluído com sucesso'})
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)})
+
+@app.route('/padrinhos_json')
+def padrinhos_json():
+    padrinhos = models.session.query(models.Padrinho).order_by(models.Padrinho.nome_padrinho).all()
+    padrinhos_data = [
+        {
+            'id_padrinho': padrinho.id_padrinho,
+            'nome_padrinho': padrinho.nome_padrinho,
+            'sobrenome_padrinho': padrinho.sobrenome_padrinho,
+            'telefone_padrinho': padrinho.telefone_padrinho,
+            'email_padrinho': padrinho.email_padrinho
+        } for padrinho in padrinhos
+    ]
+    return jsonify(padrinhos_data)
+
 
 
 @app.route('/cadastrar_adm', methods=['POST'])
