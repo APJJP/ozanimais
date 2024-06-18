@@ -1,8 +1,8 @@
-let btnExibirCadastro = document.querySelector('#exibir-cadastro-usuario')
-let btnExibirUsuarios = document.querySelector('#exibir-usuarios')
-let divCadastro = document.querySelector('#cadastrar-usuario')
-let divUsuarios= document.querySelector('#usuarios-frente')
-let divMenu= document.querySelector('#menu-usuario')
+let btnExibirCadastro = document.querySelector('#exibir-cadastro-assinante')
+let btnExibirAssinantes = document.querySelector('#exibir-assinantes')
+let divCadastro = document.querySelector('#cadastrar-assinante')
+let divAssinantes= document.querySelector('#assinantes-frente')
+let divMenu= document.querySelector('#menu-assinante')
 
 
 
@@ -35,24 +35,24 @@ btnExibirCadastro.addEventListener('click', function (event) {
     divMenu.style.display = 'none'
 })
 
-btnExibirUsuarios.addEventListener('click', function (event) {
+btnExibirAssinantes.addEventListener('click', function (event) {
     divMenu.style.display = 'none'
-    divUsuarios.style.display = 'flex'
+    divAssinantes.style.display = 'flex'
 })
 
 function resetarLayout() {
     divCadastro.style.display = 'none'
-    divUsuarios.style.display = 'none'
+    divAssinantes.style.display = 'none'
     divMenu.style.display = 'flex'
 }
 
 
  document.addEventListener('DOMContentLoaded', function() {
-    const formCadastro = document.getElementById('form-cadastrar-usuario')
+    const formCadastro = document.getElementById('form-cadastrar-assinante')
     formCadastro.addEventListener('submit', function(event) {
         event.preventDefault()
         const formData = new FormData(formCadastro)
-        fetch('/cadastrar_usuario', {
+        fetch('/cadastrar_assinante_restrito', {
             method: 'POST',
             body: formData
         })
@@ -61,19 +61,19 @@ function resetarLayout() {
             if (data.success) {
                 alert(data.message)
                 formCadastro.reset()
-                atualizarListaUsuarios()
+                atualizarListaAssinantes()
             } else {
-                alert('Erro ao cadastrar usuario: ' + data.message)
+                alert('Erro ao cadastrar assinante: ' + data.message)
             }
         })
         .catch(error => console.error('Erro:', error))
     })
 
     document.addEventListener('submit', function(event) {
-        if (event.target.matches('form[action="/excluir_usuario"]')) {
+        if (event.target.matches('form[action="/excluir_assinante"]')) {
             event.preventDefault()
             const formData = new FormData(event.target)
-            fetch('/excluir_usuario', {
+            fetch('/excluir_assinante', {
                 method: 'POST',
                 body: formData
             })
@@ -81,46 +81,46 @@ function resetarLayout() {
             .then(data => {
                 if (data.success) {
                     alert(data.message)
-                    atualizarListaUsuarios()
+                    atualizarListaAssinantes()
                 } else {
-                    alert('Erro ao excluir usuario: ' + data.message)
+                    alert('Erro ao excluir assinante: ' + data.message)
                 }
             })
             .catch(error => console.error('Erro:', error))
         }
     })
 
-    function atualizarListaUsuarios() {
-        fetch('/usuarios_json')
+    function atualizarListaAssinantes() {
+        fetch('/assinantes_json')
         .then(response => response.json())
-        .then(usuarios => {
-            const usuarioFundo = document.getElementById('usuarios-fundo')
-            usuarioFundo.innerHTML = ''
-            if (usuarios.length > 0) {
-                usuarios.forEach(usuario => {
+        .then(assinantes => {
+            const assinanteFundo = document.getElementById('assinantes-fundo')
+            assinanteFundo.innerHTML = ''
+            if (assinantes.length > 0) {
+                assinantes.forEach(assinante => {
                     const form = document.createElement('form')
-                    form.action = '/excluir_usuario'
+                    form.action = '/excluir_assinante'
                     form.method = 'post'
-                    form.id = 'dados-usuario'
+                    form.id = 'dados-assinante'
 
                     const h3 = document.createElement('h3')
-                    h3.textContent = usuario.nome_administrador
+                    h3.textContent = assinante.nome_assinante
 
                     const ul = document.createElement('ul')
                     ul.id = 'lista'
 
                     const inputId = document.createElement('input')
                     inputId.type = 'hidden'
-                    inputId.name = 'idUsuario'
-                    inputId.value = usuario.id_administrador
+                    inputId.name = 'idAssinante'
+                    inputId.value = assinante.id_assinante
 
                     const inputNome = document.createElement('input')
                     inputNome.type = 'hidden'
                     inputNome.name = 'nome'
-                    inputNome.value = usuario.nome_administrador
+                    inputNome.value = assinante.nome_assinante
 
                     const liEmail = document.createElement('li')
-                    liEmail.innerHTML = `<strong>Email:</strong> ${usuario.email_administrador}`
+                    liEmail.innerHTML = `<strong>Email:</strong> ${assinante.email_assinante}`
 
                   
 
@@ -137,36 +137,36 @@ function resetarLayout() {
                     form.appendChild(inputNome)
                     form.appendChild(button)
                     
-                    usuarioFundo.appendChild(form)
+                    assinanteFundo.appendChild(form)
                 })
             } else {
-                usuarioFundo.innerHTML = '<p>Ainda não há usuarios cadastrados.</p>'
+                assinanteFundo.innerHTML = '<p>Ainda não há assinantes cadastrados.</p>'
             }
 
-            // Conta o número de elementos filhos (formulários de usuario)
-            const numUsuarios = usuarioFundo.children.length
+            // Conta o número de elementos filhos (formulários de assinante)
+            const numAssinantes = assinanteFundo.children.length
 
             let numColunas = 1
 
             if (window.innerWidth >= 800 && window.innerWidth <= 1024) {
-                if (numUsuarios >= 2) {
+                if (numAssinantes >= 2) {
                     numColunas = 2
                 }
-                usuarioFundo.style.gridTemplateColumns = `repeat(${numColunas}, 1fr)`
+                assinanteFundo.style.gridTemplateColumns = `repeat(${numColunas}, 1fr)`
             }
             else if (window.innerWidth > 1024) {
-                if (numUsuarios >= 2) {
+                if (numAssinantes >= 2) {
                     numColunas = 2
                 }
-                if (numUsuarios >= 3) {
+                if (numAssinantes >= 3) {
                     numColunas = 3
                 }
-                usuarioFundo.style.gridTemplateColumns = `repeat(${numColunas}, 1fr)`
+                assinanteFundo.style.gridTemplateColumns = `repeat(${numColunas}, 1fr)`
             }
         })
         .catch(error => console.error('Erro:', error))
     }
 
-    // Chama a função para carregar a lista de usuarios quando a página é carregada
-    atualizarListaUsuarios()
+    // Chama a função para carregar a lista de assinantes quando a página é carregada
+    atualizarListaAssinantes()
 }) 

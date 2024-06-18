@@ -107,8 +107,17 @@ def usuarios():
         return render_template('usuarios_sistema.html', usuarios = usuarios)
     if logado == False:
         return render_template('area_restrita.html')
+    
 
-
+@app.route('/assinantes')
+def assinantes():
+    if logado == True:
+        assinantes = models.session.query(models.Assinante).order_by(models.Assinante.nome_assinante).all()
+        return render_template('assinantes_sistema.html', assinantes = assinantes)
+    if logado == False:
+        return render_template('area_restrita.html')
+    
+    
 
 # funções dos formulários do site
 
@@ -316,7 +325,7 @@ def cadastrar_despesa():
 def excluir_despesa():
    nome = request.form.get('nome')
    id = request.form.get('idDespesa')
-
+   
    try:
         validacao.excluirDespesa(id)
         return jsonify({'success': True, 'message': f'Despesa "{nome}" excluída com sucesso'})
@@ -364,7 +373,7 @@ def padrinhos_json():
 
 
 
-@app.route('/cadastrar_adm', methods=['POST'])
+"""@app.route('/cadastrar_adm', methods=['POST'])
 def cadastrar_adm():
    email = request.form.get('email_adm')
    senha = request.form.get('senha_adm')
@@ -389,17 +398,18 @@ def cadastrar_adm():
          return redirect('/')
       else:
          flash('Nenhum usuário cadastrado')
-         return redirect('/')
+         return redirect('/')"""
 
 
 @app.route('/cadastrar_usuario', methods=['POST'])
 def cadastrar_usuario():
-    nome = request.form.get('nome_administrador')
-    email = request.form.get('email_administrador')
-    senha = request.json.get('senha_administrador')
+    nome = request.form.get('nome_usuario')
+    email = request.form.get('email_usuario')
+    senha = request.form.get('senha_usuario')
 
+   
     try:
-        validacao.validarUsuario(nome, email, senha)
+        validacao.validarUsuario(nome, email, senha)       
         return jsonify({'success': True, 'message': 'Administrador cadastrado com sucesso'})
     except ValueError as v:
         return jsonify({'success': False, 'message': str(v)})
@@ -417,10 +427,13 @@ def usuarios_json():
     ]
     return jsonify(administradores_data)
 
+
 @app.route('/excluir_usuario', methods=['POST'])
 def excluir_usuario():
     nome = request.form.get('nome')
     id = request.form.get('idUsuario')
+    print(nome)
+    print(id)
 
     """ if nome == 'Ozana':
         return jsonify({'success': False, 'message': 'Não é permitido excluir este usuário'}) """
@@ -428,6 +441,48 @@ def excluir_usuario():
     try:
         validacao.excluirUsuario(id)
         return jsonify({'success': True, 'message': f'Usuário "{nome}" excluído com sucesso'})
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)})
+
+
+
+@app.route('/cadastrar_assinante_restrito', methods=['POST'])
+def cadastrar_assinante_restrito():
+    nome = request.form.get('nome_assinante')
+    email = request.form.get('email_assinante')
+  
+    try:
+        validacao.validarAssinante(nome, email)       
+        return jsonify({'success': True, 'message': 'Assinante cadastrado com sucesso'})
+    except ValueError as v:
+        return jsonify({'success': False, 'message': str(v)})
+
+@app.route('/assinantes_json')
+def assinantes_json():
+    assinantes = models.session.query(models.Assinante).order_by(models.Assinante.nome_assinante).all()
+    assinantes_data = [
+        {
+            'id_assinante': assinante.id_assinante,
+            'nome_assinante': assinante.nome_assinante,
+            'email_assinante': assinante.email_assinante,
+            
+        } for assinante in assinantes
+    ]
+    return jsonify(assinantes_data)
+
+
+
+@app.route('/excluir_assinante', methods=['POST'])
+def excluir_assinante():
+    nome = request.form.get('nome')
+    id = request.form.get('idAssinante')
+   
+    """ if nome == 'Ozana':
+        return jsonify({'success': False, 'message': 'Não é permitido excluir este assinante'}) """
+
+    try:
+        validacao.excluirAssinante(id)
+        return jsonify({'success': True, 'message': f'Assinante "{nome}" excluído com sucesso'})
     except Exception as e:
         return jsonify({'success': False, 'message': str(e)})
 

@@ -3,16 +3,15 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import declarative_base
 
 
-
-DB_HOST = 'roundhouse.proxy.rlwy.net'
-DB_PORT = 54802
+DB_HOST = 'monorail.proxy.rlwy.net'
+DB_PORT = 33152
 DB_USER = 'postgres'
-DB_PASSWORD = 'XoFMwvldJEufzGvcLKlNaklwElPvTkGs'
+DB_PASSWORD = 'WFYEwzOVbWrikTUmdXKtcapFZqoXcFdk'
 DB_NAME = 'railway'
 
 db_url = f'postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
 
-# Crie o engine usando a URL de conexão
+
 engine = create_engine(db_url)
 
 #engine = create_engine('postgresql://postgres:jlindgren@localhost:5432/ozanimais')

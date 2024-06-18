@@ -86,3 +86,7 @@ def validarAssinante(n, e):
         session.commit()
     except ValueError as v:
         raise ValueError(v)
+    
+def excluirAssinante(id):
+    session.query(models.Assinante).filter(models.Assinante.id_assinante == id).delete()
+    session.commit()
