@@ -1,3 +1,8 @@
+let img1 = document.querySelector('#img1')
+let img2 = document.querySelector('#img2')
+let img3 = document.querySelector('#img3')
+
+
 // script para alterar nav ao SCROLL na página
 
 window.addEventListener('scroll', function() {
@@ -53,3 +58,19 @@ let swiper1 = new Swiper('.swiper1', {
       prevEl: '.swiper2 .swiper-button-prev',
     },
   })
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (window.innerWidth >= 600 && window.innerWidth <= 1024) {
+      
+
+      // Alterando o atributo src
+      img1.src = "/static/imagens/slide1-tab.png";
+      img2.src = "/static/imagens/slide2-tab.png";
+      img3.src = "/static/imagens/slide3-tab.png";
+  }
+  else if (window.innerWidth > 1024) {
+    img1.src = "/static/imagens/slide1-pc.png";
+    img2.src = "/static/imagens/slide2-pc.png";
+    img3.src = "/static/imagens/slide3-pc.png";
+  }
+});
